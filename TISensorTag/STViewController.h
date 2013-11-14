@@ -6,8 +6,9 @@
 //  Copyright (c) 2013 Andre Muis. All rights reserved.
 //
 
+#import <CoreBluetooth/CoreBluetooth.h>
 #import <UIKit/UIKit.h>
 
-@interface STViewController : UIViewController
+@interface STViewController : UIViewController <CBCentralManagerDelegate, CBPeripheralDelegate>
 
 @end

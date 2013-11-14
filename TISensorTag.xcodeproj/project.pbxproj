@@ -21,6 +21,7 @@
 		F471B8F6183557CA00149BE5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F471B8D8183557CA00149BE5 /* UIKit.framework */; };
 		F471B8FE183557CA00149BE5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F471B8FC183557CA00149BE5 /* InfoPlist.strings */; };
 		F471B900183557CA00149BE5 /* TISensorTagTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F471B8FF183557CA00149BE5 /* TISensorTagTests.m */; };
+		F471B90A1835586300149BE5 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F471B9091835586300149BE5 /* CoreBluetooth.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		F471B8FB183557CA00149BE5 /* TISensorTagTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TISensorTagTests-Info.plist"; sourceTree = "<group>"; };
 		F471B8FD183557CA00149BE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F471B8FF183557CA00149BE5 /* TISensorTagTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TISensorTagTests.m; sourceTree = "<group>"; };
+		F471B9091835586300149BE5 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F471B90A1835586300149BE5 /* CoreBluetooth.framework in Frameworks */,
 				F471B8D7183557CA00149BE5 /* CoreGraphics.framework in Frameworks */,
 				F471B8D9183557CA00149BE5 /* UIKit.framework in Frameworks */,
 				F471B8D5183557CA00149BE5 /* Foundation.framework in Frameworks */,
@@ -101,8 +104,9 @@
 		F471B8D3183557C900149BE5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F471B8D4183557CA00149BE5 /* Foundation.framework */,
+				F471B9091835586300149BE5 /* CoreBluetooth.framework */,
 				F471B8D6183557CA00149BE5 /* CoreGraphics.framework */,
+				F471B8D4183557CA00149BE5 /* Foundation.framework */,
 				F471B8D8183557CA00149BE5 /* UIKit.framework */,
 				F471B8F3183557CA00149BE5 /* XCTest.framework */,
 			);
@@ -461,6 +465,7 @@
 				F471B905183557CA00149BE5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F471B906183557CA00149BE5 /* Build configuration list for PBXNativeTarget "TISensorTagTests" */ = {
 			isa = XCConfigurationList;
@@ -469,6 +474,7 @@
 				F471B908183557CA00149BE5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
