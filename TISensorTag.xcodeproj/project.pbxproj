@@ -1,0 +1,476 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F471B8D5183557CA00149BE5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F471B8D4183557CA00149BE5 /* Foundation.framework */; };
+		F471B8D7183557CA00149BE5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F471B8D6183557CA00149BE5 /* CoreGraphics.framework */; };
+		F471B8D9183557CA00149BE5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F471B8D8183557CA00149BE5 /* UIKit.framework */; };
+		F471B8DF183557CA00149BE5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F471B8DD183557CA00149BE5 /* InfoPlist.strings */; };
+		F471B8E1183557CA00149BE5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F471B8E0183557CA00149BE5 /* main.m */; };
+		F471B8E5183557CA00149BE5 /* STAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F471B8E4183557CA00149BE5 /* STAppDelegate.m */; };
+		F471B8E8183557CA00149BE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F471B8E6183557CA00149BE5 /* Main.storyboard */; };
+		F471B8EB183557CA00149BE5 /* STViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F471B8EA183557CA00149BE5 /* STViewController.m */; };
+		F471B8ED183557CA00149BE5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F471B8EC183557CA00149BE5 /* Images.xcassets */; };
+		F471B8F4183557CA00149BE5 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F471B8F3183557CA00149BE5 /* XCTest.framework */; };
+		F471B8F5183557CA00149BE5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F471B8D4183557CA00149BE5 /* Foundation.framework */; };
+		F471B8F6183557CA00149BE5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F471B8D8183557CA00149BE5 /* UIKit.framework */; };
+		F471B8FE183557CA00149BE5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F471B8FC183557CA00149BE5 /* InfoPlist.strings */; };
+		F471B900183557CA00149BE5 /* TISensorTagTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F471B8FF183557CA00149BE5 /* TISensorTagTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F471B8F7183557CA00149BE5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F471B8C9183557C900149BE5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F471B8D0183557C900149BE5;
+			remoteInfo = TISensorTag;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F471B8D1183557C900149BE5 /* TISensorTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TISensorTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F471B8D4183557CA00149BE5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F471B8D6183557CA00149BE5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F471B8D8183557CA00149BE5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F471B8DC183557CA00149BE5 /* TISensorTag-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TISensorTag-Info.plist"; sourceTree = "<group>"; };
+		F471B8DE183557CA00149BE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F471B8E0183557CA00149BE5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F471B8E2183557CA00149BE5 /* TISensorTag-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TISensorTag-Prefix.pch"; sourceTree = "<group>"; };
+		F471B8E3183557CA00149BE5 /* STAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STAppDelegate.h; sourceTree = "<group>"; };
+		F471B8E4183557CA00149BE5 /* STAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STAppDelegate.m; sourceTree = "<group>"; };
+		F471B8E7183557CA00149BE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F471B8E9183557CA00149BE5 /* STViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STViewController.h; sourceTree = "<group>"; };
+		F471B8EA183557CA00149BE5 /* STViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STViewController.m; sourceTree = "<group>"; };
+		F471B8EC183557CA00149BE5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F471B8F2183557CA00149BE5 /* TISensorTagTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TISensorTagTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F471B8F3183557CA00149BE5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		F471B8FB183557CA00149BE5 /* TISensorTagTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TISensorTagTests-Info.plist"; sourceTree = "<group>"; };
+		F471B8FD183557CA00149BE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F471B8FF183557CA00149BE5 /* TISensorTagTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TISensorTagTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F471B8CE183557C900149BE5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F471B8D7183557CA00149BE5 /* CoreGraphics.framework in Frameworks */,
+				F471B8D9183557CA00149BE5 /* UIKit.framework in Frameworks */,
+				F471B8D5183557CA00149BE5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F471B8EF183557CA00149BE5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F471B8F4183557CA00149BE5 /* XCTest.framework in Frameworks */,
+				F471B8F6183557CA00149BE5 /* UIKit.framework in Frameworks */,
+				F471B8F5183557CA00149BE5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F471B8C8183557C900149BE5 = {
+			isa = PBXGroup;
+			children = (
+				F471B8DA183557CA00149BE5 /* TISensorTag */,
+				F471B8F9183557CA00149BE5 /* TISensorTagTests */,
+				F471B8D3183557C900149BE5 /* Frameworks */,
+				F471B8D2183557C900149BE5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F471B8D2183557C900149BE5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F471B8D1183557C900149BE5 /* TISensorTag.app */,
+				F471B8F2183557CA00149BE5 /* TISensorTagTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F471B8D3183557C900149BE5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F471B8D4183557CA00149BE5 /* Foundation.framework */,
+				F471B8D6183557CA00149BE5 /* CoreGraphics.framework */,
+				F471B8D8183557CA00149BE5 /* UIKit.framework */,
+				F471B8F3183557CA00149BE5 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F471B8DA183557CA00149BE5 /* TISensorTag */ = {
+			isa = PBXGroup;
+			children = (
+				F471B8E3183557CA00149BE5 /* STAppDelegate.h */,
+				F471B8E4183557CA00149BE5 /* STAppDelegate.m */,
+				F471B8E6183557CA00149BE5 /* Main.storyboard */,
+				F471B8E9183557CA00149BE5 /* STViewController.h */,
+				F471B8EA183557CA00149BE5 /* STViewController.m */,
+				F471B8EC183557CA00149BE5 /* Images.xcassets */,
+				F471B8DB183557CA00149BE5 /* Supporting Files */,
+			);
+			path = TISensorTag;
+			sourceTree = "<group>";
+		};
+		F471B8DB183557CA00149BE5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F471B8DC183557CA00149BE5 /* TISensorTag-Info.plist */,
+				F471B8DD183557CA00149BE5 /* InfoPlist.strings */,
+				F471B8E0183557CA00149BE5 /* main.m */,
+				F471B8E2183557CA00149BE5 /* TISensorTag-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F471B8F9183557CA00149BE5 /* TISensorTagTests */ = {
+			isa = PBXGroup;
+			children = (
+				F471B8FF183557CA00149BE5 /* TISensorTagTests.m */,
+				F471B8FA183557CA00149BE5 /* Supporting Files */,
+			);
+			path = TISensorTagTests;
+			sourceTree = "<group>";
+		};
+		F471B8FA183557CA00149BE5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F471B8FB183557CA00149BE5 /* TISensorTagTests-Info.plist */,
+				F471B8FC183557CA00149BE5 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F471B8D0183557C900149BE5 /* TISensorTag */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F471B903183557CA00149BE5 /* Build configuration list for PBXNativeTarget "TISensorTag" */;
+			buildPhases = (
+				F471B8CD183557C900149BE5 /* Sources */,
+				F471B8CE183557C900149BE5 /* Frameworks */,
+				F471B8CF183557C900149BE5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TISensorTag;
+			productName = TISensorTag;
+			productReference = F471B8D1183557C900149BE5 /* TISensorTag.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F471B8F1183557CA00149BE5 /* TISensorTagTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F471B906183557CA00149BE5 /* Build configuration list for PBXNativeTarget "TISensorTagTests" */;
+			buildPhases = (
+				F471B8EE183557CA00149BE5 /* Sources */,
+				F471B8EF183557CA00149BE5 /* Frameworks */,
+				F471B8F0183557CA00149BE5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F471B8F8183557CA00149BE5 /* PBXTargetDependency */,
+			);
+			name = TISensorTagTests;
+			productName = TISensorTagTests;
+			productReference = F471B8F2183557CA00149BE5 /* TISensorTagTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F471B8C9183557C900149BE5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = ST;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Andre Muis";
+				TargetAttributes = {
+					F471B8F1183557CA00149BE5 = {
+						TestTargetID = F471B8D0183557C900149BE5;
+					};
+				};
+			};
+			buildConfigurationList = F471B8CC183557C900149BE5 /* Build configuration list for PBXProject "TISensorTag" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F471B8C8183557C900149BE5;
+			productRefGroup = F471B8D2183557C900149BE5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F471B8D0183557C900149BE5 /* TISensorTag */,
+				F471B8F1183557CA00149BE5 /* TISensorTagTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F471B8CF183557C900149BE5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F471B8ED183557CA00149BE5 /* Images.xcassets in Resources */,
+				F471B8DF183557CA00149BE5 /* InfoPlist.strings in Resources */,
+				F471B8E8183557CA00149BE5 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F471B8F0183557CA00149BE5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F471B8FE183557CA00149BE5 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F471B8CD183557C900149BE5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F471B8EB183557CA00149BE5 /* STViewController.m in Sources */,
+				F471B8E1183557CA00149BE5 /* main.m in Sources */,
+				F471B8E5183557CA00149BE5 /* STAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F471B8EE183557CA00149BE5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F471B900183557CA00149BE5 /* TISensorTagTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F471B8F8183557CA00149BE5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F471B8D0183557C900149BE5 /* TISensorTag */;
+			targetProxy = F471B8F7183557CA00149BE5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F471B8DD183557CA00149BE5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F471B8DE183557CA00149BE5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F471B8E6183557CA00149BE5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F471B8E7183557CA00149BE5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F471B8FC183557CA00149BE5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F471B8FD183557CA00149BE5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F471B901183557CA00149BE5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F471B902183557CA00149BE5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F471B904183557CA00149BE5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TISensorTag/TISensorTag-Prefix.pch";
+				INFOPLIST_FILE = "TISensorTag/TISensorTag-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F471B905183557CA00149BE5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TISensorTag/TISensorTag-Prefix.pch";
+				INFOPLIST_FILE = "TISensorTag/TISensorTag-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		F471B907183557CA00149BE5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TISensorTag.app/TISensorTag";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TISensorTag/TISensorTag-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "TISensorTagTests/TISensorTagTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		F471B908183557CA00149BE5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TISensorTag.app/TISensorTag";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TISensorTag/TISensorTag-Prefix.pch";
+				INFOPLIST_FILE = "TISensorTagTests/TISensorTagTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F471B8CC183557C900149BE5 /* Build configuration list for PBXProject "TISensorTag" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F471B901183557CA00149BE5 /* Debug */,
+				F471B902183557CA00149BE5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F471B903183557CA00149BE5 /* Build configuration list for PBXNativeTarget "TISensorTag" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F471B904183557CA00149BE5 /* Debug */,
+				F471B905183557CA00149BE5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F471B906183557CA00149BE5 /* Build configuration list for PBXNativeTarget "TISensorTagTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F471B907183557CA00149BE5 /* Debug */,
+				F471B908183557CA00149BE5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F471B8C9183557C900149BE5 /* Project object */;
+}
