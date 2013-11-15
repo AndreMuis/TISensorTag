@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F46AE7891835B12100D9F14C /* STSensor.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AE7881835B12100D9F14C /* STSensor.m */; };
+		F46AE78C1835B14400D9F14C /* STTemperatureSensor.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AE78B1835B14400D9F14C /* STTemperatureSensor.m */; };
+		F46AE78F1835B4AB00D9F14C /* STSensorTag.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AE78E1835B4AB00D9F14C /* STSensorTag.m */; };
+		F46AE7921835B5C000D9F14C /* STAccelerometer.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AE7911835B5C000D9F14C /* STAccelerometer.m */; };
+		F46AE7951835B91D00D9F14C /* STSensorTagManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AE7941835B91D00D9F14C /* STSensorTagManager.m */; };
+		F46AE79A1835C4E400D9F14C /* STUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AE7991835C4E400D9F14C /* STUtilities.m */; };
 		F471B8D5183557CA00149BE5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F471B8D4183557CA00149BE5 /* Foundation.framework */; };
 		F471B8D7183557CA00149BE5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F471B8D6183557CA00149BE5 /* CoreGraphics.framework */; };
 		F471B8D9183557CA00149BE5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F471B8D8183557CA00149BE5 /* UIKit.framework */; };
@@ -35,6 +41,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F46AE7871835B12100D9F14C /* STSensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STSensor.h; path = Sensors/STSensor.h; sourceTree = "<group>"; };
+		F46AE7881835B12100D9F14C /* STSensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STSensor.m; path = Sensors/STSensor.m; sourceTree = "<group>"; };
+		F46AE78A1835B14400D9F14C /* STTemperatureSensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STTemperatureSensor.h; path = Sensors/STTemperatureSensor.h; sourceTree = "<group>"; };
+		F46AE78B1835B14400D9F14C /* STTemperatureSensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STTemperatureSensor.m; path = Sensors/STTemperatureSensor.m; sourceTree = "<group>"; };
+		F46AE78D1835B4AB00D9F14C /* STSensorTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSensorTag.h; sourceTree = "<group>"; };
+		F46AE78E1835B4AB00D9F14C /* STSensorTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSensorTag.m; sourceTree = "<group>"; };
+		F46AE7901835B5C000D9F14C /* STAccelerometer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STAccelerometer.h; path = Sensors/STAccelerometer.h; sourceTree = "<group>"; };
+		F46AE7911835B5C000D9F14C /* STAccelerometer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STAccelerometer.m; path = Sensors/STAccelerometer.m; sourceTree = "<group>"; };
+		F46AE7931835B91D00D9F14C /* STSensorTagManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSensorTagManager.h; sourceTree = "<group>"; };
+		F46AE7941835B91D00D9F14C /* STSensorTagManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSensorTagManager.m; sourceTree = "<group>"; };
+		F46AE7971835BB2000D9F14C /* STSensorTagManagerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = STSensorTagManagerDelegate.h; path = Protocols/STSensorTagManagerDelegate.h; sourceTree = "<group>"; };
+		F46AE7981835C4E400D9F14C /* STUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STUtilities.h; sourceTree = "<group>"; };
+		F46AE7991835C4E400D9F14C /* STUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STUtilities.m; sourceTree = "<group>"; };
 		F471B8D1183557C900149BE5 /* TISensorTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TISensorTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F471B8D4183557CA00149BE5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F471B8D6183557CA00149BE5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -82,6 +101,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F46AE7861835B0D700D9F14C /* Sensors */ = {
+			isa = PBXGroup;
+			children = (
+				F46AE7871835B12100D9F14C /* STSensor.h */,
+				F46AE7881835B12100D9F14C /* STSensor.m */,
+				F46AE7901835B5C000D9F14C /* STAccelerometer.h */,
+				F46AE7911835B5C000D9F14C /* STAccelerometer.m */,
+				F46AE78A1835B14400D9F14C /* STTemperatureSensor.h */,
+				F46AE78B1835B14400D9F14C /* STTemperatureSensor.m */,
+			);
+			name = Sensors;
+			sourceTree = "<group>";
+		};
+		F46AE7961835BA3E00D9F14C /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F46AE7971835BB2000D9F14C /* STSensorTagManagerDelegate.h */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		F471B8C8183557C900149BE5 = {
 			isa = PBXGroup;
 			children = (
@@ -121,7 +161,15 @@
 				F471B8E6183557CA00149BE5 /* Main.storyboard */,
 				F471B8E9183557CA00149BE5 /* STViewController.h */,
 				F471B8EA183557CA00149BE5 /* STViewController.m */,
+				F46AE7931835B91D00D9F14C /* STSensorTagManager.h */,
+				F46AE7941835B91D00D9F14C /* STSensorTagManager.m */,
+				F46AE78D1835B4AB00D9F14C /* STSensorTag.h */,
+				F46AE78E1835B4AB00D9F14C /* STSensorTag.m */,
+				F46AE7981835C4E400D9F14C /* STUtilities.h */,
+				F46AE7991835C4E400D9F14C /* STUtilities.m */,
 				F471B8EC183557CA00149BE5 /* Images.xcassets */,
+				F46AE7861835B0D700D9F14C /* Sensors */,
+				F46AE7961835BA3E00D9F14C /* Protocols */,
 				F471B8DB183557CA00149BE5 /* Supporting Files */,
 			);
 			path = TISensorTag;
@@ -255,8 +303,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F471B8EB183557CA00149BE5 /* STViewController.m in Sources */,
+				F46AE78C1835B14400D9F14C /* STTemperatureSensor.m in Sources */,
+				F46AE7921835B5C000D9F14C /* STAccelerometer.m in Sources */,
 				F471B8E1183557CA00149BE5 /* main.m in Sources */,
+				F46AE79A1835C4E400D9F14C /* STUtilities.m in Sources */,
+				F46AE78F1835B4AB00D9F14C /* STSensorTag.m in Sources */,
+				F46AE7891835B12100D9F14C /* STSensor.m in Sources */,
 				F471B8E5183557CA00149BE5 /* STAppDelegate.m in Sources */,
+				F46AE7951835B91D00D9F14C /* STSensorTagManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,9 +6,12 @@
 //  Copyright (c) 2013 Andre Muis. All rights reserved.
 //
 
-#import <CoreBluetooth/CoreBluetooth.h>
 #import <UIKit/UIKit.h>
 
-@interface STViewController : UIViewController <CBCentralManagerDelegate, CBPeripheralDelegate>
+#import "STSensorTagManagerDelegate.h"
+
+@class STSensorTagManager;
+
+@interface STViewController : UIViewController <STSensorTagManagerDelegate>
 
 @end
