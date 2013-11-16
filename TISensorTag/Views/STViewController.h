@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#import "STSensorTagDelegate.h"
 #import "STSensorTagManagerDelegate.h"
 
 @class STSensorTagManager;
 
-@interface STViewController : UIViewController <STSensorTagManagerDelegate>
+@interface STViewController : UIViewController <STSensorTagManagerDelegate, STSensorTagDelegate>
 
 @end

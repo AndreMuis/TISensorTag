@@ -8,6 +8,7 @@
 
 #import "STTemperatureSensor.h"
 
+#import "STConstants.h"
 #import "STUtilities.h"
 
 @interface STTemperatureSensor ()
@@ -26,10 +27,10 @@
     {
         _sensorTagPeripheral = sensorTagPeripheral;
         
-        _dataCharacteristicUUID = [CBUUID UUIDWithString: @"f000aa01-0451-4000-b000-000000000000"];
+        _dataCharacteristicUUID = [CBUUID UUIDWithString: STTemperatureSensorDataCharacteristicUUIDString];
         _dataCharacteristic = nil;
 
-        _configurationCharacteristicUUID = [CBUUID UUIDWithString: @"f000aa02-0451-4000-b000-000000000000"];
+        _configurationCharacteristicUUID = [CBUUID UUIDWithString: STTemperatureSensorConfigurationCharacteristicUUIDString];
         _configurationCharacteristic = nil;
     }
     
@@ -62,6 +63,9 @@
 
 - (float)temperatureWithCharacteristicValue: (NSData *)characteristicValue
 {
+    // <6cfe800c>
+    // 4
+    
     char scratchVal[characteristicValue.length];
     int16_t ambTemp;
     [characteristicValue getBytes: &scratchVal length: characteristicValue.length];

@@ -9,10 +9,12 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <Foundation/Foundation.h>
 
+#import "STSensorTagDelegate.h"
 #import "STSensorTagManagerDelegate.h"
 
 @interface STSensorTagManager : NSObject
 
-- (id)initWithDelegate: (id<STSensorTagManagerDelegate>)delegate;
+- (id)initWithDelegate: (id<STSensorTagManagerDelegate>)delegate
+     sensorTagDelegate: (id<STSensorTagDelegate>)sensorTagDelegate;
 
 @end

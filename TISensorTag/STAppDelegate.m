@@ -23,7 +23,8 @@
 {
     STViewController *viewController = (STViewController *)self.window.rootViewController;
     
-    _sensorTagManager = [[STSensorTagManager alloc] initWithDelegate: viewController];
+    _sensorTagManager = [[STSensorTagManager alloc] initWithDelegate: viewController
+                                                   sensorTagDelegate: viewController];
     
     return YES;
 }

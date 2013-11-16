@@ -10,6 +10,16 @@
 
 @implementation STUtilities
 
++ (float)vectorMagnitudeWithXComponent: (float)xComponent YComponent: (float)yComponent ZComponent: (float)zComponent
+{
+    return sqrtf(powf(xComponent, 2.0) + powf(yComponent, 2.0) + powf(zComponent, 2.0));
+}
+
++ (float)farenheitWithCelsius: (float)celsius
+{
+    return celsius * (9.0 / 5.0) + 32.0;
+}
+
 + (NSString *)stringWithCBUUID: (CBUUID *)uuid
 {
     NSData *data = [uuid data];
@@ -36,11 +46,6 @@
     }
     
     return outputString;
-}
-
-+ (float)farenheitWithCelsius: (float)celsius
-{
-    return celsius * (9.0 / 5.0) + 32.0;
 }
 
 @end

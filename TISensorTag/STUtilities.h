@@ -11,8 +11,10 @@
 
 @interface STUtilities : NSObject
 
-+ (NSString *)stringWithCBUUID: (CBUUID *)uuid;
++ (float)vectorMagnitudeWithXComponent: (float)xComponent YComponent: (float)yComponent ZComponent: (float)zComponent;
 
 + (float)farenheitWithCelsius: (float)celsius;
+
++ (NSString *)stringWithCBUUID: (CBUUID *)uuid;
 
 @end

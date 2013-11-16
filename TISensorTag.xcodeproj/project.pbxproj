@@ -9,18 +9,13 @@
 /* Begin PBXBuildFile section */
 		F46AE7891835B12100D9F14C /* STSensor.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AE7881835B12100D9F14C /* STSensor.m */; };
 		F46AE78C1835B14400D9F14C /* STTemperatureSensor.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AE78B1835B14400D9F14C /* STTemperatureSensor.m */; };
-		F46AE78F1835B4AB00D9F14C /* STSensorTag.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AE78E1835B4AB00D9F14C /* STSensorTag.m */; };
 		F46AE7921835B5C000D9F14C /* STAccelerometer.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AE7911835B5C000D9F14C /* STAccelerometer.m */; };
 		F46AE7951835B91D00D9F14C /* STSensorTagManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AE7941835B91D00D9F14C /* STSensorTagManager.m */; };
 		F46AE79A1835C4E400D9F14C /* STUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AE7991835C4E400D9F14C /* STUtilities.m */; };
 		F471B8D5183557CA00149BE5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F471B8D4183557CA00149BE5 /* Foundation.framework */; };
 		F471B8D7183557CA00149BE5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F471B8D6183557CA00149BE5 /* CoreGraphics.framework */; };
 		F471B8D9183557CA00149BE5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F471B8D8183557CA00149BE5 /* UIKit.framework */; };
-		F471B8DF183557CA00149BE5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F471B8DD183557CA00149BE5 /* InfoPlist.strings */; };
-		F471B8E1183557CA00149BE5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F471B8E0183557CA00149BE5 /* main.m */; };
 		F471B8E5183557CA00149BE5 /* STAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F471B8E4183557CA00149BE5 /* STAppDelegate.m */; };
-		F471B8E8183557CA00149BE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F471B8E6183557CA00149BE5 /* Main.storyboard */; };
-		F471B8EB183557CA00149BE5 /* STViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F471B8EA183557CA00149BE5 /* STViewController.m */; };
 		F471B8ED183557CA00149BE5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F471B8EC183557CA00149BE5 /* Images.xcassets */; };
 		F471B8F4183557CA00149BE5 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F471B8F3183557CA00149BE5 /* XCTest.framework */; };
 		F471B8F5183557CA00149BE5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F471B8D4183557CA00149BE5 /* Foundation.framework */; };
@@ -28,6 +23,18 @@
 		F471B8FE183557CA00149BE5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F471B8FC183557CA00149BE5 /* InfoPlist.strings */; };
 		F471B900183557CA00149BE5 /* TISensorTagTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F471B8FF183557CA00149BE5 /* TISensorTagTests.m */; };
 		F471B90A1835586300149BE5 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F471B9091835586300149BE5 /* CoreBluetooth.framework */; };
+		F4B455AB1836982100859BFC /* STConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B455AA1836982100859BFC /* STConstants.m */; };
+		F4B455AE18369D1600859BFC /* STGyroscope.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B455AD18369D1600859BFC /* STGyroscope.m */; };
+		F4B455B118369D3100859BFC /* STMagnetometer.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B455B018369D3100859BFC /* STMagnetometer.m */; };
+		F4B455B41836A32D00859BFC /* STButtonSensor.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B455B31836A32D00859BFC /* STButtonSensor.m */; };
+		F4B455BD1836A81A00859BFC /* STAcceleration.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B455BC1836A81A00859BFC /* STAcceleration.m */; };
+		F4B455C11836A82A00859BFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4B455BE1836A82A00859BFC /* Main.storyboard */; };
+		F4B455C21836A82A00859BFC /* STViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B455C01836A82A00859BFC /* STViewController.m */; };
+		F4B455C51836A83A00859BFC /* STSensorTag.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B455C41836A83A00859BFC /* STSensorTag.m */; };
+		F4B455CA1836A89900859BFC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F4B455C61836A89900859BFC /* InfoPlist.strings */; };
+		F4B455CB1836A89900859BFC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B455C71836A89900859BFC /* main.m */; };
+		F4B455CF1836A99F00859BFC /* CBCentralManager+STExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B455CE1836A99F00859BFC /* CBCentralManager+STExtensions.m */; };
+		F4B455D21836CB8D00859BFC /* STAngularVelocity.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B455D11836CB8D00859BFC /* STAngularVelocity.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,28 +52,19 @@
 		F46AE7881835B12100D9F14C /* STSensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STSensor.m; path = Sensors/STSensor.m; sourceTree = "<group>"; };
 		F46AE78A1835B14400D9F14C /* STTemperatureSensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STTemperatureSensor.h; path = Sensors/STTemperatureSensor.h; sourceTree = "<group>"; };
 		F46AE78B1835B14400D9F14C /* STTemperatureSensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STTemperatureSensor.m; path = Sensors/STTemperatureSensor.m; sourceTree = "<group>"; };
-		F46AE78D1835B4AB00D9F14C /* STSensorTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSensorTag.h; sourceTree = "<group>"; };
-		F46AE78E1835B4AB00D9F14C /* STSensorTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSensorTag.m; sourceTree = "<group>"; };
 		F46AE7901835B5C000D9F14C /* STAccelerometer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STAccelerometer.h; path = Sensors/STAccelerometer.h; sourceTree = "<group>"; };
 		F46AE7911835B5C000D9F14C /* STAccelerometer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STAccelerometer.m; path = Sensors/STAccelerometer.m; sourceTree = "<group>"; };
 		F46AE7931835B91D00D9F14C /* STSensorTagManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSensorTagManager.h; sourceTree = "<group>"; };
 		F46AE7941835B91D00D9F14C /* STSensorTagManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSensorTagManager.m; sourceTree = "<group>"; };
-		F46AE7971835BB2000D9F14C /* STSensorTagManagerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = STSensorTagManagerDelegate.h; path = Protocols/STSensorTagManagerDelegate.h; sourceTree = "<group>"; };
+		F46AE7971835BB2000D9F14C /* STSensorTagDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = STSensorTagDelegate.h; path = Protocols/STSensorTagDelegate.h; sourceTree = "<group>"; };
 		F46AE7981835C4E400D9F14C /* STUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STUtilities.h; sourceTree = "<group>"; };
 		F46AE7991835C4E400D9F14C /* STUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STUtilities.m; sourceTree = "<group>"; };
 		F471B8D1183557C900149BE5 /* TISensorTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TISensorTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F471B8D4183557CA00149BE5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F471B8D6183557CA00149BE5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		F471B8D8183557CA00149BE5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		F471B8DC183557CA00149BE5 /* TISensorTag-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TISensorTag-Info.plist"; sourceTree = "<group>"; };
-		F471B8DE183557CA00149BE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		F471B8E0183557CA00149BE5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		F471B8E2183557CA00149BE5 /* TISensorTag-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TISensorTag-Prefix.pch"; sourceTree = "<group>"; };
 		F471B8E3183557CA00149BE5 /* STAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STAppDelegate.h; sourceTree = "<group>"; };
 		F471B8E4183557CA00149BE5 /* STAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STAppDelegate.m; sourceTree = "<group>"; };
-		F471B8E7183557CA00149BE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F471B8E9183557CA00149BE5 /* STViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STViewController.h; sourceTree = "<group>"; };
-		F471B8EA183557CA00149BE5 /* STViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STViewController.m; sourceTree = "<group>"; };
 		F471B8EC183557CA00149BE5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F471B8F2183557CA00149BE5 /* TISensorTagTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TISensorTagTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F471B8F3183557CA00149BE5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -74,6 +72,30 @@
 		F471B8FD183557CA00149BE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F471B8FF183557CA00149BE5 /* TISensorTagTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TISensorTagTests.m; sourceTree = "<group>"; };
 		F471B9091835586300149BE5 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		F4B455A91836982100859BFC /* STConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STConstants.h; sourceTree = "<group>"; };
+		F4B455AA1836982100859BFC /* STConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STConstants.m; sourceTree = "<group>"; };
+		F4B455AC18369D1600859BFC /* STGyroscope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STGyroscope.h; path = Sensors/STGyroscope.h; sourceTree = "<group>"; };
+		F4B455AD18369D1600859BFC /* STGyroscope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STGyroscope.m; path = Sensors/STGyroscope.m; sourceTree = "<group>"; };
+		F4B455AF18369D3100859BFC /* STMagnetometer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STMagnetometer.h; path = Sensors/STMagnetometer.h; sourceTree = "<group>"; };
+		F4B455B018369D3100859BFC /* STMagnetometer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STMagnetometer.m; path = Sensors/STMagnetometer.m; sourceTree = "<group>"; };
+		F4B455B21836A32D00859BFC /* STButtonSensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STButtonSensor.h; path = Sensors/STButtonSensor.h; sourceTree = "<group>"; };
+		F4B455B31836A32D00859BFC /* STButtonSensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STButtonSensor.m; path = Sensors/STButtonSensor.m; sourceTree = "<group>"; };
+		F4B455BB1836A81A00859BFC /* STAcceleration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STAcceleration.h; path = Model/STAcceleration.h; sourceTree = "<group>"; };
+		F4B455BC1836A81A00859BFC /* STAcceleration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STAcceleration.m; path = Model/STAcceleration.m; sourceTree = "<group>"; };
+		F4B455BE1836A82A00859BFC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Views/Main.storyboard; sourceTree = "<group>"; };
+		F4B455BF1836A82A00859BFC /* STViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STViewController.h; path = Views/STViewController.h; sourceTree = "<group>"; };
+		F4B455C01836A82A00859BFC /* STViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STViewController.m; path = Views/STViewController.m; sourceTree = "<group>"; };
+		F4B455C31836A83A00859BFC /* STSensorTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STSensorTag.h; path = Model/STSensorTag.h; sourceTree = "<group>"; };
+		F4B455C41836A83A00859BFC /* STSensorTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STSensorTag.m; path = Model/STSensorTag.m; sourceTree = "<group>"; };
+		F4B455C61836A89900859BFC /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = "Supporting Files/InfoPlist.strings"; sourceTree = "<group>"; };
+		F4B455C71836A89900859BFC /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Supporting Files/main.m"; sourceTree = "<group>"; };
+		F4B455C81836A89900859BFC /* TISensorTag-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "TISensorTag-Info.plist"; path = "Supporting Files/TISensorTag-Info.plist"; sourceTree = "<group>"; };
+		F4B455C91836A89900859BFC /* TISensorTag-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "TISensorTag-Prefix.pch"; path = "Supporting Files/TISensorTag-Prefix.pch"; sourceTree = "<group>"; };
+		F4B455CD1836A99F00859BFC /* CBCentralManager+STExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CBCentralManager+STExtensions.h"; path = "Categories/CBCentralManager+STExtensions.h"; sourceTree = "<group>"; };
+		F4B455CE1836A99F00859BFC /* CBCentralManager+STExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CBCentralManager+STExtensions.m"; path = "Categories/CBCentralManager+STExtensions.m"; sourceTree = "<group>"; };
+		F4B455D01836CB8D00859BFC /* STAngularVelocity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STAngularVelocity.h; path = Model/STAngularVelocity.h; sourceTree = "<group>"; };
+		F4B455D11836CB8D00859BFC /* STAngularVelocity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STAngularVelocity.m; path = Model/STAngularVelocity.m; sourceTree = "<group>"; };
+		F4B455D31836DE0800859BFC /* STSensorTagManagerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = STSensorTagManagerDelegate.h; path = Protocols/STSensorTagManagerDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +130,12 @@
 				F46AE7881835B12100D9F14C /* STSensor.m */,
 				F46AE7901835B5C000D9F14C /* STAccelerometer.h */,
 				F46AE7911835B5C000D9F14C /* STAccelerometer.m */,
+				F4B455B21836A32D00859BFC /* STButtonSensor.h */,
+				F4B455B31836A32D00859BFC /* STButtonSensor.m */,
+				F4B455AC18369D1600859BFC /* STGyroscope.h */,
+				F4B455AD18369D1600859BFC /* STGyroscope.m */,
+				F4B455AF18369D3100859BFC /* STMagnetometer.h */,
+				F4B455B018369D3100859BFC /* STMagnetometer.m */,
 				F46AE78A1835B14400D9F14C /* STTemperatureSensor.h */,
 				F46AE78B1835B14400D9F14C /* STTemperatureSensor.m */,
 			);
@@ -117,7 +145,8 @@
 		F46AE7961835BA3E00D9F14C /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				F46AE7971835BB2000D9F14C /* STSensorTagManagerDelegate.h */,
+				F46AE7971835BB2000D9F14C /* STSensorTagDelegate.h */,
+				F4B455D31836DE0800859BFC /* STSensorTagManagerDelegate.h */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -158,18 +187,18 @@
 			children = (
 				F471B8E3183557CA00149BE5 /* STAppDelegate.h */,
 				F471B8E4183557CA00149BE5 /* STAppDelegate.m */,
-				F471B8E6183557CA00149BE5 /* Main.storyboard */,
-				F471B8E9183557CA00149BE5 /* STViewController.h */,
-				F471B8EA183557CA00149BE5 /* STViewController.m */,
+				F4B455A91836982100859BFC /* STConstants.h */,
+				F4B455AA1836982100859BFC /* STConstants.m */,
 				F46AE7931835B91D00D9F14C /* STSensorTagManager.h */,
 				F46AE7941835B91D00D9F14C /* STSensorTagManager.m */,
-				F46AE78D1835B4AB00D9F14C /* STSensorTag.h */,
-				F46AE78E1835B4AB00D9F14C /* STSensorTag.m */,
 				F46AE7981835C4E400D9F14C /* STUtilities.h */,
 				F46AE7991835C4E400D9F14C /* STUtilities.m */,
 				F471B8EC183557CA00149BE5 /* Images.xcassets */,
+				F4B455B91836A7D800859BFC /* Model */,
 				F46AE7861835B0D700D9F14C /* Sensors */,
+				F4B455B81836A7C300859BFC /* Views */,
 				F46AE7961835BA3E00D9F14C /* Protocols */,
+				F4B455BA1836A7E000859BFC /* Categories */,
 				F471B8DB183557CA00149BE5 /* Supporting Files */,
 			);
 			path = TISensorTag;
@@ -178,10 +207,10 @@
 		F471B8DB183557CA00149BE5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F471B8DC183557CA00149BE5 /* TISensorTag-Info.plist */,
-				F471B8DD183557CA00149BE5 /* InfoPlist.strings */,
-				F471B8E0183557CA00149BE5 /* main.m */,
-				F471B8E2183557CA00149BE5 /* TISensorTag-Prefix.pch */,
+				F4B455C81836A89900859BFC /* TISensorTag-Info.plist */,
+				F4B455C91836A89900859BFC /* TISensorTag-Prefix.pch */,
+				F4B455C71836A89900859BFC /* main.m */,
+				F4B455C61836A89900859BFC /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -202,6 +231,38 @@
 				F471B8FC183557CA00149BE5 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F4B455B81836A7C300859BFC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F4B455BE1836A82A00859BFC /* Main.storyboard */,
+				F4B455BF1836A82A00859BFC /* STViewController.h */,
+				F4B455C01836A82A00859BFC /* STViewController.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		F4B455B91836A7D800859BFC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F4B455BB1836A81A00859BFC /* STAcceleration.h */,
+				F4B455BC1836A81A00859BFC /* STAcceleration.m */,
+				F4B455D01836CB8D00859BFC /* STAngularVelocity.h */,
+				F4B455D11836CB8D00859BFC /* STAngularVelocity.m */,
+				F4B455C31836A83A00859BFC /* STSensorTag.h */,
+				F4B455C41836A83A00859BFC /* STSensorTag.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F4B455BA1836A7E000859BFC /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				F4B455CD1836A99F00859BFC /* CBCentralManager+STExtensions.h */,
+				F4B455CE1836A99F00859BFC /* CBCentralManager+STExtensions.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,9 +342,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4B455C11836A82A00859BFC /* Main.storyboard in Resources */,
+				F4B455CA1836A89900859BFC /* InfoPlist.strings in Resources */,
 				F471B8ED183557CA00149BE5 /* Images.xcassets in Resources */,
-				F471B8DF183557CA00149BE5 /* InfoPlist.strings in Resources */,
-				F471B8E8183557CA00149BE5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,15 +363,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F471B8EB183557CA00149BE5 /* STViewController.m in Sources */,
 				F46AE78C1835B14400D9F14C /* STTemperatureSensor.m in Sources */,
 				F46AE7921835B5C000D9F14C /* STAccelerometer.m in Sources */,
-				F471B8E1183557CA00149BE5 /* main.m in Sources */,
+				F4B455B41836A32D00859BFC /* STButtonSensor.m in Sources */,
+				F4B455AE18369D1600859BFC /* STGyroscope.m in Sources */,
+				F4B455BD1836A81A00859BFC /* STAcceleration.m in Sources */,
 				F46AE79A1835C4E400D9F14C /* STUtilities.m in Sources */,
-				F46AE78F1835B4AB00D9F14C /* STSensorTag.m in Sources */,
+				F4B455AB1836982100859BFC /* STConstants.m in Sources */,
+				F4B455CF1836A99F00859BFC /* CBCentralManager+STExtensions.m in Sources */,
 				F46AE7891835B12100D9F14C /* STSensor.m in Sources */,
 				F471B8E5183557CA00149BE5 /* STAppDelegate.m in Sources */,
+				F4B455B118369D3100859BFC /* STMagnetometer.m in Sources */,
+				F4B455C51836A83A00859BFC /* STSensorTag.m in Sources */,
 				F46AE7951835B91D00D9F14C /* STSensorTagManager.m in Sources */,
+				F4B455CB1836A89900859BFC /* main.m in Sources */,
+				F4B455D21836CB8D00859BFC /* STAngularVelocity.m in Sources */,
+				F4B455C21836A82A00859BFC /* STViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,22 +401,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F471B8DD183557CA00149BE5 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F471B8DE183557CA00149BE5 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		F471B8E6183557CA00149BE5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F471B8E7183557CA00149BE5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F471B8FC183557CA00149BE5 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -438,8 +490,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TISensorTag/TISensorTag-Prefix.pch";
-				INFOPLIST_FILE = "TISensorTag/TISensorTag-Info.plist";
+				GCC_PREFIX_HEADER = "TISensorTag/Supporting Files/TISensorTag-Prefix.pch";
+				INFOPLIST_FILE = "TISensorTag/Supporting Files/TISensorTag-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -451,8 +503,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TISensorTag/TISensorTag-Prefix.pch";
-				INFOPLIST_FILE = "TISensorTag/TISensorTag-Info.plist";
+				GCC_PREFIX_HEADER = "TISensorTag/Supporting Files/TISensorTag-Prefix.pch";
+				INFOPLIST_FILE = "TISensorTag/Supporting Files/TISensorTag-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

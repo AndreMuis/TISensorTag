@@ -8,6 +8,7 @@
 
 #import "STSensorTagManager.h"
 
+#import "CBCentralManager+STExtensions.h"
 #import "STSensorTag.h"
 
 @interface STSensorTagManager () <CBCentralManagerDelegate>
@@ -16,13 +17,16 @@
 
 @property (readonly, strong, nonatomic) CBCentralManager *centralManager;
 @property (readonly, strong, nonatomic) CBPeripheral *sensorTagPeripheral;
+
 @property (readonly, strong, nonatomic) STSensorTag *sensorTag;
+@property (readonly, strong, nonatomic) id<STSensorTagDelegate> sensorTagDelegate;
 
 @end
 
 @implementation STSensorTagManager
 
 - (id)initWithDelegate: (id<STSensorTagManagerDelegate>)delegate
+     sensorTagDelegate: (id<STSensorTagDelegate>)sensorTagDelegate
 {
     self = [super init];
     
@@ -31,7 +35,10 @@
         _delegate = delegate;
         
         _centralManager = [[CBCentralManager alloc] initWithDelegate: self queue: nil options: nil];
+        _sensorTagPeripheral = nil;
+        
         _sensorTag = nil;
+        _sensorTagDelegate = sensorTagDelegate;
     }
     
     return self;
@@ -39,7 +46,7 @@
 
 - (void)centralManagerDidUpdateState: (CBCentralManager *)central
 {
-    [self.delegate centralManagerDidUpdateState: [self stringWithCentralManagerState: central.state]];
+    [self.delegate sensorTagManagerDidUpdateState: [central stateAsString]];
     
     if (central.state == CBCentralManagerStatePoweredOn)
     {
@@ -65,7 +72,8 @@
 {
     [self.centralManager stopScan];
     
-    _sensorTag = [[STSensorTag alloc] initWithSensorTagPeripheral: self.sensorTagPeripheral];
+    _sensorTag = [[STSensorTag alloc] initWithDelegate: self.sensorTagDelegate
+                                   sensorTagPeripheral: self.sensorTagPeripheral];
 }
 
 - (void)centralManager: (CBCentralManager *)central didDisconnectPeripheral: (CBPeripheral *)peripheral error: (NSError *)error
@@ -95,41 +103,6 @@
     
     [self.centralManager scanForPeripheralsWithServices: nil
                                                 options: nil];
-}
-
-- (NSString *)stringWithCentralManagerState: (CBCentralManagerState)state
-{
-    switch (state)
-    {
-        case CBCentralManagerStateUnknown:
-            return @"unknown";
-            break;
-            
-        case CBCentralManagerStateResetting:
-            return @"resetting";
-            break;
-            
-        case CBCentralManagerStateUnsupported:
-            return @"unsupported";
-            break;
-            
-        case CBCentralManagerStateUnauthorized:
-            return @"unauthorized";
-            break;
-            
-        case CBCentralManagerStatePoweredOff:
-            return @"powered off";
-            break;
-            
-        case CBCentralManagerStatePoweredOn:
-            return @"powered on";
-            break;
-            
-        default:
-            NSLog(@"Unhandled central manager state: %d", state);
-            return @"";
-            break;
-    }
 }
 
 @end

@@ -1,19 +1,15 @@
 //
-//  STAccelerometer.h
+//  STMagnetometer.h
 //  TISensorTag
 //
-//  Created by Andre Muis on 11/14/13.
+//  Created by Andre Muis on 11/15/13.
 //  Copyright (c) 2013 Andre Muis. All rights reserved.
 //
 
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <Foundation/Foundation.h>
 
-#import "STSensor.h"
-
-@class STAcceleration;
-
-@interface STAccelerometer : STSensor
+@interface STMagnetometer : NSObject
 
 @property (readonly, strong, nonatomic) CBUUID *dataCharacteristicUUID;
 @property (readwrite, strong, nonatomic) CBCharacteristic *dataCharacteristic;
@@ -30,6 +26,6 @@
 
 - (void)update;
 
-- (STAcceleration *)accelerationWithCharacteristicValue: (NSData *)characteristicValue;
+- (float)magneticFieldStrengthWithCharacteristicValue: (NSData *)characteristicValue;
 
 @end

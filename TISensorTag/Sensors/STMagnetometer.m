@@ -1,23 +1,23 @@
 //
-//  STAccelerometer.m
+//  STMagnetometer.m
 //  TISensorTag
 //
-//  Created by Andre Muis on 11/14/13.
+//  Created by Andre Muis on 11/15/13.
 //  Copyright (c) 2013 Andre Muis. All rights reserved.
 //
 
-#import "STAccelerometer.h"
+#import "STMagnetometer.h"
 
-#import "STAcceleration.h"
 #import "STConstants.h"
+#import "STUtilities.h"
 
-@interface STAccelerometer ()
+@interface STMagnetometer ()
 
 @property (readonly, strong, nonatomic) CBPeripheral *sensorTagPeripheral;
 
 @end
 
-@implementation STAccelerometer
+@implementation STMagnetometer
 
 - (id)initWithSensorTagPeripheral: (CBPeripheral *)sensorTagPeripheral
 {
@@ -27,13 +27,13 @@
     {
         _sensorTagPeripheral = sensorTagPeripheral;
         
-        _dataCharacteristicUUID = [CBUUID UUIDWithString: STAccelerometerDataCharacteristicUUIDString];
+        _dataCharacteristicUUID = [CBUUID UUIDWithString: STMagnetometerDataCharacteristicUUIDString];
         _dataCharacteristic = nil;
         
-        _configurationCharacteristicUUID = [CBUUID UUIDWithString: STAccelerometerConfigurationCharacteristicUUIDString];
+        _configurationCharacteristicUUID = [CBUUID UUIDWithString: STMagnetometerConfigurationCharacteristicUUIDString];
         _configurationCharacteristic = nil;
         
-        _periodCharacteristicUUID = [CBUUID UUIDWithString: STAccelerometerPeriodCharacteristicUUIDString];
+        _periodCharacteristicUUID = [CBUUID UUIDWithString: STMagnetometerPeriodCharacteristicUUIDString];
         _periodCharacteristic = nil;
     }
     
@@ -60,29 +60,35 @@
     [self.sensorTagPeripheral writeValue: [NSData dataWithBytes: &periodData length: 1]
                        forCharacteristic: self.periodCharacteristic
                                     type: CBCharacteristicWriteWithResponse];
-
+    
     uint8_t data = 0x01;
     [self.sensorTagPeripheral writeValue: [NSData dataWithBytes: &data length: 1]
                        forCharacteristic: self.configurationCharacteristic
                                     type: CBCharacteristicWriteWithResponse];
- 
+    
     [self.sensorTagPeripheral setNotifyValue: YES
                            forCharacteristic: self.dataCharacteristic];
 }
 
-- (STAcceleration *)accelerationWithCharacteristicValue: (NSData *)characteristicValue
+- (float)magneticFieldStrengthWithCharacteristicValue: (NSData *)characteristicValue
 {
-    char scratchVal[characteristicValue.length];
-    [characteristicValue getBytes: &scratchVal length: 3];
+    char scratchVal[6];
+    [characteristicValue getBytes: &scratchVal length: 6];
     
-    STAcceleration *acceleration = [[STAcceleration alloc] initWithXComponent: (scratchVal[0] * 1.0) / (256 / STAccelerometerRange)
-                                                                   YComponent: (scratchVal[1] * 1.0) / (256 / STAccelerometerRange)
-                                                                   ZComponent: (scratchVal[2] * 1.0) / (256 / STAccelerometerRange)];
+    int16_t rawX = (scratchVal[0] & 0xff) | ((scratchVal[1] << 8) & 0xff00);
+    float x = (((float)rawX * 1.0) / (65536 / STMagnetometerRange)) * -1;
+
+    int16_t rawY = ((scratchVal[2] & 0xff) | ((scratchVal[3] << 8) & 0xff00));
+    float y = (((float)rawY * 1.0) / (65536 / STMagnetometerRange)) * -1;
+
+    int16_t rawZ = (scratchVal[4] & 0xff) | ((scratchVal[5] << 8) & 0xff00);
+    float z =  ((float)rawZ * 1.0) / (65536 / STMagnetometerRange);
     
-    return acceleration;
+    return [STUtilities vectorMagnitudeWithXComponent: x YComponent: y ZComponent: z];
 }
 
 @end
+
 
 
 

@@ -1,5 +1,5 @@
 //
-//  STSensorTagManagerDelegate.h
+//  CBCentralManager+STExtensions.h
 //  TISensorTag
 //
 //  Created by Andre Muis on 11/14/13.
@@ -8,10 +8,8 @@
 
 #import <CoreBluetooth/CoreBluetooth.h>
 
-@protocol STSensorTagManagerDelegate <NSObject>
+@interface CBCentralManager (STExtensions)
 
-@required
-- (void)sensorTagManagerDidUpdateState: (NSString *)state;
+- (NSString *)stateAsString;
 
 @end
-
