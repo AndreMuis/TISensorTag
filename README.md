@@ -1,1 +1,1 @@
-Source code for a demo app that interfaces with TI's Bluetooth low energy SensorTag. Written in proper, easy to follow Objective-C.
+Source code for a demo app that interfaces with TI's Bluetooth low energy SensorTag. Written in proper, easy to follow Objective-C that should allow you to interface your app with the Sensor Tag or other BLE devices as quickly as possible.
