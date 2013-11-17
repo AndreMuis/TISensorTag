@@ -9,25 +9,33 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSUInteger, STButton)
+#import "STSensor.h"
+
+@protocol STSensorTagDelegate;
+
+typedef NS_ENUM(NSUInteger, STButtonsPressed)
 {
-    STButtonUnknown,
-    STButtonNone,
-    STButtonRight,
-    STButtonLeft
+    STButtonsPressedUnknown,
+    STButtonsPressedNone,
+    STButtonsPressedRight,
+    STButtonsPressedLeft,
+    STButtonsPressedBoth
 };
 
-@interface STButtonSensor : NSObject
+@interface STButtonSensor : STSensor
 
 @property (readonly, strong, nonatomic) CBUUID *dataCharacteristicUUID;
 @property (readwrite, strong, nonatomic) CBCharacteristic *dataCharacteristic;
 
 @property (readonly, assign, nonatomic) BOOL configured;
 
-- (id)initWithSensorTagPeripheral: (CBPeripheral *)sensorTagPeripheral;
+- (id)initWithSensorTagDelegate: (id<STSensorTagDelegate>)sensorTagDelegate
+            sensorTagPeripheral: (CBPeripheral *)sensorTagPeripheral;
 
-- (void)update;
+- (void)enable;
+- (void)sensorTagPeripheralDidUpdateValueForCharacteristic: (CBCharacteristic *)characteristic;
+- (void)disable;
 
-- (int)buttonPressedWithCharacteristicValue: (NSData *)characteristicValue;
+- (STButtonsPressed)buttonsPressedWithCharacteristicValue: (NSData *)characteristicValue;
 
 @end

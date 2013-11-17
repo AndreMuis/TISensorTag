@@ -9,6 +9,7 @@
 #import "STSensorTagManager.h"
 
 #import "CBCentralManager+STExtensions.h"
+#import "STConstants.h"
 #import "STSensorTag.h"
 
 @interface STSensorTagManager () <CBCentralManagerDelegate>
@@ -52,6 +53,8 @@
     {
         [self.centralManager scanForPeripheralsWithServices: nil
                                                     options: nil];
+        
+        [self.delegate sensorTagManagerDidUpdateConnectionStatus: STConnectionStatusScanning];
     }
 }
 
@@ -60,10 +63,12 @@
      advertisementData: (NSDictionary *)advertisementData
                   RSSI: (NSNumber *)RSSI
 {
-    if ([peripheral.name isEqualToString: @"TI BLE Sensor Tag"] == YES)
+    if ([peripheral.name isEqualToString: STSensorTagName] == YES)
     {
         _sensorTagPeripheral = peripheral;
         [self.centralManager connectPeripheral: self.sensorTagPeripheral options: nil];
+
+        [self.delegate sensorTagManagerDidUpdateConnectionStatus: STConnectionStatusConnecting];
     }
 }
 
@@ -74,6 +79,8 @@
     
     _sensorTag = [[STSensorTag alloc] initWithDelegate: self.sensorTagDelegate
                                    sensorTagPeripheral: self.sensorTagPeripheral];
+    
+    [self.delegate sensorTagManagerDidUpdateConnectionStatus: STConnectionStatusConnected];
 }
 
 - (void)centralManager: (CBCentralManager *)central didDisconnectPeripheral: (CBPeripheral *)peripheral error: (NSError *)error
@@ -84,12 +91,12 @@
     }
 
     _sensorTagPeripheral = nil;
-    
-    [self.sensorTag disconnect];
     _sensorTag = nil;
     
     [self.centralManager scanForPeripheralsWithServices: nil
                                                 options: nil];
+
+    [self.delegate sensorTagManagerDidUpdateConnectionStatus: STConnectionStatusScanning];
 }
 
 - (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error
@@ -97,12 +104,12 @@
     NSLog(@"Central manager failed to connect to sensor tag. Error = %@", error);
     
     _sensorTagPeripheral = nil;
-
-    [self.sensorTag disconnect];
     _sensorTag = nil;
     
     [self.centralManager scanForPeripheralsWithServices: nil
                                                 options: nil];
+
+    [self.delegate sensorTagManagerDidUpdateConnectionStatus: STConnectionStatusScanning];
 }
 
 @end

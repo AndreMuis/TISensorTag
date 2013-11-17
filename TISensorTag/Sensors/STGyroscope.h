@@ -9,9 +9,12 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <Foundation/Foundation.h>
 
+#import "STSensor.h"
+#import "STSensorTagDelegate.h"
+
 @class STAngularVelocity;
 
-@interface STGyroscope : NSObject
+@interface STGyroscope : STSensor
 
 @property (readonly, strong, nonatomic) CBUUID *dataCharacteristicUUID;
 @property (readwrite, strong, nonatomic) CBCharacteristic *dataCharacteristic;
@@ -21,9 +24,12 @@
 
 @property (readonly, assign, nonatomic) BOOL configured;
 
-- (id)initWithSensorTagPeripheral: (CBPeripheral *)sensorTagPeripheral;
+- (id)initWithSensorTagDelegate: (id<STSensorTagDelegate>)sensorTagDelegate
+            sensorTagPeripheral: (CBPeripheral *)sensorTagPeripheral;
 
-- (void)update;
+- (void)enable;
+- (void)sensorTagPeripheralDidUpdateValueForCharacteristic: (CBCharacteristic *)characteristic;
+- (void)disable;
 
 - (STAngularVelocity *)angularVelocityWithCharacteristicValue: (NSData *)characteristicValue;
 

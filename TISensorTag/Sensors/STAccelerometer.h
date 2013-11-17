@@ -10,6 +10,7 @@
 #import <Foundation/Foundation.h>
 
 #import "STSensor.h"
+#import "STSensorTagDelegate.h"
 
 @class STAcceleration;
 
@@ -26,9 +27,13 @@
 
 @property (readonly, assign, nonatomic) BOOL configured;
 
-- (id)initWithSensorTagPeripheral: (CBPeripheral *)sensorTagPeripheral;
+- (id)initWithSensorTagDelegate: (id<STSensorTagDelegate>)sensorTagDelegate
+            sensorTagPeripheral: (CBPeripheral *)sensorTagPeripheral;
 
-- (void)update;
+- (void)enable;
+- (void)sensorTagPeripheralDidUpdateValueForCharacteristic: (CBCharacteristic *)characteristic;
+- (void)updateWithPeriodInMilliseconds: (int)periodInMilliseconds;
+- (void)disable;
 
 - (STAcceleration *)accelerationWithCharacteristicValue: (NSData *)characteristicValue;
 

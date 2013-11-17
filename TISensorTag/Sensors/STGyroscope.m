@@ -13,18 +13,21 @@
 
 @interface STGyroscope ()
 
-@property CBPeripheral *sensorTagPeripheral;
+@property (readonly, strong, nonatomic) id<STSensorTagDelegate> sensorTagDelegate;
+@property (readonly, strong, nonatomic) CBPeripheral *sensorTagPeripheral;
 
 @end
 
 @implementation STGyroscope
 
-- (id)initWithSensorTagPeripheral: (CBPeripheral *)sensorTagPeripheral
+- (id)initWithSensorTagDelegate: (id<STSensorTagDelegate>)sensorTagDelegate
+            sensorTagPeripheral: (CBPeripheral *)sensorTagPeripheral
 {
     self = [super init];
     
     if (self)
     {
+        _sensorTagDelegate = sensorTagDelegate;
         _sensorTagPeripheral = sensorTagPeripheral;
         
         _dataCharacteristicUUID = [CBUUID UUIDWithString: STGyroscopeDataCharacteristicUUIDString];
@@ -50,15 +53,34 @@
     }
 }
 
-- (void)update
+- (void)enable
 {
-    uint8_t data = 0x07;
-    [self.sensorTagPeripheral writeValue: [NSData dataWithBytes: &data length: 1]
+    uint8_t enableValue = STGyroscopeEnableValue;
+    [self.sensorTagPeripheral writeValue: [NSData dataWithBytes: &enableValue length: 1]
                        forCharacteristic: self.configurationCharacteristic
                                     type: CBCharacteristicWriteWithResponse];
     
     [self.sensorTagPeripheral setNotifyValue: YES
                            forCharacteristic: self.dataCharacteristic];
+}
+
+- (void)sensorTagPeripheralDidUpdateValueForCharacteristic: (CBCharacteristic *)characteristic
+{
+    if ([characteristic.UUID isEqual: self.dataCharacteristicUUID] == YES)
+    {
+        [self.sensorTagDelegate sensorTagDidUpdateAngularVelocity: [self angularVelocityWithCharacteristicValue: characteristic.value]];
+    }
+}
+
+- (void)disable
+{
+    [self.sensorTagPeripheral setNotifyValue: NO
+                           forCharacteristic: self.dataCharacteristic];
+
+    uint8_t disableValue = STSensorDisableValue;
+    [self.sensorTagPeripheral writeValue: [NSData dataWithBytes: &disableValue length: 1]
+                       forCharacteristic: self.configurationCharacteristic
+                                    type: CBCharacteristicWriteWithResponse];
 }
 
 - (STAngularVelocity *)angularVelocityWithCharacteristicValue: (NSData *)characteristicValue

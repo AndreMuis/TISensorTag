@@ -13,18 +13,21 @@
 
 @interface STMagnetometer ()
 
+@property (readonly, strong, nonatomic) id<STSensorTagDelegate> sensorTagDelegate;
 @property (readonly, strong, nonatomic) CBPeripheral *sensorTagPeripheral;
 
 @end
 
 @implementation STMagnetometer
 
-- (id)initWithSensorTagPeripheral: (CBPeripheral *)sensorTagPeripheral
+- (id)initWithSensorTagDelegate: (id<STSensorTagDelegate>)sensorTagDelegate
+            sensorTagPeripheral: (CBPeripheral *)sensorTagPeripheral
 {
     self = [super init];
     
     if (self)
     {
+        _sensorTagDelegate = sensorTagDelegate;
         _sensorTagPeripheral = sensorTagPeripheral;
         
         _dataCharacteristicUUID = [CBUUID UUIDWithString: STMagnetometerDataCharacteristicUUIDString];
@@ -54,20 +57,42 @@
     }
 }
 
-- (void)update
+- (void)enable
 {
-    uint8_t periodData = (uint8_t)(500 / 10);
-    [self.sensorTagPeripheral writeValue: [NSData dataWithBytes: &periodData length: 1]
-                       forCharacteristic: self.periodCharacteristic
-                                    type: CBCharacteristicWriteWithResponse];
-    
-    uint8_t data = 0x01;
-    [self.sensorTagPeripheral writeValue: [NSData dataWithBytes: &data length: 1]
+    uint8_t enableValue = STSensorEnableValue;
+    [self.sensorTagPeripheral writeValue: [NSData dataWithBytes: &enableValue length: 1]
                        forCharacteristic: self.configurationCharacteristic
                                     type: CBCharacteristicWriteWithResponse];
     
     [self.sensorTagPeripheral setNotifyValue: YES
                            forCharacteristic: self.dataCharacteristic];
+}
+
+- (void)sensorTagPeripheralDidUpdateValueForCharacteristic: (CBCharacteristic *)characteristic
+{
+    if ([characteristic.UUID isEqual: self.dataCharacteristicUUID] == YES)
+    {
+        [self.sensorTagDelegate sensorTagDidUpdateMagneticFieldStrength: [self magneticFieldStrengthWithCharacteristicValue: characteristic.value]];
+    }
+}
+
+- (void)updateWithPeriodInMilliseconds: (int)periodInMilliseconds
+{
+    uint8_t periodData = (uint8_t)(periodInMilliseconds / 10);
+    [self.sensorTagPeripheral writeValue: [NSData dataWithBytes: &periodData length: 1]
+                       forCharacteristic: self.periodCharacteristic
+                                    type: CBCharacteristicWriteWithResponse];
+}
+
+- (void)disable
+{
+    [self.sensorTagPeripheral setNotifyValue: NO
+                           forCharacteristic: self.dataCharacteristic];
+
+    uint8_t disableValue = STSensorDisableValue;
+    [self.sensorTagPeripheral writeValue: [NSData dataWithBytes: &disableValue length: 1]
+                       forCharacteristic: self.configurationCharacteristic
+                                    type: CBCharacteristicWriteWithResponse];
 }
 
 - (float)magneticFieldStrengthWithCharacteristicValue: (NSData *)characteristicValue

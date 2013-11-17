@@ -16,7 +16,7 @@
 
 @required
 - (void)sensorTagDidUpdateAcceleration: (STAcceleration *)acceleration;
-- (void)sensorTagDidUpdateButtonPressed: (STButton)button;
+- (void)sensorTagDidUpdateButtonsPressed: (STButtonsPressed)button;
 - (void)sensorTagDidUpdateAngularVelocity: (STAngularVelocity *)angularVelocity;
 - (void)sensorTagDidUpdateMagneticFieldStrength: (float)magneticFieldStrength;
 - (void)sensorTagDidUpdateRSSI: (NSNumber *)rssi;

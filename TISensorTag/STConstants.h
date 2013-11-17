@@ -10,21 +10,36 @@
 
 @interface STConstants : NSObject
 
+extern NSString* const STSensorTagName;
+
+extern NSTimeInterval const STRSSITimerIntervalInMilliseconds;
+extern float const STRSSIMinimum;
+extern float const STRSSIMaximum;
+
+extern uint8_t const STSensorEnableValue;
+extern uint8_t const STSensorDisableValue;
+
 extern NSString* const STAccelerometerDataCharacteristicUUIDString;
 extern NSString* const STAccelerometerConfigurationCharacteristicUUIDString;
 extern NSString* const STAccelerometerPeriodCharacteristicUUIDString;
+extern int const STAccelerometerPeriodInMilliseconds;
 extern float const STAccelerometerRange;
 
 extern NSString* const STButtonSensorDataCharacteristicUUIDString;
 
 extern NSString* const STGyroscopeDataCharacteristicUUIDString;
 extern NSString* const STGyroscopeConfigurationCharacteristicUUIDString;
+extern uint8_t const STGyroscopeEnableValue;
 extern float const STGyroscopeRange;
 
 extern NSString* const STMagnetometerDataCharacteristicUUIDString;
 extern NSString* const STMagnetometerConfigurationCharacteristicUUIDString;
 extern NSString* const STMagnetometerPeriodCharacteristicUUIDString;
+extern int const STMagnetometerPeriodInMilliseconds;
 extern float const STMagnetometerRange;
+
+extern float const STMagneticFieldStrengthMinimum;
+extern float const STMagneticFieldStrengthMaximum;
 
 extern NSString* const STTemperatureSensorDataCharacteristicUUIDString;
 extern NSString* const STTemperatureSensorConfigurationCharacteristicUUIDString;

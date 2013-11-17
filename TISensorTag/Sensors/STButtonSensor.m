@@ -9,21 +9,25 @@
 #import "STButtonSensor.h"
 
 #import "STConstants.h"
+#import "STSensorTagDelegate.h"
 
 @interface STButtonSensor ()
 
-@property CBPeripheral *sensorTagPeripheral;
+@property (readonly, strong, nonatomic) id<STSensorTagDelegate> sensorTagDelegate;
+@property (readonly, strong, nonatomic) CBPeripheral *sensorTagPeripheral;
 
 @end
 
 @implementation STButtonSensor
 
-- (id)initWithSensorTagPeripheral: (CBPeripheral *)sensorTagPeripheral
+- (id)initWithSensorTagDelegate: (id<STSensorTagDelegate>)sensorTagDelegate
+            sensorTagPeripheral: (CBPeripheral *)sensorTagPeripheral
 {
     self = [super init];
     
     if (self)
     {
+        _sensorTagDelegate = sensorTagDelegate;
         _sensorTagPeripheral = sensorTagPeripheral;
         
         _dataCharacteristicUUID = [CBUUID UUIDWithString: STButtonSensorDataCharacteristicUUIDString];
@@ -45,36 +49,58 @@
     }
 }
 
-- (void)update
+- (void)enable
 {
     [self.sensorTagPeripheral setNotifyValue: YES
                            forCharacteristic: self.dataCharacteristic];
 }
 
-- (int)buttonPressedWithCharacteristicValue: (NSData *)characteristicValue
+- (void)sensorTagPeripheralDidUpdateValueForCharacteristic: (CBCharacteristic *)characteristic
 {
+    if ([characteristic.UUID isEqual: self.dataCharacteristicUUID] == YES)
+    {
+        [self.sensorTagDelegate sensorTagDidUpdateButtonsPressed: [self buttonsPressedWithCharacteristicValue: characteristic.value]];
+    }
+}
+
+- (void)disable
+{
+    [self.sensorTagPeripheral setNotifyValue: NO
+                           forCharacteristic: self.dataCharacteristic];
+}
+
+- (STButtonsPressed)buttonsPressedWithCharacteristicValue: (NSData *)characteristicValue
+{
+    STButtonsPressed buttonsPressed = STButtonsPressedUnknown;
+    
     char scratchVal[characteristicValue.length];
     [characteristicValue getBytes: &scratchVal length: characteristicValue.length];
 
     switch ((int)scratchVal[0])
     {
         case 0:
-            return STButtonNone;
+            buttonsPressed = STButtonsPressedNone;
             break;
             
         case 1:
-            return STButtonRight;
+            buttonsPressed = STButtonsPressedRight;
             break;
         
         case 2:
-            return STButtonLeft;
+            buttonsPressed = STButtonsPressedLeft;
+            break;
+
+        case 3:
+            buttonsPressed = STButtonsPressedBoth;
             break;
 
         default:
             NSLog(@"Button with characteristic value %@ not handled.", characteristicValue);
-            return STButtonUnknown;
+            buttonsPressed = STButtonsPressedUnknown;
             break;
     }
+    
+    return buttonsPressed;
 }
 
 @end

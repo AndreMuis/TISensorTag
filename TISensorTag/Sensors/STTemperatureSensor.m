@@ -13,18 +13,21 @@
 
 @interface STTemperatureSensor ()
 
-@property CBPeripheral *sensorTagPeripheral;
+@property (readonly, strong, nonatomic) id<STSensorTagDelegate> sensorTagDelegate;
+@property (readonly, strong, nonatomic) CBPeripheral *sensorTagPeripheral;
 
 @end
 
 @implementation STTemperatureSensor
 
-- (id)initWithSensorTagPeripheral: (CBPeripheral *)sensorTagPeripheral
+- (id)initWithSensorTagDelegate: (id<STSensorTagDelegate>)sensorTagDelegate
+            sensorTagPeripheral: (CBPeripheral *)sensorTagPeripheral
 {
     self = [super init];
     
     if (self)
     {
+        _sensorTagDelegate = sensorTagDelegate;
         _sensorTagPeripheral = sensorTagPeripheral;
         
         _dataCharacteristicUUID = [CBUUID UUIDWithString: STTemperatureSensorDataCharacteristicUUIDString];
@@ -50,10 +53,10 @@
     }
 }
 
-- (void)update
+- (void)enable
 {
-    uint8_t data = 0x01;
-    [self.sensorTagPeripheral writeValue: [NSData dataWithBytes: &data length: 1]
+    uint8_t enableValue = STSensorEnableValue;
+    [self.sensorTagPeripheral writeValue: [NSData dataWithBytes: &enableValue length: 1]
                        forCharacteristic: self.configurationCharacteristic
                                     type: CBCharacteristicWriteWithResponse];
  
@@ -61,11 +64,27 @@
                            forCharacteristic: self.dataCharacteristic];
 }
 
+- (void)sensorTagPeripheralDidUpdateValueForCharacteristic: (CBCharacteristic *)characteristic
+{
+    if ([characteristic.UUID isEqual: self.dataCharacteristicUUID] == YES)
+    {
+        [self.sensorTagDelegate sensorTagDidUpdateTemperature: [self temperatureWithCharacteristicValue: characteristic.value]];
+    }
+}
+
+- (void)disable
+{
+    [self.sensorTagPeripheral setNotifyValue: NO
+                           forCharacteristic: self.dataCharacteristic];
+
+    uint8_t disableValue = STSensorDisableValue;
+    [self.sensorTagPeripheral writeValue: [NSData dataWithBytes: &disableValue length: 1]
+                       forCharacteristic: self.configurationCharacteristic
+                                    type: CBCharacteristicWriteWithResponse];
+}
+
 - (float)temperatureWithCharacteristicValue: (NSData *)characteristicValue
 {
-    // <6cfe800c>
-    // 4
-    
     char scratchVal[characteristicValue.length];
     int16_t ambTemp;
     [characteristicValue getBytes: &scratchVal length: characteristicValue.length];

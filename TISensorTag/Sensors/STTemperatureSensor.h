@@ -10,6 +10,7 @@
 #import <Foundation/Foundation.h>
 
 #import "STSensor.h"
+#import "STSensorTagDelegate.h"
 
 @interface STTemperatureSensor : STSensor
 
@@ -21,9 +22,12 @@
 
 @property (readonly, assign, nonatomic) BOOL configured;
 
-- (id)initWithSensorTagPeripheral: (CBPeripheral *)sensorTagPeripheral;
+- (id)initWithSensorTagDelegate: (id<STSensorTagDelegate>)sensorTagDelegate
+            sensorTagPeripheral: (CBPeripheral *)sensorTagPeripheral;
 
-- (void)update;
+- (void)enable;
+- (void)sensorTagPeripheralDidUpdateValueForCharacteristic: (CBCharacteristic *)characteristic;
+- (void)disable;
 
 - (float)temperatureWithCharacteristicValue: (NSData *)characteristicValue;
 

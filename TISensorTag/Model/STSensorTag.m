@@ -10,15 +10,16 @@
 
 #import "STAccelerometer.h"
 #import "STButtonSensor.h"
+#import "STConstants.h"
 #import "STGyroscope.h"
 #import "STMagnetometer.h"
+#import "STRSSISensor.h"
 #import "STTemperatureSensor.h"
 
 @interface STSensorTag () <CBPeripheralDelegate>
 
 @property (readonly, strong, nonatomic) id<STSensorTagDelegate> delegate;
 @property (readonly, strong, nonatomic) CBPeripheral *sensorTagPeripheral;
-@property (readonly, strong, nonatomic) NSTimer *rssiTimer;
 
 @end
 
@@ -37,17 +38,24 @@
         _sensorTagPeripheral.delegate = self;
         [_sensorTagPeripheral discoverServices: nil];
 
-        _rssiTimer = [NSTimer scheduledTimerWithTimeInterval: 1.0
-                                                      target: self
-                                                    selector: @selector(readRSSI)
-                                                    userInfo: nil
-                                                     repeats: YES];
+        _accelerometer = [[STAccelerometer alloc] initWithSensorTagDelegate: self.delegate
+                                                        sensorTagPeripheral: sensorTagPeripheral];
         
-        _accelerometer = [[STAccelerometer alloc] initWithSensorTagPeripheral: sensorTagPeripheral];
-        _buttonSensor = [[STButtonSensor alloc] initWithSensorTagPeripheral: sensorTagPeripheral];
-        _gyroscope = [[STGyroscope alloc] initWithSensorTagPeripheral: sensorTagPeripheral];
-        _magnetometer = [[STMagnetometer alloc] initWithSensorTagPeripheral: sensorTagPeripheral];
-        _temperatureSensor = [[STTemperatureSensor alloc] initWithSensorTagPeripheral: sensorTagPeripheral];
+        _buttonSensor = [[STButtonSensor alloc] initWithSensorTagDelegate: self.delegate
+                                                      sensorTagPeripheral: sensorTagPeripheral];
+        
+        _gyroscope = [[STGyroscope alloc] initWithSensorTagDelegate: self.delegate
+                                                sensorTagPeripheral: sensorTagPeripheral];
+        
+        _magnetometer = [[STMagnetometer alloc] initWithSensorTagDelegate: self.delegate
+                                                      sensorTagPeripheral: sensorTagPeripheral];
+        
+        _rssiSensor = [[STRSSISensor alloc] initWithSensorTagDelegate: self.delegate
+                                                  sensorTagPeripheral: sensorTagPeripheral];
+        [_rssiSensor enable];
+        
+        _temperatureSensor = [[STTemperatureSensor alloc] initWithSensorTagDelegate: self.delegate
+                                                                sensorTagPeripheral: sensorTagPeripheral];
     }
     
     return self;
@@ -122,27 +130,29 @@
         
         if (self.accelerometer.configured == YES)
         {
-            [self.accelerometer update];
+            [self.accelerometer enable];
+            [self.accelerometer updateWithPeriodInMilliseconds: STAccelerometerPeriodInMilliseconds];
         }
 
         if (self.buttonSensor.configured == YES)
         {
-            [self.buttonSensor update];
+            [self.buttonSensor enable];
         }
 
         if (self.gyroscope.configured == YES)
         {
-            [self.gyroscope update];
+            [self.gyroscope enable];
         }
         
         if (self.magnetometer.configured == YES)
         {
-            [self.magnetometer update];
+            [self.magnetometer enable];
+            [self.magnetometer updateWithPeriodInMilliseconds: STMagnetometerPeriodInMilliseconds];
         }
 
         if (self.temperatureSensor.configured == YES)
         {
-            [self.temperatureSensor update];
+            [self.temperatureSensor enable];
         }
     }
     else
@@ -163,26 +173,11 @@
 {
     if (error == nil)
     {
-        if ([characteristic.UUID isEqual: self.accelerometer.dataCharacteristicUUID] == YES)
-        {
-            [self.delegate sensorTagDidUpdateAcceleration: [self.accelerometer accelerationWithCharacteristicValue: characteristic.value]];
-        }
-        else if ([characteristic.UUID isEqual: self.buttonSensor.dataCharacteristicUUID] == YES)
-        {
-            [self.delegate sensorTagDidUpdateButtonPressed: [self.buttonSensor buttonPressedWithCharacteristicValue: characteristic.value]];
-        }
-        else if ([characteristic.UUID isEqual: self.gyroscope.dataCharacteristicUUID] == YES)
-        {
-            [self.delegate sensorTagDidUpdateAngularVelocity: [self.gyroscope angularVelocityWithCharacteristicValue: characteristic.value]];
-        }
-        else if ([characteristic.UUID isEqual: self.magnetometer.dataCharacteristicUUID] == YES)
-        {
-            [self.delegate sensorTagDidUpdateMagneticFieldStrength: [self.magnetometer magneticFieldStrengthWithCharacteristicValue: characteristic.value]];
-        }
-        else if ([characteristic.UUID isEqual: self.temperatureSensor.dataCharacteristicUUID] == YES)
-        {
-            [self.delegate sensorTagDidUpdateTemperature: [self.temperatureSensor temperatureWithCharacteristicValue: characteristic.value]];
-        }
+        [self.accelerometer sensorTagPeripheralDidUpdateValueForCharacteristic: characteristic];
+        [self.buttonSensor sensorTagPeripheralDidUpdateValueForCharacteristic: characteristic];
+        [self.gyroscope sensorTagPeripheralDidUpdateValueForCharacteristic: characteristic];
+        [self.magnetometer sensorTagPeripheralDidUpdateValueForCharacteristic: characteristic];
+        [self.temperatureSensor sensorTagPeripheralDidUpdateValueForCharacteristic: characteristic];
     }
     else
     {
@@ -190,27 +185,14 @@
     }
 }
 
-- (void)readRSSI
-{
-    [self.sensorTagPeripheral readRSSI];
-}
-
 - (void)peripheralDidUpdateRSSI: (CBPeripheral *)peripheral error: (NSError *)error
 {
-    if (error == nil)
-    {
-        [self.delegate sensorTagDidUpdateRSSI: peripheral.RSSI];
-    }
-    else
+    if (error != nil)
     {
         NSLog(@"Error updating RSSI. Error = %@", [error localizedDescription]);
-    }
-}
+    }    
 
-- (void)disconnect
-{
-    [self.rssiTimer invalidate];
-    _rssiTimer = nil;
+    [self.rssiSensor sensorTagPeripheralDidUpdateRSSI];
 }
 
 @end
