@@ -26,14 +26,13 @@
 @property (readwrite, strong, nonatomic) CBCharacteristic *periodCharacteristic;
 
 @property (readonly, assign, nonatomic) BOOL configured;
+@property (readwrite, assign, nonatomic) BOOL enabled;
 
 - (id)initWithSensorTagDelegate: (id<STSensorTagDelegate>)sensorTagDelegate
             sensorTagPeripheral: (CBPeripheral *)sensorTagPeripheral;
 
-- (void)enable;
 - (void)sensorTagPeripheralDidUpdateValueForCharacteristic: (CBCharacteristic *)characteristic;
 - (void)updateWithPeriodInMilliseconds: (int)periodInMilliseconds;
-- (void)disable;
 
 - (STAcceleration *)accelerationWithCharacteristicValue: (NSData *)characteristicValue;
 

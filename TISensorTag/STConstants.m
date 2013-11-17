@@ -12,17 +12,13 @@
 
 NSString* const STSensorTagName = @"TI BLE Sensor Tag";
 
-NSTimeInterval const STRSSITimerIntervalInMilliseconds = 1000.0;
-float const STRSSIMinimum = -100.0;
-float const STRSSIMaximum = 0.0;
-
 uint8_t const STSensorEnableValue = 0x01;
 uint8_t const STSensorDisableValue = 0x00;
 
 NSString* const STAccelerometerDataCharacteristicUUIDString = @"F000AA11-0451-4000-B000-000000000000";
 NSString* const STAccelerometerConfigurationCharacteristicUUIDString = @"F000AA12-0451-4000-B000-000000000000";
 NSString* const STAccelerometerPeriodCharacteristicUUIDString = @"F000AA13-0451-4000-b000-000000000000";
-int const STAccelerometerPeriodInMilliseconds = 500;
+int const STAccelerometerPeriodInMilliseconds = 100;
 float const STAccelerometerRange = 4.0;
 
 NSString* const STButtonSensorDataCharacteristicUUIDString = @"FFE1";
@@ -35,11 +31,14 @@ float const STGyroscopeRange = 500.0;
 NSString* const STMagnetometerDataCharacteristicUUIDString = @"F000AA31-0451-4000-B000-000000000000";
 NSString* const STMagnetometerConfigurationCharacteristicUUIDString = @"F000AA32-0451-4000-B000-000000000000";
 NSString* const STMagnetometerPeriodCharacteristicUUIDString = @"F000AA33-0451-4000-b000-000000000000";
-int const STMagnetometerPeriodInMilliseconds = 500;
+int const STMagnetometerPeriodInMilliseconds = 250;
 float const STMagnetometerRange = 2000.0;
-
 float const STMagneticFieldStrengthMinimum = 0.0;
 float const STMagneticFieldStrengthMaximum = 300.0;
+
+NSTimeInterval const STRSSITimerIntervalInMilliseconds = 1000.0;
+float const STRSSIMinimum = -100.0;
+float const STRSSIMaximum = 0.0;
 
 NSString* const STTemperatureSensorDataCharacteristicUUIDString = @"F000AA01-0451-4000-b000-000000000000";
 NSString* const STTemperatureSensorConfigurationCharacteristicUUIDString = @"F000AA02-0451-4000-b000-000000000000";

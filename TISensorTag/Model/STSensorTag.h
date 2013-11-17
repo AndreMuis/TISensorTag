@@ -30,4 +30,7 @@
 - (id)initWithDelegate: (id<STSensorTagDelegate>)delegate
    sensorTagPeripheral: (CBPeripheral *)sensorTagPeripheral;
 
+- (void)enableSensors;
+- (void)disableSensors;
+
 @end

@@ -23,13 +23,12 @@
 @property (readwrite, strong, nonatomic) CBCharacteristic *configurationCharacteristic;
 
 @property (readonly, assign, nonatomic) BOOL configured;
+@property (readwrite, assign, nonatomic) BOOL enabled;
 
 - (id)initWithSensorTagDelegate: (id<STSensorTagDelegate>)sensorTagDelegate
             sensorTagPeripheral: (CBPeripheral *)sensorTagPeripheral;
 
-- (void)enable;
 - (void)sensorTagPeripheralDidUpdateValueForCharacteristic: (CBCharacteristic *)characteristic;
-- (void)disable;
 
 - (STAngularVelocity *)angularVelocityWithCharacteristicValue: (NSData *)characteristicValue;
 

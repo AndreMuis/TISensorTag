@@ -28,5 +28,15 @@
     
     return YES;
 }
-							
+
+- (void)applicationDidBecomeActive: (UIApplication *)application
+{
+    [self.sensorTagManager enableSensors];
+}
+
+- (void)applicationWillResignActive: (UIApplication *)application
+{
+    [self.sensorTagManager disableSensors];
+}
+
 @end

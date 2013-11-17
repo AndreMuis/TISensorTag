@@ -12,6 +12,9 @@
 #import "STConstants.h"
 
 @interface STGyroscope ()
+{
+    BOOL _enabled;
+}
 
 @property (readonly, strong, nonatomic) id<STSensorTagDelegate> sensorTagDelegate;
 @property (readonly, strong, nonatomic) CBPeripheral *sensorTagPeripheral;
@@ -53,15 +56,37 @@
     }
 }
 
-- (void)enable
+- (BOOL)enabled
 {
-    uint8_t enableValue = STGyroscopeEnableValue;
-    [self.sensorTagPeripheral writeValue: [NSData dataWithBytes: &enableValue length: 1]
-                       forCharacteristic: self.configurationCharacteristic
-                                    type: CBCharacteristicWriteWithResponse];
-    
-    [self.sensorTagPeripheral setNotifyValue: YES
-                           forCharacteristic: self.dataCharacteristic];
+    return _enabled;
+}
+
+- (void)setEnabled: (BOOL)enabled
+{
+    if (enabled == YES && _enabled == NO)
+    {
+        _enabled = YES;
+        
+        uint8_t enableValue = STGyroscopeEnableValue;
+        [self.sensorTagPeripheral writeValue: [NSData dataWithBytes: &enableValue length: 1]
+                           forCharacteristic: self.configurationCharacteristic
+                                        type: CBCharacteristicWriteWithResponse];
+        
+        [self.sensorTagPeripheral setNotifyValue: YES
+                               forCharacteristic: self.dataCharacteristic];
+    }
+    else if (enabled == NO && _enabled == YES)
+    {
+        _enabled = NO;
+        
+        [self.sensorTagPeripheral setNotifyValue: NO
+                               forCharacteristic: self.dataCharacteristic];
+        
+        uint8_t disableValue = STSensorDisableValue;
+        [self.sensorTagPeripheral writeValue: [NSData dataWithBytes: &disableValue length: 1]
+                           forCharacteristic: self.configurationCharacteristic
+                                        type: CBCharacteristicWriteWithResponse];
+    }
 }
 
 - (void)sensorTagPeripheralDidUpdateValueForCharacteristic: (CBCharacteristic *)characteristic
@@ -70,17 +95,6 @@
     {
         [self.sensorTagDelegate sensorTagDidUpdateAngularVelocity: [self angularVelocityWithCharacteristicValue: characteristic.value]];
     }
-}
-
-- (void)disable
-{
-    [self.sensorTagPeripheral setNotifyValue: NO
-                           forCharacteristic: self.dataCharacteristic];
-
-    uint8_t disableValue = STSensorDisableValue;
-    [self.sensorTagPeripheral writeValue: [NSData dataWithBytes: &disableValue length: 1]
-                       forCharacteristic: self.configurationCharacteristic
-                                    type: CBCharacteristicWriteWithResponse];
 }
 
 - (STAngularVelocity *)angularVelocityWithCharacteristicValue: (NSData *)characteristicValue

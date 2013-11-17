@@ -11,6 +11,9 @@
 #import "STConstants.h"
 
 @interface STRSSISensor ()
+{
+    BOOL _enabled;
+}
 
 @property (readonly, strong, nonatomic) id<STSensorTagDelegate> sensorTagDelegate;
 @property (readonly, strong, nonatomic) CBPeripheral *sensorTagPeripheral;
@@ -39,9 +42,30 @@
     return self;
 }
 
-- (void)enable
+- (BOOL)configured
 {
-    [self readRSSI];
+    return YES;
+}
+
+- (BOOL)enabled
+{
+    return _enabled;
+}
+
+- (void)setEnabled: (BOOL)enabled
+{
+    if (enabled == YES && _enabled == NO)
+    {
+        _enabled = YES;
+        [self readRSSI];
+    }
+    else if (enabled == NO && _enabled == YES)
+    {
+        _enabled = NO;
+        
+        [self.timer invalidate];
+        self.timer = nil;
+    }
 }
 
 - (void)readRSSI
@@ -68,12 +92,6 @@
 - (void)updateWithTimerIntervalInMilliseconds: (int)timerIntervalInMilliseconds
 {
     self.timerIntervalInMilliseconds = timerIntervalInMilliseconds;
-}
-
-- (void)disable
-{
-    [self.timer invalidate];
-    self.timer = nil;
 }
 
 @end

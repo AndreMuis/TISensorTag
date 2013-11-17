@@ -12,6 +12,9 @@
 #import "STSensorTagDelegate.h"
 
 @interface STButtonSensor ()
+{
+    BOOL _enabled;
+}
 
 @property (readonly, strong, nonatomic) id<STSensorTagDelegate> sensorTagDelegate;
 @property (readonly, strong, nonatomic) CBPeripheral *sensorTagPeripheral;
@@ -49,10 +52,27 @@
     }
 }
 
-- (void)enable
+- (BOOL)enabled
 {
-    [self.sensorTagPeripheral setNotifyValue: YES
-                           forCharacteristic: self.dataCharacteristic];
+    return _enabled;
+}
+
+- (void)setEnabled: (BOOL)enabled
+{
+    if (enabled == YES && _enabled == NO)
+    {
+        _enabled = YES;
+        
+        [self.sensorTagPeripheral setNotifyValue: YES
+                               forCharacteristic: self.dataCharacteristic];
+    }
+    else if (enabled == NO && _enabled == YES)
+    {
+        _enabled = NO;
+        
+        [self.sensorTagPeripheral setNotifyValue: NO
+                               forCharacteristic: self.dataCharacteristic];
+    }
 }
 
 - (void)sensorTagPeripheralDidUpdateValueForCharacteristic: (CBCharacteristic *)characteristic
@@ -61,12 +81,6 @@
     {
         [self.sensorTagDelegate sensorTagDidUpdateButtonsPressed: [self buttonsPressedWithCharacteristicValue: characteristic.value]];
     }
-}
-
-- (void)disable
-{
-    [self.sensorTagPeripheral setNotifyValue: NO
-                           forCharacteristic: self.dataCharacteristic];
 }
 
 - (STButtonsPressed)buttonsPressedWithCharacteristicValue: (NSData *)characteristicValue

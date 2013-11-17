@@ -17,4 +17,7 @@
 - (id)initWithDelegate: (id<STSensorTagManagerDelegate>)delegate
      sensorTagDelegate: (id<STSensorTagDelegate>)sensorTagDelegate;
 
+- (void)enableSensors;
+- (void)disableSensors;
+
 @end

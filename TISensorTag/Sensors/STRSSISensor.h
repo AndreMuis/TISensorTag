@@ -13,12 +13,13 @@
 
 @interface STRSSISensor : STSensor
 
+@property (readonly, assign, nonatomic) BOOL configured;
+@property (readwrite, assign, nonatomic) BOOL enabled;
+
 - (id)initWithSensorTagDelegate: (id<STSensorTagDelegate>)sensorTagDelegate
             sensorTagPeripheral: (CBPeripheral *)sensorTagPeripheral;
 
-- (void)enable;
 - (void)sensorTagPeripheralDidUpdateRSSI;
 - (void)updateWithTimerIntervalInMilliseconds: (int)timerIntervalInMilliseconds;
-- (void)disable;
 
 @end

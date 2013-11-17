@@ -21,11 +21,8 @@
 @property (weak, nonatomic) IBOutlet UIView *signalStrengthBackgroundView;
 @property (weak, nonatomic) IBOutlet UIView *signalStrengthView;
 
-@property (weak, nonatomic) IBOutlet UILabel *accelerationLabel;
-@property (weak, nonatomic) IBOutlet UILabel *accelerationMagnitudeLabel;
-
-@property (weak, nonatomic) IBOutlet UILabel *angularVelocityLabel;
-@property (weak, nonatomic) IBOutlet UILabel *angularVelocityMagnitudeLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *sensorTagImageView;
+@property (readonly, assign, nonatomic) CGPoint sensorTagImageViewCenter;
 
 @property (weak, nonatomic) IBOutlet UIView *magneticFieldStrengthBackgroundView;
 @property (weak, nonatomic) IBOutlet UIView *magneticFieldStrengthView;
@@ -46,12 +43,8 @@
     self.centralManagerStateLabel.backgroundColor = [UIColor clearColor];
     self.connectionStatusLabel.backgroundColor = [UIColor clearColor];
     
-    self.accelerationLabel.backgroundColor = [UIColor clearColor];
-    self.accelerationMagnitudeLabel.backgroundColor = [UIColor clearColor];
+    _sensorTagImageViewCenter = self.sensorTagImageView.center;
     
-    self.angularVelocityLabel.backgroundColor = [UIColor clearColor];
-    self.angularVelocityMagnitudeLabel.backgroundColor = [UIColor clearColor];
-
     self.temperatureLabel.backgroundColor = [UIColor clearColor];
     
     [self.leftButtonView setup];
@@ -117,14 +110,12 @@
 
 - (void)sensorTagDidUpdateAcceleration: (STAcceleration *)acceleration
 {
-    self.accelerationLabel.text = [NSString stringWithFormat: @"<%.2f, %.2f, %.2f>", acceleration.xComponent, acceleration.yComponent, acceleration.zComponent];
-    self.accelerationMagnitudeLabel.text = [NSString stringWithFormat: @"%.2f", acceleration.magnitude];
+    self.sensorTagImageView.center = CGPointMake(self.sensorTagImageViewCenter.x + 50.0 * acceleration.xComponent,
+                                                 self.sensorTagImageViewCenter.y + 50.0 * acceleration.yComponent);
 }
 
 - (void)sensorTagDidUpdateAngularVelocity: (STAngularVelocity *)angularVelocity
 {
-    self.angularVelocityLabel.text = [NSString stringWithFormat: @"<%.0f, %.0f, %.0f>", angularVelocity.xComponent, angularVelocity.yComponent, angularVelocity.zComponent];
-    self.angularVelocityMagnitudeLabel.text = [NSString stringWithFormat: @"%.0f", angularVelocity.magnitude];
 }
 
 - (void)sensorTagDidUpdateMagneticFieldStrength: (float)magneticFieldStrength
@@ -183,6 +174,15 @@
             NSLog(@"buttonsPressed set to an illegal value: %d", (int)buttonsPressed);
             break;
     }
+}
+
+- (void)sensorTagDidEnableSensors
+{
+}
+
+- (void)sensorTagDidDisableSensors
+{
+    [self resetUI];
 }
 
 - (void)resetUI

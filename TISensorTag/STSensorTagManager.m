@@ -112,6 +112,22 @@
     [self.delegate sensorTagManagerDidUpdateConnectionStatus: STConnectionStatusScanning];
 }
 
+- (void)enableSensors
+{
+    if (self.sensorTag != nil)
+    {
+        [self.sensorTag enableSensors];
+    }
+}
+
+- (void)disableSensors
+{
+    if (self.sensorTag != nil)
+    {
+        [self.sensorTag disableSensors];
+    }
+}
+
 @end
 
 

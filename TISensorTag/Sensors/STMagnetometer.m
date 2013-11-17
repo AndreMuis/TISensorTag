@@ -12,6 +12,9 @@
 #import "STUtilities.h"
 
 @interface STMagnetometer ()
+{
+    BOOL _enabled;
+}
 
 @property (readonly, strong, nonatomic) id<STSensorTagDelegate> sensorTagDelegate;
 @property (readonly, strong, nonatomic) CBPeripheral *sensorTagPeripheral;
@@ -57,15 +60,40 @@
     }
 }
 
+- (BOOL)enabled
+{
+    return _enabled;
+}
+
+- (void)setEnabled: (BOOL)enabled
+{
+    if (enabled == YES && _enabled == NO)
+    {
+        _enabled = YES;
+        
+        uint8_t enableValue = STSensorEnableValue;
+        [self.sensorTagPeripheral writeValue: [NSData dataWithBytes: &enableValue length: 1]
+                           forCharacteristic: self.configurationCharacteristic
+                                        type: CBCharacteristicWriteWithResponse];
+        
+        [self.sensorTagPeripheral setNotifyValue: YES
+                               forCharacteristic: self.dataCharacteristic];
+    }
+    else if (enabled == NO && _enabled == YES)
+    {
+        _enabled = NO;
+        
+        [self.sensorTagPeripheral setNotifyValue: NO
+                               forCharacteristic: self.dataCharacteristic];
+        
+        uint8_t disableValue = STSensorDisableValue;
+        [self.sensorTagPeripheral writeValue: [NSData dataWithBytes: &disableValue length: 1]
+                           forCharacteristic: self.configurationCharacteristic
+                                        type: CBCharacteristicWriteWithResponse];
+    }
+}
 - (void)enable
 {
-    uint8_t enableValue = STSensorEnableValue;
-    [self.sensorTagPeripheral writeValue: [NSData dataWithBytes: &enableValue length: 1]
-                       forCharacteristic: self.configurationCharacteristic
-                                    type: CBCharacteristicWriteWithResponse];
-    
-    [self.sensorTagPeripheral setNotifyValue: YES
-                           forCharacteristic: self.dataCharacteristic];
 }
 
 - (void)sensorTagPeripheralDidUpdateValueForCharacteristic: (CBCharacteristic *)characteristic
@@ -81,17 +109,6 @@
     uint8_t periodData = (uint8_t)(periodInMilliseconds / 10);
     [self.sensorTagPeripheral writeValue: [NSData dataWithBytes: &periodData length: 1]
                        forCharacteristic: self.periodCharacteristic
-                                    type: CBCharacteristicWriteWithResponse];
-}
-
-- (void)disable
-{
-    [self.sensorTagPeripheral setNotifyValue: NO
-                           forCharacteristic: self.dataCharacteristic];
-
-    uint8_t disableValue = STSensorDisableValue;
-    [self.sensorTagPeripheral writeValue: [NSData dataWithBytes: &disableValue length: 1]
-                       forCharacteristic: self.configurationCharacteristic
                                     type: CBCharacteristicWriteWithResponse];
 }
 

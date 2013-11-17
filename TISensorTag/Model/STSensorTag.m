@@ -52,7 +52,6 @@
         
         _rssiSensor = [[STRSSISensor alloc] initWithSensorTagDelegate: self.delegate
                                                   sensorTagPeripheral: sensorTagPeripheral];
-        [_rssiSensor enable];
         
         _temperatureSensor = [[STTemperatureSensor alloc] initWithSensorTagDelegate: self.delegate
                                                                 sensorTagPeripheral: sensorTagPeripheral];
@@ -128,32 +127,7 @@
             }
         }
         
-        if (self.accelerometer.configured == YES)
-        {
-            [self.accelerometer enable];
-            [self.accelerometer updateWithPeriodInMilliseconds: STAccelerometerPeriodInMilliseconds];
-        }
-
-        if (self.buttonSensor.configured == YES)
-        {
-            [self.buttonSensor enable];
-        }
-
-        if (self.gyroscope.configured == YES)
-        {
-            [self.gyroscope enable];
-        }
-        
-        if (self.magnetometer.configured == YES)
-        {
-            [self.magnetometer enable];
-            [self.magnetometer updateWithPeriodInMilliseconds: STMagnetometerPeriodInMilliseconds];
-        }
-
-        if (self.temperatureSensor.configured == YES)
-        {
-            [self.temperatureSensor enable];
-        }
+        [self enableSensors];
     }
     else
     {
@@ -193,6 +167,78 @@
     }    
 
     [self.rssiSensor sensorTagPeripheralDidUpdateRSSI];
+}
+
+- (void)enableSensors
+{
+    if (self.accelerometer.configured == YES)
+    {
+        self.accelerometer.enabled = YES;
+        [self.accelerometer updateWithPeriodInMilliseconds: STAccelerometerPeriodInMilliseconds];
+    }
+    
+    if (self.buttonSensor.configured == YES)
+    {
+        self.buttonSensor.enabled = YES;
+    }
+    
+    if (self.gyroscope.configured == YES)
+    {
+        self.gyroscope.enabled = YES;
+    }
+    
+    if (self.magnetometer.configured == YES)
+    {
+        self.magnetometer.enabled = YES;
+        [self.magnetometer updateWithPeriodInMilliseconds: STMagnetometerPeriodInMilliseconds];
+    }
+    
+    if (self.rssiSensor.configured == YES)
+    {
+        self.rssiSensor.enabled = YES;
+    }
+    
+    if (self.temperatureSensor.configured == YES)
+    {
+        self.temperatureSensor.enabled = YES;
+    }
+    
+    [self.delegate sensorTagDidEnableSensors];
+}
+
+- (void)disableSensors
+{
+    if (self.accelerometer.configured == YES)
+    {
+        self.accelerometer.enabled = NO;
+    }
+    
+    if (self.buttonSensor.configured == YES)
+    {
+        self.buttonSensor.enabled = NO;
+    }
+    
+    if (self.gyroscope.configured == YES)
+    {
+        self.gyroscope.enabled = NO;
+    }
+    
+    if (self.magnetometer.configured == YES)
+    {
+        self.magnetometer.enabled = NO;
+    }
+    
+    if (self.rssiSensor.configured == YES)
+    {
+        self.rssiSensor.enabled = NO;
+    }    
+
+    if (self.temperatureSensor.configured == YES)
+    {
+        self.temperatureSensor.enabled = NO;
+    }
+
+    [self.delegate sensorTagDidDisableSensors];
 }
 
 @end

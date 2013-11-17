@@ -28,13 +28,12 @@ typedef NS_ENUM(NSUInteger, STButtonsPressed)
 @property (readwrite, strong, nonatomic) CBCharacteristic *dataCharacteristic;
 
 @property (readonly, assign, nonatomic) BOOL configured;
+@property (readwrite, assign, nonatomic) BOOL enabled;
 
 - (id)initWithSensorTagDelegate: (id<STSensorTagDelegate>)sensorTagDelegate
             sensorTagPeripheral: (CBPeripheral *)sensorTagPeripheral;
 
-- (void)enable;
 - (void)sensorTagPeripheralDidUpdateValueForCharacteristic: (CBCharacteristic *)characteristic;
-- (void)disable;
 
 - (STButtonsPressed)buttonsPressedWithCharacteristicValue: (NSData *)characteristicValue;
 
