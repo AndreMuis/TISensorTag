@@ -23,6 +23,7 @@ extern NSString* const STAccelerometerDataCharacteristicUUIDString;
 extern NSString* const STAccelerometerConfigurationCharacteristicUUIDString;
 extern NSString* const STAccelerometerPeriodCharacteristicUUIDString;
 extern int const STAccelerometerPeriodInMilliseconds;
+extern float const STAccelerometerHighPassFilteringFactor;
 extern float const STAccelerometerRange;
 
 extern NSString* const STButtonSensorDataCharacteristicUUIDString;

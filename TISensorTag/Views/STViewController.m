@@ -22,7 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIView *signalStrengthView;
 
 @property (weak, nonatomic) IBOutlet UIImageView *sensorTagImageView;
-@property (readonly, assign, nonatomic) CGPoint sensorTagImageViewCenter;
+@property (readonly, assign, nonatomic) CGRect sensorTagImageViewFrame;
 
 @property (weak, nonatomic) IBOutlet UIView *magneticFieldStrengthBackgroundView;
 @property (weak, nonatomic) IBOutlet UIView *magneticFieldStrengthView;
@@ -43,7 +43,7 @@
     self.centralManagerStateLabel.backgroundColor = [UIColor clearColor];
     self.connectionStatusLabel.backgroundColor = [UIColor clearColor];
     
-    _sensorTagImageViewCenter = self.sensorTagImageView.center;
+    _sensorTagImageViewFrame = self.sensorTagImageView.frame;
     
     self.temperatureLabel.backgroundColor = [UIColor clearColor];
     
@@ -110,8 +110,14 @@
 
 - (void)sensorTagDidUpdateAcceleration: (STAcceleration *)acceleration
 {
-    self.sensorTagImageView.center = CGPointMake(self.sensorTagImageViewCenter.x + 50.0 * acceleration.xComponent,
-                                                 self.sensorTagImageViewCenter.y + 50.0 * acceleration.yComponent);
+}
+
+- (void)sensorTagDidUpdateSmoothedAcceleration: (STAcceleration *)acceleration
+{
+    self.sensorTagImageView.frame = CGRectMake(self.sensorTagImageViewFrame.origin.x - 40.0 * (acceleration.xComponent / (STAccelerometerRange / 2.0)),
+                                               self.sensorTagImageViewFrame.origin.y + 40.0 * (acceleration.yComponent / (STAccelerometerRange / 2.0)),
+                                               self.sensorTagImageViewFrame.size.width + (0.5 * (acceleration.zComponent / (STAccelerometerRange / 2.0)) * self.sensorTagImageViewFrame.size.width),
+                                               self.sensorTagImageViewFrame.size.height + (0.5 * (acceleration.zComponent / (STAccelerometerRange / 2.0)) * self.sensorTagImageViewFrame.size.height));
 }
 
 - (void)sensorTagDidUpdateAngularVelocity: (STAngularVelocity *)angularVelocity

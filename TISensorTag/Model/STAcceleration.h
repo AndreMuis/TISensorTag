@@ -10,12 +10,12 @@
 
 @interface STAcceleration : NSObject
 
-@property (readonly, assign, nonatomic) float xComponent;
-@property (readonly, assign, nonatomic) float yComponent;
-@property (readonly, assign, nonatomic) float zComponent;
+@property (readwrite, assign, nonatomic) float xComponent;
+@property (readwrite, assign, nonatomic) float yComponent;
+@property (readwrite, assign, nonatomic) float zComponent;
 
 @property (readonly, assign, nonatomic) float magnitude;
 
-- (id)initWithXComponent: (float)xComponent YComponent: (float)yComponent ZComponent: (float)zComponent;
+- (id)initWithXComponent: (float)xComponent yComponent: (float)yComponent zComponent: (float)zComponent;
 
 @end

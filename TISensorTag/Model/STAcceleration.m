@@ -12,7 +12,7 @@
 
 @implementation STAcceleration
 
-- (id)initWithXComponent: (float)xComponent YComponent: (float)yComponent ZComponent: (float)zComponent
+- (id)initWithXComponent: (float)xComponent yComponent: (float)yComponent zComponent: (float)zComponent
 {
     self = [super init];
     

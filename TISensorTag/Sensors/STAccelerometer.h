@@ -35,5 +35,6 @@
 - (void)updateWithPeriodInMilliseconds: (int)periodInMilliseconds;
 
 - (STAcceleration *)accelerationWithCharacteristicValue: (NSData *)characteristicValue;
+- (STAcceleration *)smoothedAccelerationWithCharacteristicValue: (NSData *)characteristicValue;
 
 @end

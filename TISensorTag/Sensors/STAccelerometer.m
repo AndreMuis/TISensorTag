@@ -18,6 +18,7 @@
 
 @property (readonly, strong, nonatomic) id<STSensorTagDelegate> sensorTagDelegate;
 @property (readonly, strong, nonatomic) CBPeripheral *sensorTagPeripheral;
+@property (readonly, strong, nonatomic) STAcceleration *rollingAcceleration;
 
 @end
 
@@ -32,7 +33,7 @@
     {
         _sensorTagDelegate = sensorTagDelegate;
         _sensorTagPeripheral = sensorTagPeripheral;
-        
+        _rollingAcceleration = [[STAcceleration alloc] initWithXComponent: 0.0 yComponent: 0.0 zComponent: 0.0];
         _dataCharacteristicUUID = [CBUUID UUIDWithString: STAccelerometerDataCharacteristicUUIDString];
         _dataCharacteristic = nil;
         
@@ -100,6 +101,7 @@
     if ([characteristic.UUID isEqual: self.dataCharacteristicUUID] == YES)
     {
         [self.sensorTagDelegate sensorTagDidUpdateAcceleration: [self accelerationWithCharacteristicValue: characteristic.value]];
+        [self.sensorTagDelegate sensorTagDidUpdateSmoothedAcceleration: [self smoothedAccelerationWithCharacteristicValue: characteristic.value]];
     }
 }
 
@@ -117,9 +119,29 @@
     [characteristicValue getBytes: &scratchVal length: 3];
     
     STAcceleration *acceleration = [[STAcceleration alloc] initWithXComponent: (scratchVal[0] * 1.0) / (256 / STAccelerometerRange)
-                                                                   YComponent: (scratchVal[1] * 1.0) / (256 / STAccelerometerRange)
-                                                                   ZComponent: (scratchVal[2] * 1.0) / (256 / STAccelerometerRange)];
+                                                                   yComponent: (scratchVal[1] * 1.0) / (256 / STAccelerometerRange)
+                                                                   zComponent: (scratchVal[2] * 1.0) / (256 / STAccelerometerRange)];
     
+    return acceleration;
+}
+
+- (STAcceleration *)smoothedAccelerationWithCharacteristicValue: (NSData *)characteristicValue
+{
+    STAcceleration *acceleration = [self accelerationWithCharacteristicValue: characteristicValue];
+    
+    self.rollingAcceleration.xComponent = (acceleration.xComponent * STAccelerometerHighPassFilteringFactor) +
+    (self.rollingAcceleration.xComponent * (1.0 - STAccelerometerHighPassFilteringFactor));
+    
+    self.rollingAcceleration.yComponent = (acceleration.yComponent * STAccelerometerHighPassFilteringFactor) +
+    (self.rollingAcceleration.yComponent * (1.0 - STAccelerometerHighPassFilteringFactor));
+    
+    self.rollingAcceleration.zComponent = (acceleration.zComponent * STAccelerometerHighPassFilteringFactor) +
+    (self.rollingAcceleration.zComponent * (1.0 - STAccelerometerHighPassFilteringFactor));
+    
+    acceleration.xComponent = acceleration.xComponent - self.rollingAcceleration.xComponent;
+    acceleration.yComponent = acceleration.yComponent - self.rollingAcceleration.yComponent;
+    acceleration.zComponent = acceleration.zComponent - self.rollingAcceleration.zComponent;
+
     return acceleration;
 }
 

@@ -19,6 +19,7 @@ NSString* const STAccelerometerDataCharacteristicUUIDString = @"F000AA11-0451-40
 NSString* const STAccelerometerConfigurationCharacteristicUUIDString = @"F000AA12-0451-4000-B000-000000000000";
 NSString* const STAccelerometerPeriodCharacteristicUUIDString = @"F000AA13-0451-4000-b000-000000000000";
 int const STAccelerometerPeriodInMilliseconds = 100;
+float const STAccelerometerHighPassFilteringFactor = 0.25;
 float const STAccelerometerRange = 4.0;
 
 NSString* const STButtonSensorDataCharacteristicUUIDString = @"FFE1";
