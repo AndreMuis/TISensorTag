@@ -63,12 +63,25 @@
      advertisementData: (NSDictionary *)advertisementData
                   RSSI: (NSNumber *)RSSI
 {
-    if ([peripheral.name isEqualToString: STSensorTagName] == YES)
+    if ([[advertisementData allKeys] containsObject: STAdvertisementDataLocalNameKey] == YES)
     {
-        _sensorTagPeripheral = peripheral;
-        [self.centralManager connectPeripheral: self.sensorTagPeripheral options: nil];
+        NSString *localName = [advertisementData objectForKey: STAdvertisementDataLocalNameKey];
+        
+        if ([localName isEqualToString: STAdvertisementDataLocalNameValue] == YES)
+        {
+            _sensorTagPeripheral = peripheral;
+            [self.centralManager connectPeripheral: self.sensorTagPeripheral options: nil];
 
-        [self.delegate sensorTagManagerDidUpdateConnectionStatus: STConnectionStatusConnecting];
+            [self.delegate sensorTagManagerDidUpdateConnectionStatus: STConnectionStatusConnecting];
+        }
+        else
+        {
+            NSLog(@"Advertisement data local name %@ not equal to %@", localName, STAdvertisementDataLocalNameValue);
+        }
+    }
+    else
+    {
+        NSLog(@"Local name key %@ not found in advertisement data: %@", STAdvertisementDataLocalNameKey, advertisementData);
     }
 }
 

@@ -10,7 +10,8 @@
 
 @implementation STConstants
 
-NSString* const STSensorTagName = @"TI BLE Sensor Tag";
+NSString* const STAdvertisementDataLocalNameKey = @"kCBAdvDataLocalName";
+NSString* const STAdvertisementDataLocalNameValue = @"SensorTag";
 
 uint8_t const STSensorEnableValue = 0x01;
 uint8_t const STSensorDisableValue = 0x00;
@@ -19,7 +20,7 @@ NSString* const STAccelerometerDataCharacteristicUUIDString = @"F000AA11-0451-40
 NSString* const STAccelerometerConfigurationCharacteristicUUIDString = @"F000AA12-0451-4000-B000-000000000000";
 NSString* const STAccelerometerPeriodCharacteristicUUIDString = @"F000AA13-0451-4000-b000-000000000000";
 int const STAccelerometerPeriodInMilliseconds = 100;
-float const STAccelerometerHighPassFilteringFactor = 0.25;
+float const STAccelerometerHighPassFilteringFactor = 0.2;
 float const STAccelerometerRange = 4.0;
 
 NSString* const STButtonSensorDataCharacteristicUUIDString = @"FFE1";

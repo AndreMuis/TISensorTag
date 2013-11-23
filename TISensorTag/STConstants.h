@@ -10,7 +10,8 @@
 
 @interface STConstants : NSObject
 
-extern NSString* const STSensorTagName;
+extern NSString* const STAdvertisementDataLocalNameKey;
+extern NSString* const STAdvertisementDataLocalNameValue;
 
 extern NSTimeInterval const STRSSITimerIntervalInMilliseconds;
 extern float const STRSSIMinimum;

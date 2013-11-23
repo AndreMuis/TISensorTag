@@ -8,6 +8,7 @@
 
 #import "STViewController.h"
 
+#import "STBarMeterView.h"
 #import "STButtonSensor.h"
 #import "STButtonView.h"
 #import "STConstants.h"
@@ -18,14 +19,13 @@
 @property (weak, nonatomic) IBOutlet UILabel *centralManagerStateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *connectionStatusLabel;
 
-@property (weak, nonatomic) IBOutlet UIView *signalStrengthBackgroundView;
-@property (weak, nonatomic) IBOutlet UIView *signalStrengthView;
+@property (weak, nonatomic) IBOutlet STBarMeterView *signalStrengthBarMeterView;
 
 @property (weak, nonatomic) IBOutlet UIImageView *sensorTagImageView;
-@property (readonly, assign, nonatomic) CGRect sensorTagImageViewFrame;
+@property (readonly, assign, nonatomic) CGPoint sensorTagImageViewCenter;
+@property (readonly, assign, nonatomic) CGSize sensorTagImageViewSize;
 
-@property (weak, nonatomic) IBOutlet UIView *magneticFieldStrengthBackgroundView;
-@property (weak, nonatomic) IBOutlet UIView *magneticFieldStrengthView;
+@property (weak, nonatomic) IBOutlet STBarMeterView *magneticFieldStrengthBarMeterView;
 
 @property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
 
@@ -43,8 +43,15 @@
     self.centralManagerStateLabel.backgroundColor = [UIColor clearColor];
     self.connectionStatusLabel.backgroundColor = [UIColor clearColor];
     
-    _sensorTagImageViewFrame = self.sensorTagImageView.frame;
+    [self.signalStrengthBarMeterView setupWithBackgroundColor: [UIColor colorWithRed: 0.75 green: 1.0 blue: 0.75 alpha: 1.0]
+                                               indicatorColor: [UIColor colorWithRed: 0.0 green: 1.0 blue: 0.0 alpha: 1.0]];
     
+    _sensorTagImageViewCenter = self.sensorTagImageView.center;
+    _sensorTagImageViewSize = self.sensorTagImageView.frame.size;
+    
+    [self.magneticFieldStrengthBarMeterView setupWithBackgroundColor: [UIColor colorWithRed: 0.75 green: 0.75 blue: 1.0 alpha: 1.0]
+                                                      indicatorColor: [UIColor colorWithRed: 0.0 green: 0.0 blue: 1.0 alpha: 1.0]];
+
     self.temperatureLabel.backgroundColor = [UIColor clearColor];
     
     [self.leftButtonView setup];
@@ -89,23 +96,7 @@
 - (void)sensorTagDidUpdateRSSI: (NSNumber *)rssi;
 {
     float rssiValue = [rssi floatValue];
-    
-    if (rssiValue < STRSSIMinimum)
-    {
-        rssiValue = STRSSIMinimum;
-    }
-    else if (rssiValue > STRSSIMaximum)
-    {
-        rssiValue = STRSSIMaximum;
-    }
-    
-    CGFloat signalStrengthViewWidth = self.signalStrengthBackgroundView.frame.size.width *
-    (rssiValue - STRSSIMinimum) / (STRSSIMaximum - STRSSIMinimum);
-    
-    self.signalStrengthView.frame = CGRectMake(self.signalStrengthView.frame.origin.x,
-                                               self.signalStrengthView.frame.origin.y,
-                                               signalStrengthViewWidth,
-                                               self.signalStrengthView.frame.size.height);
+    self.signalStrengthBarMeterView.normalizedReading = (rssiValue - STRSSIMinimum) / (STRSSIMaximum - STRSSIMinimum);
 }
 
 - (void)sensorTagDidUpdateAcceleration: (STAcceleration *)acceleration
@@ -114,10 +105,19 @@
 
 - (void)sensorTagDidUpdateSmoothedAcceleration: (STAcceleration *)acceleration
 {
-    self.sensorTagImageView.frame = CGRectMake(self.sensorTagImageViewFrame.origin.x - 40.0 * (acceleration.xComponent / (STAccelerometerRange / 2.0)),
-                                               self.sensorTagImageViewFrame.origin.y + 40.0 * (acceleration.yComponent / (STAccelerometerRange / 2.0)),
-                                               self.sensorTagImageViewFrame.size.width + (0.5 * (acceleration.zComponent / (STAccelerometerRange / 2.0)) * self.sensorTagImageViewFrame.size.width),
-                                               self.sensorTagImageViewFrame.size.height + (0.5 * (acceleration.zComponent / (STAccelerometerRange / 2.0)) * self.sensorTagImageViewFrame.size.height));
+    CGSize sensorTagImageViewDisplacement =
+    CGSizeMake(40.0 * (acceleration.xComponent / (STAccelerometerRange / 2.0)),
+               40.0 * (acceleration.yComponent / (STAccelerometerRange / 2.0)));
+
+    CGSize currentSensorTagImageViewSize =
+    CGSizeMake(self.sensorTagImageViewSize.width - (acceleration.zComponent / (STAccelerometerRange / 2.0)) * (0.4 * self.sensorTagImageViewSize.width),
+               self.sensorTagImageViewSize.height - (acceleration.zComponent / (STAccelerometerRange / 2.0)) * (0.4 * self.sensorTagImageViewSize.height));
+    
+    self.sensorTagImageView.frame =
+    CGRectMake(self.sensorTagImageViewCenter.x - currentSensorTagImageViewSize.width / 2.0 + sensorTagImageViewDisplacement.width,
+               self.sensorTagImageViewCenter.y - currentSensorTagImageViewSize.height / 2.0 + sensorTagImageViewDisplacement.height,
+               currentSensorTagImageViewSize.width,
+               currentSensorTagImageViewSize.height);
 }
 
 - (void)sensorTagDidUpdateAngularVelocity: (STAngularVelocity *)angularVelocity
@@ -126,22 +126,8 @@
 
 - (void)sensorTagDidUpdateMagneticFieldStrength: (float)magneticFieldStrength
 {
-    if (magneticFieldStrength < STMagneticFieldStrengthMinimum)
-    {
-        magneticFieldStrength = STMagneticFieldStrengthMinimum;
-    }
-    else if (magneticFieldStrength > STMagneticFieldStrengthMaximum)
-    {
-        magneticFieldStrength = STMagneticFieldStrengthMaximum;
-    }
-    
-    CGFloat magneticFieldStrengthViewWidth = self.magneticFieldStrengthBackgroundView.frame.size.width *
+    self.magneticFieldStrengthBarMeterView.normalizedReading =
     (magneticFieldStrength - STMagneticFieldStrengthMinimum) / (STMagneticFieldStrengthMaximum - STMagneticFieldStrengthMinimum);
-    
-    self.magneticFieldStrengthView.frame = CGRectMake(self.magneticFieldStrengthView.frame.origin.x,
-                                                      self.magneticFieldStrengthView.frame.origin.y,
-                                                      magneticFieldStrengthViewWidth,
-                                                      self.magneticFieldStrengthView.frame.size.height);
 }
 
 - (void)sensorTagDidUpdateTemperature: (float)temperature
@@ -193,16 +179,8 @@
 
 - (void)resetUI
 {
-    self.signalStrengthView.frame = CGRectMake(self.signalStrengthView.frame.origin.x,
-                                               self.signalStrengthView.frame.origin.y,
-                                               0.0,
-                                               self.signalStrengthView.frame.size.height);
-    
-    self.magneticFieldStrengthView.frame = CGRectMake(self.magneticFieldStrengthView.frame.origin.x,
-                                                      self.magneticFieldStrengthView.frame.origin.y,
-                                                      0.0,
-                                                      self.magneticFieldStrengthView.frame.size.height);
-
+    self.signalStrengthBarMeterView.normalizedReading = 0.0;
+    self.magneticFieldStrengthBarMeterView.normalizedReading = 0.0;
     self.temperatureLabel.text = @"? °F";
 }
 

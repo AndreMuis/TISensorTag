@@ -26,6 +26,7 @@
 		F471B900183557CA00149BE5 /* TISensorTagTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F471B8FF183557CA00149BE5 /* TISensorTagTests.m */; };
 		F471B90A1835586300149BE5 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F471B9091835586300149BE5 /* CoreBluetooth.framework */; };
 		F4A288041838052700ABB586 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4A288031838052700ABB586 /* QuartzCore.framework */; };
+		F4AF734218405EE800DECD9F /* STBarMeterView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AF734118405EE800DECD9F /* STBarMeterView.m */; };
 		F4B455AB1836982100859BFC /* STConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B455AA1836982100859BFC /* STConstants.m */; };
 		F4B455AE18369D1600859BFC /* STGyroscope.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B455AD18369D1600859BFC /* STGyroscope.m */; };
 		F4B455B118369D3100859BFC /* STMagnetometer.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B455B018369D3100859BFC /* STMagnetometer.m */; };
@@ -80,6 +81,8 @@
 		F471B8FF183557CA00149BE5 /* TISensorTagTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TISensorTagTests.m; sourceTree = "<group>"; };
 		F471B9091835586300149BE5 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		F4A288031838052700ABB586 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		F4AF734018405EE800DECD9F /* STBarMeterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STBarMeterView.h; path = Views/STBarMeterView.h; sourceTree = "<group>"; };
+		F4AF734118405EE800DECD9F /* STBarMeterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STBarMeterView.m; path = Views/STBarMeterView.m; sourceTree = "<group>"; };
 		F4B455A91836982100859BFC /* STConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STConstants.h; sourceTree = "<group>"; };
 		F4B455AA1836982100859BFC /* STConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STConstants.m; sourceTree = "<group>"; };
 		F4B455AC18369D1600859BFC /* STGyroscope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STGyroscope.h; path = Sensors/STGyroscope.h; sourceTree = "<group>"; };
@@ -249,6 +252,8 @@
 			isa = PBXGroup;
 			children = (
 				F4B455BE1836A82A00859BFC /* Main.storyboard */,
+				F4AF734018405EE800DECD9F /* STBarMeterView.h */,
+				F4AF734118405EE800DECD9F /* STBarMeterView.m */,
 				F457739F183814F900738886 /* STButtonView.h */,
 				F45773A0183814F900738886 /* STButtonView.m */,
 				F4B455BF1836A82A00859BFC /* STViewController.h */,
@@ -393,6 +398,7 @@
 				F46AE7951835B91D00D9F14C /* STSensorTagManager.m in Sources */,
 				F4B455CB1836A89900859BFC /* main.m in Sources */,
 				F45773A1183814F900738886 /* STButtonView.m in Sources */,
+				F4AF734218405EE800DECD9F /* STBarMeterView.m in Sources */,
 				F4B455D21836CB8D00859BFC /* STAngularVelocity.m in Sources */,
 				F4B455C21836A82A00859BFC /* STViewController.m in Sources */,
 			);

@@ -54,15 +54,10 @@
                                 <rect key="frame" x="20" y="138" width="38" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uCy-KO-OEt" userLabel="signalStrengthBackgroundView">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uCy-KO-OEt" userLabel="signalStrengthBarMeterView" customClass="STBarMeterView">
                                 <rect key="frame" x="71" y="147" width="229" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.74901960784313726" green="1" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R6J-mn-b43" userLabel="signalStrengthView">
-                                <rect key="frame" x="71" y="147" width="69" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SensorTag" translatesAutoresizingMaskIntoConstraints="NO" id="tOq-uJ-i3w" userLabel="sensorTagImageView">
                                 <rect key="frame" x="122" y="229" width="77" height="148"/>
@@ -72,15 +67,10 @@
                                 <rect key="frame" x="20" y="418" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NLW-ZQ-PVg" userLabel="magneticFieldStrengthBackgroundView">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NLW-ZQ-PVg" userLabel="magneticFieldStrengthBarMeterView" customClass="STBarMeterView">
                                 <rect key="frame" x="88" y="434" width="212" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.74901960784313726" green="0.74901960784313726" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wHQ-ey-jTc" userLabel="magneticFieldStrengthView">
-                                <rect key="frame" x="88" y="434" width="72" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100.0 °F" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uqW-kH-Cja" userLabel="temperatureLabel">
                                 <rect key="frame" x="20" y="503" width="123" height="45"/>
@@ -106,18 +96,16 @@
                         <outlet property="centralManagerStateLabel" destination="ZzK-9x-pHB" id="RTx-2S-bxN"/>
                         <outlet property="connectionStatusLabel" destination="qQm-fj-Fha" id="uZH-Ff-AHR"/>
                         <outlet property="leftButtonView" destination="h9z-Fr-lLj" id="OSj-DQ-AZr"/>
-                        <outlet property="magneticFieldStrengthBackgroundView" destination="NLW-ZQ-PVg" id="f1a-JY-y0p"/>
-                        <outlet property="magneticFieldStrengthView" destination="wHQ-ey-jTc" id="7eD-E9-bsJ"/>
+                        <outlet property="magneticFieldStrengthBarMeterView" destination="NLW-ZQ-PVg" id="Nxm-s9-w49"/>
                         <outlet property="rightButtonView" destination="mAP-Yx-bRl" id="75R-eG-WkY"/>
                         <outlet property="sensorTagImageView" destination="tOq-uJ-i3w" id="HIW-9M-JBz"/>
-                        <outlet property="signalStrengthBackgroundView" destination="uCy-KO-OEt" id="f4E-Ui-PjD"/>
-                        <outlet property="signalStrengthView" destination="R6J-mn-b43" id="sJE-tP-Bf2"/>
+                        <outlet property="signalStrengthBarMeterView" destination="uCy-KO-OEt" id="d68-Uj-VcR"/>
                         <outlet property="temperatureLabel" destination="uqW-kH-Cja" id="MO1-Xt-dfu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1108" y="824"/>
+            <point key="canvasLocation" x="1122" y="948"/>
         </scene>
     </scenes>
     <resources>
