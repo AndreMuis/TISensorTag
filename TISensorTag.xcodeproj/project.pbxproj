@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D76122CC1AFE6C86006297BE /* STMovement.m in Sources */ = {isa = PBXBuildFile; fileRef = D76122CB1AFE6C86006297BE /* STMovement.m */; };
 		F45773A1183814F900738886 /* STButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = F45773A0183814F900738886 /* STButtonView.m */; };
 		F45773B118385EC700738886 /* STRSSISensor.m in Sources */ = {isa = PBXBuildFile; fileRef = F45773B018385EC700738886 /* STRSSISensor.m */; };
 		F46AE7891835B12100D9F14C /* STSensor.m in Sources */ = {isa = PBXBuildFile; fileRef = F46AE7881835B12100D9F14C /* STSensor.m */; };
@@ -52,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D76122CA1AFE6C86006297BE /* STMovement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STMovement.h; path = Sensors/STMovement.h; sourceTree = "<group>"; };
+		D76122CB1AFE6C86006297BE /* STMovement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STMovement.m; path = Sensors/STMovement.m; sourceTree = "<group>"; };
 		F457739F183814F900738886 /* STButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STButtonView.h; path = Views/STButtonView.h; sourceTree = "<group>"; };
 		F45773A0183814F900738886 /* STButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STButtonView.m; path = Views/STButtonView.m; sourceTree = "<group>"; };
 		F45773AF18385EC700738886 /* STRSSISensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STRSSISensor.h; path = Sensors/STRSSISensor.h; sourceTree = "<group>"; };
@@ -152,6 +155,8 @@
 				F45773B018385EC700738886 /* STRSSISensor.m */,
 				F46AE78A1835B14400D9F14C /* STTemperatureSensor.h */,
 				F46AE78B1835B14400D9F14C /* STTemperatureSensor.m */,
+				D76122CA1AFE6C86006297BE /* STMovement.h */,
+				D76122CB1AFE6C86006297BE /* STMovement.m */,
 			);
 			name = Sensors;
 			sourceTree = "<group>";
@@ -391,6 +396,7 @@
 				F4B455AB1836982100859BFC /* STConstants.m in Sources */,
 				F45773B118385EC700738886 /* STRSSISensor.m in Sources */,
 				F4B455CF1836A99F00859BFC /* CBCentralManager+STExtensions.m in Sources */,
+				D76122CC1AFE6C86006297BE /* STMovement.m in Sources */,
 				F46AE7891835B12100D9F14C /* STSensor.m in Sources */,
 				F471B8E5183557CA00149BE5 /* STAppDelegate.m in Sources */,
 				F4B455B118369D3100859BFC /* STMagnetometer.m in Sources */,

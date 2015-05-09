@@ -21,6 +21,8 @@ extern float const STRSSIMaximum;
 
 extern uint8_t const STSensorEnableValue;
 extern uint8_t const STSensorDisableValue;
+extern uint8_t const STMovementEnableValue;
+extern uint8_t const STMovementDisableValue;
 
 extern NSString* const STAccelerometerDataCharacteristicUUIDString;
 extern NSString* const STAccelerometerConfigurationCharacteristicUUIDString;
@@ -47,5 +49,11 @@ extern float const STMagneticFieldStrengthMaximum;
 
 extern NSString* const STTemperatureSensorDataCharacteristicUUIDString;
 extern NSString* const STTemperatureSensorConfigurationCharacteristicUUIDString;
+
+// Accelerometer, Gyroscope and Mgnetometer combined into Movement in SensorTag 2.0
+extern NSString* const STMovementDataCharacteristicUUIDString;
+extern NSString* const STMovementConfigurationCharacteristicUUIDString;
+extern NSString* const STMovementPeriodCharacteristicUUIDString;
+extern int const STMovementPeriodInMilliseconds;
 
 @end

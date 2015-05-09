@@ -17,6 +17,12 @@
 @class STMagnetometer;
 @class STRSSISensor;
 @class STTemperatureSensor;
+@class STMovement;
+
+typedef enum STSensorTagVersion : NSUInteger {
+    kSensorTagCC2451,
+    kSensorTagCC2650
+} STSensorTagVersion;
 
 @interface STSensorTag : NSObject
 
@@ -26,6 +32,8 @@
 @property (readonly, strong, nonatomic) STMagnetometer *magnetometer;
 @property (readonly, strong, nonatomic) STRSSISensor *rssiSensor;
 @property (readonly, strong, nonatomic) STTemperatureSensor *temperatureSensor;
+@property (readonly, strong, nonatomic) STMovement *movement;
+@property (nonatomic, assign) STSensorTagVersion sensorTagVersion;
 
 - (id)initWithDelegate: (id<STSensorTagDelegate>)delegate
    sensorTagPeripheral: (CBPeripheral *)sensorTagPeripheral;
