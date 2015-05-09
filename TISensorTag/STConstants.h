@@ -21,8 +21,8 @@ extern float const STRSSIMaximum;
 
 extern uint8_t const STSensorEnableValue;
 extern uint8_t const STSensorDisableValue;
-extern uint8_t const STMovementEnableValue;
-extern uint8_t const STMovementDisableValue;
+extern uint16_t const STMovementEnableValue;
+extern uint16_t const STMovementDisableValue;
 
 extern NSString* const STAccelerometerDataCharacteristicUUIDString;
 extern NSString* const STAccelerometerConfigurationCharacteristicUUIDString;

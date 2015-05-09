@@ -17,8 +17,8 @@ NSString* const STAdvertisementDataLocalNameValueV2 = @"CC2650 SensorTag";
 
 uint8_t const STSensorEnableValue = 0x01;
 uint8_t const STSensorDisableValue = 0x00;
-uint8_t const STMovementEnableValue = 0x02;
-uint8_t const STMovementDisableValue = 0x00;
+uint16_t const STMovementEnableValue = 0x007f;
+uint16_t const STMovementDisableValue = 0x0000;
 
 NSString* const STAccelerometerDataCharacteristicUUIDString = @"F000AA11-0451-4000-B000-000000000000";
 NSString* const STAccelerometerConfigurationCharacteristicUUIDString = @"F000AA12-0451-4000-B000-000000000000";
