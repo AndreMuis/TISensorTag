@@ -3,6 +3,7 @@
 //  TISensorTag
 //
 //  Created by Michael Terry on 5/9/15.
+//  Based on the original TISensorTag work by Andre Muis
 //  Copyright (c) 2015 Andre Muis. All rights reserved.
 //
 
@@ -33,9 +34,5 @@
 
 - (void)sensorTagPeripheralDidUpdateValueForCharacteristic: (CBCharacteristic *)characteristic;
 - (void)updateWithPeriodInMilliseconds: (int)periodInMilliseconds;
-
-//- (STAcceleration *)accelerationWithCharacteristicValue: (NSData *)characteristicValue;
-//- (STAcceleration *)accelerationWithCharacteristicValue: (uint8_t*)scratchVal;
-//- (STAcceleration *)smoothedAccelerationWithCharacteristicValue: (NSData *)characteristicValue;
 
 @end

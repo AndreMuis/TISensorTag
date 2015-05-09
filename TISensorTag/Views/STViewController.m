@@ -48,6 +48,7 @@
     
     _sensorTagImageViewCenter = self.sensorTagImageView.center;
     _sensorTagImageViewSize = self.sensorTagImageView.frame.size;
+    [_sensorTagImageView setImage:[UIImage imageNamed:@"SensorTag"]];
     
     [self.magneticFieldStrengthBarMeterView setupWithBackgroundColor: [UIColor colorWithRed: 0.75 green: 0.75 blue: 1.0 alpha: 1.0]
                                                       indicatorColor: [UIColor colorWithRed: 0.0 green: 0.0 blue: 1.0 alpha: 1.0]];
@@ -93,6 +94,18 @@
     }
 }
 
+- (void) sensorTagManagerDidIdentifyVersion:(STVersion)version
+{
+    switch (version) {
+        case STVersionCC2451:
+            [_sensorTagImageView setImage:[UIImage imageNamed:@"SensorTag"]];
+            break;
+        case STVersionCC2650:
+            [_sensorTagImageView setImage:[UIImage imageNamed:@"SensorTag2"]];
+            break;
+    }
+}
+
 - (void)sensorTagDidUpdateRSSI: (NSNumber *)rssi;
 {
     float rssiValue = [rssi floatValue];
@@ -122,6 +135,8 @@
 
 - (void)sensorTagDidUpdateAngularVelocity: (STAngularVelocity *)angularVelocity
 {
+    // Log output of angular velocity since it is not presented in the GUI
+    // NSLog(@"%@", angularVelocity);
 }
 
 - (void)sensorTagDidUpdateMagneticFieldStrength: (float)magneticFieldStrength

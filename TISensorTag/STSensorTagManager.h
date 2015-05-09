@@ -14,6 +14,8 @@
 
 @interface STSensorTagManager : NSObject
 
+@property (nonatomic, assign) STVersion version;
+
 - (id)initWithDelegate: (id<STSensorTagManagerDelegate>)delegate
      sensorTagDelegate: (id<STSensorTagDelegate>)sensorTagDelegate;
 

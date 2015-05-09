@@ -3,9 +3,20 @@
 //  TISensorTag
 //
 //  Created by Michael Terry on 5/9/15.
+//  Based on the original TISensorTag work by Andre Muis
 //  Copyright (c) 2015 Andre Muis. All rights reserved.
 //
-
+//  SensorTag 2015 replaces Accelerometer, Magnetometer, and Gyroscope services with a single Movement service
+//  that combines the values together in a single data feed.
+//
+// The data characteristic provides 18 bytes of data as 9 x 16-bit signed little endian integers, representing
+// the gyroscope (angular velocity), accelerometer and magnetometer
+//
+// Configuration of the service requires that bits are turned on for each desired axis, with 9 total available axes,
+// sent as a 16-bit number on the configuration
+//
+// Refer to the SensorTag firmware in BLESTACK2 from TI for additional information.
+//
 #import "STMovement.h"
 
 #import "STAcceleration.h"
@@ -19,7 +30,13 @@
 
 @property (readonly, strong, nonatomic) id<STSensorTagDelegate> sensorTagDelegate;
 @property (readonly, strong, nonatomic) CBPeripheral *sensorTagPeripheral;
+@property (readonly, strong, nonatomic) STAcceleration *instantAcceleration;
 @property (readonly, strong, nonatomic) STAcceleration *rollingAcceleration;
+
+- (STAcceleration *)accelerationWithBytes: (uint8_t*)scratchVal;
+- (STAcceleration *)smoothedAccelerationWithAcceleration: (STAcceleration*)acceleration;
+- (float)magneticFieldStrengthWithBytes: (uint8_t*)scratchVal;
+- (STAngularVelocity *)angularVelocityWithBytes: (uint8_t*)scratchVal;
 
 @end
 
@@ -34,6 +51,7 @@
     {
         _sensorTagDelegate = sensorTagDelegate;
         _sensorTagPeripheral = sensorTagPeripheral;
+        _instantAcceleration = [[STAcceleration alloc] initWithXComponent: 0.0 yComponent: 0.0 zComponent: 0.0];
         _rollingAcceleration = [[STAcceleration alloc] initWithXComponent: 0.0 yComponent: 0.0 zComponent: 0.0];
         _dataCharacteristicUUID = [CBUUID UUIDWithString: STMovementDataCharacteristicUUIDString];
         _dataCharacteristic = nil;
@@ -73,7 +91,7 @@
     {
         _enabled = YES;
         
-        uint16_t enableValue = 0x003f;
+        uint16_t enableValue = STMovementEnableValue;
         
         [self.sensorTagPeripheral writeValue: [NSData dataWithBytes: &enableValue length: 2]
                            forCharacteristic: self.configurationCharacteristic
@@ -89,7 +107,7 @@
         [self.sensorTagPeripheral setNotifyValue: NO
                                forCharacteristic: self.dataCharacteristic];
         
-        uint8_t disableValue = STMovementEnableValue;
+        uint8_t disableValue = STMovementDisableValue;
         
         [self.sensorTagPeripheral writeValue: [NSData dataWithBytes: &disableValue length: 1]
                            forCharacteristic: self.configurationCharacteristic
@@ -104,8 +122,10 @@
         uint8_t scratchVal[characteristic.value.length];
         [characteristic.value getBytes: &scratchVal length: characteristic.value.length];
         
-        [self.sensorTagDelegate sensorTagDidUpdateAcceleration: [self accelerationWithBytes:&scratchVal[6]]];
-        [self.sensorTagDelegate sensorTagDidUpdateSmoothedAcceleration: [self smoothedAccelerationWithCharacteristicValue: characteristic.value]];
+        [self.sensorTagDelegate sensorTagDidUpdateAngularVelocity: [self angularVelocityWithBytes:&scratchVal[0]]];
+        _instantAcceleration = [self accelerationWithBytes:&scratchVal[6]];
+        [self.sensorTagDelegate sensorTagDidUpdateAcceleration: _instantAcceleration];
+        [self.sensorTagDelegate sensorTagDidUpdateSmoothedAcceleration: [self smoothedAccelerationWithAcceleration:_instantAcceleration]];
         [self.sensorTagDelegate sensorTagDidUpdateMagneticFieldStrength: [self magneticFieldStrengthWithBytes:&scratchVal[12]]];
     }
 }
@@ -127,13 +147,8 @@
     return acceleration;
 }
 
-- (STAcceleration *)smoothedAccelerationWithCharacteristicValue: (NSData *)characteristicValue
+- (STAcceleration *)smoothedAccelerationWithAcceleration: (STAcceleration *)acceleration
 {
-    uint8_t scratchVal[characteristicValue.length];
-    [characteristicValue getBytes: &scratchVal length: characteristicValue.length];
-    
-    STAcceleration *acceleration = [self accelerationWithBytes: &scratchVal[6]];
-    
     self.rollingAcceleration.xComponent = (acceleration.xComponent * STAccelerometerHighPassFilteringFactor) +
     (self.rollingAcceleration.xComponent * (1.0 - STAccelerometerHighPassFilteringFactor));
     
@@ -163,5 +178,24 @@
     
     return [STUtilities vectorMagnitudeWithXComponent: x YComponent: y ZComponent: z];
 }
+
+- (STAngularVelocity *)angularVelocityWithBytes: (uint8_t*)scratchVal
+{
+    int16_t rawX = (scratchVal[0] & 0xff) | ((scratchVal[1] << 8) & 0xff00);
+    float x = (((float)rawX * 1.0) / (65536 / STGyroscopeRange)) * -1;
+    
+    int16_t rawY = ((scratchVal[2] & 0xff) | ((scratchVal[3] << 8) & 0xff00));
+    float y = (((float)rawY * 1.0) / (65536 / STGyroscopeRange)) * -1;
+    
+    int16_t rawZ = (scratchVal[4] & 0xff) | ((scratchVal[5] << 8) & 0xff00);
+    float z = ((float)rawZ * 1.0) / (65536 / STGyroscopeRange);
+    
+    STAngularVelocity *angularVelocity = [[STAngularVelocity alloc] initWithXComponent: x
+                                                                            YComponent: y
+                                                                            ZComponent: z];
+    
+    return angularVelocity;
+}
+
 
 @end

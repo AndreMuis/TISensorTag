@@ -16,11 +16,18 @@ typedef NS_ENUM(NSUInteger, STConnectionStatus)
     STConnectionStatusConnected
 };
 
+typedef NS_ENUM(NSUInteger, STVersion) {
+    STVersionCC2451,
+    STVersionCC2650
+};
+
+
 @protocol STSensorTagManagerDelegate <NSObject>
 
 @required
 - (void)sensorTagManagerDidUpdateState: (NSString *)state;
 - (void)sensorTagManagerDidUpdateConnectionStatus: (STConnectionStatus)status;
+- (void)sensorTagManagerDidIdentifyVersion: (STVersion)version;
 
 @end
 
