@@ -67,7 +67,8 @@
     {
         NSString *localName = [advertisementData objectForKey: STAdvertisementDataLocalNameKey];
         
-        if ([localName isEqualToString: STAdvertisementDataLocalNameValue] == YES)
+        // look for any version of the TISensorTag based on the string
+        if ([localName containsString: STAdvertisementDataLocalNameValue] == YES)
         {
             _sensorTagPeripheral = peripheral;
             [self.centralManager connectPeripheral: self.sensorTagPeripheral options: nil];
@@ -76,7 +77,7 @@
         }
         else
         {
-            NSLog(@"Advertisement data local name %@ not equal to %@", localName, STAdvertisementDataLocalNameValue);
+            NSLog(@"Advertisement data local name %@ does not contain %@", localName, STAdvertisementDataLocalNameValue);
         }
     }
     else

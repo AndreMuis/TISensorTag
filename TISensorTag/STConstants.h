@@ -12,6 +12,8 @@
 
 extern NSString* const STAdvertisementDataLocalNameKey;
 extern NSString* const STAdvertisementDataLocalNameValue;
+extern NSString* const STAdvertisementDataLocalNameValueV1;
+extern NSString* const STAdvertisementDataLocalNameValueV2;
 
 extern NSTimeInterval const STRSSITimerIntervalInMilliseconds;
 extern float const STRSSIMinimum;

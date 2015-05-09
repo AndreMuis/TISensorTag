@@ -12,6 +12,8 @@
 
 NSString* const STAdvertisementDataLocalNameKey = @"kCBAdvDataLocalName";
 NSString* const STAdvertisementDataLocalNameValue = @"SensorTag";
+NSString* const STAdvertisementDataLocalNameValueV1 = @"SensorTag";
+NSString* const STAdvertisementDataLocalNameValueV2 = @"CC2650 SensorTag";
 
 uint8_t const STSensorEnableValue = 0x01;
 uint8_t const STSensorDisableValue = 0x00;
