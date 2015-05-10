@@ -12,6 +12,8 @@
 
 extern NSString* const STAdvertisementDataLocalNameKey;
 extern NSString* const STAdvertisementDataLocalNameValue;
+extern NSString* const STAdvertisementDataLocalNameValueV1;
+extern NSString* const STAdvertisementDataLocalNameValueV2;
 
 extern NSTimeInterval const STRSSITimerIntervalInMilliseconds;
 extern float const STRSSIMinimum;
@@ -19,6 +21,8 @@ extern float const STRSSIMaximum;
 
 extern uint8_t const STSensorEnableValue;
 extern uint8_t const STSensorDisableValue;
+extern uint16_t const STMovementEnableValue;
+extern uint16_t const STMovementDisableValue;
 
 extern NSString* const STAccelerometerDataCharacteristicUUIDString;
 extern NSString* const STAccelerometerConfigurationCharacteristicUUIDString;
@@ -45,5 +49,11 @@ extern float const STMagneticFieldStrengthMaximum;
 
 extern NSString* const STTemperatureSensorDataCharacteristicUUIDString;
 extern NSString* const STTemperatureSensorConfigurationCharacteristicUUIDString;
+
+// Accelerometer, Gyroscope and Mgnetometer combined into Movement in SensorTag 2.0
+extern NSString* const STMovementDataCharacteristicUUIDString;
+extern NSString* const STMovementConfigurationCharacteristicUUIDString;
+extern NSString* const STMovementPeriodCharacteristicUUIDString;
+extern int const STMovementPeriodInMilliseconds;
 
 @end

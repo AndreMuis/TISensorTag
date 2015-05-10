@@ -15,6 +15,7 @@
 #import "STMagnetometer.h"
 #import "STRSSISensor.h"
 #import "STTemperatureSensor.h"
+#import "STMovement.h"
 
 @interface STSensorTag () <CBPeripheralDelegate>
 
@@ -55,6 +56,10 @@
         
         _temperatureSensor = [[STTemperatureSensor alloc] initWithSensorTagDelegate: self.delegate
                                                                 sensorTagPeripheral: sensorTagPeripheral];
+        
+        _movement = [[STMovement alloc] initWithSensorTagDelegate: self.delegate
+                                              sensorTagPeripheral: sensorTagPeripheral];
+        
     }
     
     return self;
@@ -105,7 +110,7 @@
             {
                 self.gyroscope.configurationCharacteristic = characteristic;
             }
-            if ([characteristic.UUID isEqual: self.magnetometer.dataCharacteristicUUID] == YES)
+            else if ([characteristic.UUID isEqual: self.magnetometer.dataCharacteristicUUID] == YES)
             {
                 self.magnetometer.dataCharacteristic = characteristic;
             }
@@ -124,6 +129,18 @@
             else if ([characteristic.UUID isEqual: self.temperatureSensor.configurationCharacteristicUUID] == YES)
             {
                 self.temperatureSensor.configurationCharacteristic = characteristic;
+            }
+            else if ([characteristic.UUID isEqual: self.movement.dataCharacteristicUUID] == YES)
+            {
+                self.movement.dataCharacteristic = characteristic;
+            }
+            else if ([characteristic.UUID isEqual: self.movement.configurationCharacteristicUUID] == YES)
+            {
+                self.movement.configurationCharacteristic = characteristic;
+            }
+            else if ([characteristic.UUID isEqual: self.movement.periodCharacteristicUUID] == YES)
+            {
+                self.movement.periodCharacteristic = characteristic;
             }
         }
         
@@ -152,6 +169,7 @@
         [self.gyroscope sensorTagPeripheralDidUpdateValueForCharacteristic: characteristic];
         [self.magnetometer sensorTagPeripheralDidUpdateValueForCharacteristic: characteristic];
         [self.temperatureSensor sensorTagPeripheralDidUpdateValueForCharacteristic: characteristic];
+        [self.movement sensorTagPeripheralDidUpdateValueForCharacteristic:characteristic];
     }
     else
     {
@@ -202,6 +220,12 @@
     {
         self.temperatureSensor.enabled = YES;
     }
+
+    if (self.movement.configured == YES)
+    {
+        self.movement.enabled = YES;
+        [self.movement updateWithPeriodInMilliseconds: STMovementPeriodInMilliseconds];
+    }
     
     [self.delegate sensorTagDidEnableSensors];
 }
@@ -238,6 +262,11 @@
         self.temperatureSensor.enabled = NO;
     }
 
+    if (self.movement.configured == YES)
+    {
+        self.movement.enabled = NO;
+    }
+    
     [self.delegate sensorTagDidDisableSensors];
 }
 

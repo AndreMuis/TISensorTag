@@ -17,6 +17,7 @@
 @class STMagnetometer;
 @class STRSSISensor;
 @class STTemperatureSensor;
+@class STMovement;
 
 @interface STSensorTag : NSObject
 
@@ -26,6 +27,7 @@
 @property (readonly, strong, nonatomic) STMagnetometer *magnetometer;
 @property (readonly, strong, nonatomic) STRSSISensor *rssiSensor;
 @property (readonly, strong, nonatomic) STTemperatureSensor *temperatureSensor;
+@property (readonly, strong, nonatomic) STMovement *movement;
 
 - (id)initWithDelegate: (id<STSensorTagDelegate>)delegate
    sensorTagPeripheral: (CBPeripheral *)sensorTagPeripheral;

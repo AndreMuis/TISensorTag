@@ -12,9 +12,13 @@
 
 NSString* const STAdvertisementDataLocalNameKey = @"kCBAdvDataLocalName";
 NSString* const STAdvertisementDataLocalNameValue = @"SensorTag";
+NSString* const STAdvertisementDataLocalNameValueV1 = @"SensorTag";
+NSString* const STAdvertisementDataLocalNameValueV2 = @"CC2650 SensorTag";
 
 uint8_t const STSensorEnableValue = 0x01;
 uint8_t const STSensorDisableValue = 0x00;
+uint16_t const STMovementEnableValue = 0x007f;
+uint16_t const STMovementDisableValue = 0x0000;
 
 NSString* const STAccelerometerDataCharacteristicUUIDString = @"F000AA11-0451-4000-B000-000000000000";
 NSString* const STAccelerometerConfigurationCharacteristicUUIDString = @"F000AA12-0451-4000-B000-000000000000";
@@ -44,5 +48,11 @@ float const STRSSIMaximum = 0.0;
 
 NSString* const STTemperatureSensorDataCharacteristicUUIDString = @"F000AA01-0451-4000-b000-000000000000";
 NSString* const STTemperatureSensorConfigurationCharacteristicUUIDString = @"F000AA02-0451-4000-b000-000000000000";
+
+NSString* const STMovementDataCharacteristicUUIDString = @"F000AA81-0451-4000-B000-000000000000";
+NSString* const STMovementConfigurationCharacteristicUUIDString = @"F000AA82-0451-4000-B000-000000000000";
+NSString* const STMovementPeriodCharacteristicUUIDString = @"F000AA83-0451-4000-b000-000000000000";
+int const STMovementPeriodInMilliseconds = 100;
+
 
 @end

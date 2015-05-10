@@ -67,8 +67,26 @@
     {
         NSString *localName = [advertisementData objectForKey: STAdvertisementDataLocalNameKey];
         
-        if ([localName isEqualToString: STAdvertisementDataLocalNameValue] == YES)
+        // look for any version of the TISensorTag based on the string
+        if ([localName containsString: STAdvertisementDataLocalNameValue] == YES)
         {
+            // identify the different SensorTag versions by the advertised local name value, this isn't a great way to
+            // do things but it is consistent with the previous implementation
+            if ([localName isEqualToString: STAdvertisementDataLocalNameValueV2])
+            {
+                _version = STVersionCC2650;
+            }
+            else if ([localName isEqualToString: STAdvertisementDataLocalNameValueV1])
+            {
+                _version = STVersionCC2451;
+            }
+            else
+            {
+                NSLog(@"Couldn't clearly identify the SensorTag version by name %@ - going with v1", localName);
+                _version = STVersionCC2451;
+            }
+            [self.delegate sensorTagManagerDidIdentifyVersion:_version];
+            
             _sensorTagPeripheral = peripheral;
             [self.centralManager connectPeripheral: self.sensorTagPeripheral options: nil];
 
@@ -76,7 +94,7 @@
         }
         else
         {
-            NSLog(@"Advertisement data local name %@ not equal to %@", localName, STAdvertisementDataLocalNameValue);
+            NSLog(@"Advertisement data local name %@ does not contain %@", localName, STAdvertisementDataLocalNameValue);
         }
     }
     else

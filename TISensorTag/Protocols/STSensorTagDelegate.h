@@ -23,7 +23,6 @@
 - (void)sensorTagDidUpdateMagneticFieldStrength: (float)magneticFieldStrength;
 - (void)sensorTagDidUpdateRSSI: (NSNumber *)rssi;
 - (void)sensorTagDidUpdateTemperature: (float)temperature;
-
 - (void)sensorTagDidEnableSensors;
 - (void)sensorTagDidDisableSensors;
 
