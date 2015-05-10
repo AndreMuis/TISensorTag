@@ -2,3 +2,6 @@ Source code for a demo app that interfaces with TI's Bluetooth low energy Sensor
 <br />
 <br />
 ![TI Sensor Tag](Screenshot.png?raw=true)
+<br />
+<br />
+![TI Sensor Tag 2015](Screenshot2.png?raw=true)
