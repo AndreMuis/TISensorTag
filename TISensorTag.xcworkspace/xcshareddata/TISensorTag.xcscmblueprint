@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "7854F0D1A511F99446992ADE3C8D09F4CDD08EFC",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "7854F0D1A511F99446992ADE3C8D09F4CDD08EFC" : 0,
+    "2A76AFC8A1AF10A519ED29F7652E70665832A888" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "F0C96A7C-C951-4B8A-9B67-F3240B4EE24A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "7854F0D1A511F99446992ADE3C8D09F4CDD08EFC" : "TISensorTag\/",
+    "2A76AFC8A1AF10A519ED29F7652E70665832A888" : "STGTISensorTag\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "TISensorTag",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "TISensorTag.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/AndreMuis\/STGTISensorTag",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2A76AFC8A1AF10A519ED29F7652E70665832A888"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:AndreMuis\/TISensorTag.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "7854F0D1A511F99446992ADE3C8D09F4CDD08EFC"
+    }
+  ]
+}
