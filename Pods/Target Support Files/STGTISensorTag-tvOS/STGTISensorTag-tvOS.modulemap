@@ -1,6 +1,0 @@
-framework module STGTISensorTag {
-  umbrella header "STGTISensorTag-tvOS-umbrella.h"
-
-  export *
-  module * { export * }
-}
