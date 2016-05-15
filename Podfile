@@ -5,8 +5,3 @@ target 'TISensorTag' do
     pod 'STGTISensorTag', :path => '../STGTISensorTag'
 end
 
-target 'testing' do
-	platform :ios, '9.0'
-    pod 'STGTISensorTag', :path => '../STGTISensorTag'
-end
-
