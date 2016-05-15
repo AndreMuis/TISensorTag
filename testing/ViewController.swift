@@ -11,15 +11,17 @@ import UIKit
 
 import STGTISensorTag
 
-class ViewController: UIViewController, STGCentralManagerDelegate
+class ViewController: UIViewController, STGCentralManagerDelegate, STGSensorTagDelegate
 {
     var centralManager : STGCentralManager!
+    var sensorTag : STGSensorTag!
     
     required init?(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)
         
         self.centralManager = STGCentralManager(delegate: self)
+        self.sensorTag = nil
     }
     
     override func viewDidLoad()
@@ -35,7 +37,7 @@ class ViewController: UIViewController, STGCentralManagerDelegate
         {
             do
             {
-                try self.centralManager.startScanningForPeripherals()
+                try self.centralManager.startScanningForSensorTags()
             }
             catch let error
             {
@@ -49,14 +51,52 @@ class ViewController: UIViewController, STGCentralManagerDelegate
         print("STGCentralManagerConnectionStatus = \(status.rawValue)")
     }
     
-    func centralManager(central: STGCentralManager, didConnectPeripheral peripheral: CBPeripheral)
+    func centralManager(central: STGCentralManager, didConnectSensorTagPeripheral peripheral: CBPeripheral)
     {
-        print("connected")
+        print("didConnectSensorTagPeripheral")
+
+        self.sensorTag = STGSensorTag(delegate: self, peripheral: peripheral)
+        
+        self.sensorTag.discoverServices()
     }
     
-    func centralManager(central: STGCentralManager, didDisconnectPeripheral peripheral: CBPeripheral)
+    func centralManager(central: STGCentralManager, didDisconnectSensorTagPeripheral peripheral: CBPeripheral)
     {
-        print("disconnected")
+        print("didDisconnectSensorTagPeripheral")
+    }
+    
+    func sensorTag(sensorTag: STGSensorTag, didDiscoverCharacteristicsForAccelerometer accelerometer: STGAccelerometer)
+    {
+        accelerometer.enable()
+    }
+    
+    func sensorTag(sensorTag: STGSensorTag, didUpdateAcceleration acceleration: STGVector)
+    {
+        print(acceleration)
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

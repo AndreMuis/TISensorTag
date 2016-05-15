@@ -1,0 +1,965 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0A0A18C2810F8A98FEEBE939021CEB5D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA053B64C295C0D8547C1B3085F37A3 /* Foundation.framework */; };
+		0F8C9180DF02545AE4A4FAA95219147E /* STGCentralManagerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B614A55BC3B0EA76E6B8E8D4D7F8D5 /* STGCentralManagerError.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		1080AEA3D37F296D3E202C71DF9E48EF /* STGCentralManagerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B614A55BC3B0EA76E6B8E8D4D7F8D5 /* STGCentralManagerError.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		11430AC4333EDF3EC2F1A0B106902487 /* STGBarometricPressureSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D472A91F365192D548189FF89E16E6CF /* STGBarometricPressureSensor.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		221F4927B98192989554DB14B87D4AFD /* STGCentralManagerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F38B922A749932256F6FD52FE7C0D82 /* STGCentralManagerState.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		2E74FBD99619B9B67524FCB1EE0EB6AF /* Pods-TISensorTag-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F6A18153D20813CE53A9BA04E015AE21 /* Pods-TISensorTag-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32B0B7312BB2D1E9A03AA49921B3C6E6 /* STGCentralManagerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F38B922A749932256F6FD52FE7C0D82 /* STGCentralManagerState.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		396AC082DDE5EE2B3F14C38C14DF7769 /* STGCentralManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AD23A151275CA0212507BECD0DA679 /* STGCentralManagerDelegate.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		3CDFA1FF35B9378A36A404893828DAEB /* STGButtonSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA615EF54D2A6129DF59F125D7D6EF57 /* STGButtonSensor.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		3D486971FAB38A176C896EBB55CB53A4 /* STGTISensorTag-iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BF5B7C0D3436BEF3743B1A806797243 /* STGTISensorTag-iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3D59F84E840941464AFC213580D54D8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA053B64C295C0D8547C1B3085F37A3 /* Foundation.framework */; };
+		44688A6A987006829BBF971DF81FEB5F /* STGAccelerometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36739646A1DA669E9E050F9C66B29491 /* STGAccelerometer.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		464CD890BFB48F3F70962880C4C0BA84 /* STGAccelerometerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4709DC0C548FBDDA01A59A15FB0515 /* STGAccelerometerDelegate.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		48C6271B51C85661BA330A98148CEB5E /* STGTemperatureSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4FCC7F5149A6B8EE1C35E80286E592 /* STGTemperatureSensor.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		4B487F053E15E33168813188F1ABDABE /* STGSensorTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18221044AA923624B88CCAF12F09024 /* STGSensorTag.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		51AA8A5F9FBCF48867CB3C3168396D55 /* Pods-testing-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DD7FFC15EBB80018583E253056DDB4E4 /* Pods-testing-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		54315ECD673C9EF4D59400B72B20E8E0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8733F15B8316A04F813C3A12726249F /* Foundation.framework */; };
+		60E065D1E6E7BA077E408E8731A02AB3 /* STGGyroscope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B32272A177EFF47A21E4B73B9D6E8A /* STGGyroscope.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		628E4CFA370488811FA10846FA49A118 /* STGTISensorTag-tvOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4AE54B08D797BCEA0B1F70E1FB23BA /* STGTISensorTag-tvOS-dummy.m */; };
+		682608F403B4FB8734D7981CAEF689AC /* STGTISensorTag-tvOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F8CFEE510DD395F7FBB24485E16219A /* STGTISensorTag-tvOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		69BEFA9E36A0417212BF7926295E22C5 /* STGTISensorTag-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2634F157CA52EB5446D4C976DBB72D /* STGTISensorTag-iOS-dummy.m */; };
+		6AE3C47AF2896D97603559FC4CA9F589 /* STGAccelerometerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4709DC0C548FBDDA01A59A15FB0515 /* STGAccelerometerDelegate.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		6BF18AB984C89B535129CA976D4F82E6 /* STGButtonSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA615EF54D2A6129DF59F125D7D6EF57 /* STGButtonSensor.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		6DF9AC9959F9E68D17D737E4D7F8EB06 /* STGHumiditySensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121181791D759FC9EB26D47AE4E28531 /* STGHumiditySensor.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		7149F98B9B3FA5211D91A8518AD1C6C8 /* STGBarometricPressureSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D472A91F365192D548189FF89E16E6CF /* STGBarometricPressureSensor.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		80F5A99693B80BD1BD2F53C6D9E09A13 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C25432AB8E65925CFBEA8C92C45BDC64 /* CoreBluetooth.framework */; };
+		825D76EE291891826F6E89085DDDA2EF /* STGMagnetometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D7E14B266CE7728F7238736F607121 /* STGMagnetometer.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		8E03A37B24B8719F9EC728BF5F444028 /* STGCentralManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AD23A151275CA0212507BECD0DA679 /* STGCentralManagerDelegate.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		8E985853D0FD9B94C18251DA14F69261 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F21314D47A4C9DB3FD58B1E1181E4BB1 /* CoreBluetooth.framework */; };
+		9101AFC1F7B04B48077CF8DB73A15EE3 /* STGVector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47000173B259F99A6A70DC9B416BB00D /* STGVector.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		93990C5009C57134559980BD05419113 /* STGSensorTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18221044AA923624B88CCAF12F09024 /* STGSensorTag.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		95E6FCF927F7C1FBBAEE5386882F573A /* STGSensorTagDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2F84FFC439F2E22F6C72A4B715F1D0 /* STGSensorTagDelegate.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		9AFEBC6C1442A19C5D5CA188B64DA9DB /* STGSensorTagDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2F84FFC439F2E22F6C72A4B715F1D0 /* STGSensorTagDelegate.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		AC6CB9D4D3608676ACCE0C35EE14C937 /* STGRSSISensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7C9F5E5F93CE5C5A9F5CEC0B952C16 /* STGRSSISensor.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		AE4F5B66BBCC9F48FC93717ADB556CAC /* STGConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515E1E898ED62502206D5960D1C37B4A /* STGConstants.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		B2E735D1EB386440B298928E3E386F7E /* Pods-TISensorTag-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7F66EA119C3A971F62AD7F8AE92A78 /* Pods-TISensorTag-dummy.m */; };
+		B89CB1CEFDF2038870BE2C56B8FD68DD /* STGCentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3469649060A01898CED35BB386336A /* STGCentralManager.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		C1AC0818528CD28EAF50D29E851F397F /* Pods-testing-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 39ABD3D364A458A7636E90FC2AEDF9B6 /* Pods-testing-dummy.m */; };
+		C381A03D02F13FFA6C279AD2D7012BF8 /* STGAccelerometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36739646A1DA669E9E050F9C66B29491 /* STGAccelerometer.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		C7BAF46CC9843585796539E21D90845D /* STGConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515E1E898ED62502206D5960D1C37B4A /* STGConstants.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		C8509282A09F6F257FAA28BA5B6CC2A5 /* STGCentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3469649060A01898CED35BB386336A /* STGCentralManager.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		CAC6AFBF1E346B341E704F08088AF865 /* STGTemperatureSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4FCC7F5149A6B8EE1C35E80286E592 /* STGTemperatureSensor.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		CAE71628E972ECA038B76E03E6932229 /* STGCentralManagerConnectionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676BA49A0E6B45D3FADFE52A31DAFF35 /* STGCentralManagerConnectionStatus.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		CE69B5B0BC680D58DEC6592200C7E8C6 /* STGVector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47000173B259F99A6A70DC9B416BB00D /* STGVector.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		D316B3988E2CF7196576B49C55E38D2B /* STGRSSISensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7C9F5E5F93CE5C5A9F5CEC0B952C16 /* STGRSSISensor.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		D8D5465C83B4700EBE5FF8325309741B /* STGMagnetometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D7E14B266CE7728F7238736F607121 /* STGMagnetometer.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		F211F337B9A76E469937846F0E3D1DC6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8733F15B8316A04F813C3A12726249F /* Foundation.framework */; };
+		F385D3367C1272F27B029643F3703B3E /* STGHumiditySensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121181791D759FC9EB26D47AE4E28531 /* STGHumiditySensor.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		FC32192212BEFB704A51D74C7EA12728 /* STGGyroscope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B32272A177EFF47A21E4B73B9D6E8A /* STGGyroscope.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		FE22F177674C75AFE037E3175C5AA9C8 /* STGCentralManagerConnectionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676BA49A0E6B45D3FADFE52A31DAFF35 /* STGCentralManagerConnectionStatus.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4C7D07BF391D615CE8D1A398076A37B4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5DD9A94A8D1B5113FE97DA852F388F1B;
+			remoteInfo = "STGTISensorTag-tvOS";
+		};
+		B3EEE51C6A42689CE4C249989826E17D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B4A45D689EB7CEEAFBDEBE607E26FD85;
+			remoteInfo = "STGTISensorTag-iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		077C0A8849EE04850CA64F07038F38A4 /* Pods_TISensorTag.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TISensorTag.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		098AED34686807EAE17D5E37263648DC /* Pods-TISensorTag-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TISensorTag-acknowledgements.markdown"; sourceTree = "<group>"; };
+		09B32272A177EFF47A21E4B73B9D6E8A /* STGGyroscope.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = STGGyroscope.swift; sourceTree = "<group>"; };
+		0DE84D9022D45E1A3440038053543ED8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = "../STGTISensorTag-tvOS/Info.plist"; sourceTree = "<group>"; };
+		10A99294CFE02A1C57FEBADE11D25269 /* STGTISensorTag-iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "STGTISensorTag-iOS-prefix.pch"; sourceTree = "<group>"; };
+		121181791D759FC9EB26D47AE4E28531 /* STGHumiditySensor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = STGHumiditySensor.swift; sourceTree = "<group>"; };
+		17FF27A9B9CA8CCD67A4CECFED0F7E7B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E4709DC0C548FBDDA01A59A15FB0515 /* STGAccelerometerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = STGAccelerometerDelegate.swift; sourceTree = "<group>"; };
+		1F38B922A749932256F6FD52FE7C0D82 /* STGCentralManagerState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = STGCentralManagerState.swift; sourceTree = "<group>"; };
+		268594E1D249B76487EEF90F90B71514 /* Pods-TISensorTag.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TISensorTag.debug.xcconfig"; sourceTree = "<group>"; };
+		28AD23A151275CA0212507BECD0DA679 /* STGCentralManagerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = STGCentralManagerDelegate.swift; sourceTree = "<group>"; };
+		2E7959FB5B3D65D5FEE47C0C76CE112C /* Pods-testing-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-testing-frameworks.sh"; sourceTree = "<group>"; };
+		2F4FCC7F5149A6B8EE1C35E80286E592 /* STGTemperatureSensor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = STGTemperatureSensor.swift; sourceTree = "<group>"; };
+		32DB4096DE54E3DF19BD97BCB65EB405 /* STGTISensorTag.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = STGTISensorTag.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		36739646A1DA669E9E050F9C66B29491 /* STGAccelerometer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = STGAccelerometer.swift; sourceTree = "<group>"; };
+		37A2A5B08F625B01737F98B15F858CB0 /* Pods_testing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_testing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		38D520CAD644EE70BFBBB07892E11812 /* Pods-TISensorTag-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TISensorTag-frameworks.sh"; sourceTree = "<group>"; };
+		39ABD3D364A458A7636E90FC2AEDF9B6 /* Pods-testing-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-testing-dummy.m"; sourceTree = "<group>"; };
+		3A7C9F5E5F93CE5C5A9F5CEC0B952C16 /* STGRSSISensor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = STGRSSISensor.swift; sourceTree = "<group>"; };
+		3C2634F157CA52EB5446D4C976DBB72D /* STGTISensorTag-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "STGTISensorTag-iOS-dummy.m"; sourceTree = "<group>"; };
+		43D7E14B266CE7728F7238736F607121 /* STGMagnetometer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = STGMagnetometer.swift; sourceTree = "<group>"; };
+		47000173B259F99A6A70DC9B416BB00D /* STGVector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = STGVector.swift; sourceTree = "<group>"; };
+		48DF25C3BF8B8AECED0F8773EAFCE970 /* STGTISensorTag-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "STGTISensorTag-iOS.modulemap"; sourceTree = "<group>"; };
+		4BF5B7C0D3436BEF3743B1A806797243 /* STGTISensorTag-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "STGTISensorTag-iOS-umbrella.h"; sourceTree = "<group>"; };
+		4E4AE54B08D797BCEA0B1F70E1FB23BA /* STGTISensorTag-tvOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "STGTISensorTag-tvOS-dummy.m"; path = "../STGTISensorTag-tvOS/STGTISensorTag-tvOS-dummy.m"; sourceTree = "<group>"; };
+		515E1E898ED62502206D5960D1C37B4A /* STGConstants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = STGConstants.swift; sourceTree = "<group>"; };
+		5606E5A5EDEFEBFC61625CCC66CD5AEF /* STGTISensorTag.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = STGTISensorTag.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		676BA49A0E6B45D3FADFE52A31DAFF35 /* STGCentralManagerConnectionStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = STGCentralManagerConnectionStatus.swift; sourceTree = "<group>"; };
+		6D2F84FFC439F2E22F6C72A4B715F1D0 /* STGSensorTagDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = STGSensorTagDelegate.swift; sourceTree = "<group>"; };
+		6FA053B64C295C0D8547C1B3085F37A3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		7C0315F47773B62D2CFDA808CF2B1CCC /* STGTISensorTag-tvOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "STGTISensorTag-tvOS.xcconfig"; path = "../STGTISensorTag-tvOS/STGTISensorTag-tvOS.xcconfig"; sourceTree = "<group>"; };
+		85B614A55BC3B0EA76E6B8E8D4D7F8D5 /* STGCentralManagerError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = STGCentralManagerError.swift; sourceTree = "<group>"; };
+		89BC80BF16D3F9780814451E29B90520 /* STGTISensorTag-iOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "STGTISensorTag-iOS.xcconfig"; sourceTree = "<group>"; };
+		8B3469649060A01898CED35BB386336A /* STGCentralManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = STGCentralManager.swift; sourceTree = "<group>"; };
+		8CF0B6C22281D0B839234286AA335EFA /* Pods-testing-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-testing-resources.sh"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		98C79BE547C415B2314F409B17B47CD8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9F8CFEE510DD395F7FBB24485E16219A /* STGTISensorTag-tvOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "STGTISensorTag-tvOS-umbrella.h"; path = "../STGTISensorTag-tvOS/STGTISensorTag-tvOS-umbrella.h"; sourceTree = "<group>"; };
+		A507DCBFA9D9A502097AC595C420D857 /* Pods-testing-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-testing-acknowledgements.markdown"; sourceTree = "<group>"; };
+		AD9AD1DA6218113D076413EE310DCD53 /* Pods-TISensorTag.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-TISensorTag.modulemap"; sourceTree = "<group>"; };
+		B8733F15B8316A04F813C3A12726249F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		BA615EF54D2A6129DF59F125D7D6EF57 /* STGButtonSensor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = STGButtonSensor.swift; sourceTree = "<group>"; };
+		BCA72B3B1B615BDF79263F360F58E792 /* Pods-testing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-testing.debug.xcconfig"; sourceTree = "<group>"; };
+		BD7F66EA119C3A971F62AD7F8AE92A78 /* Pods-TISensorTag-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TISensorTag-dummy.m"; sourceTree = "<group>"; };
+		C18221044AA923624B88CCAF12F09024 /* STGSensorTag.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = STGSensorTag.swift; sourceTree = "<group>"; };
+		C25432AB8E65925CFBEA8C92C45BDC64 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.2.sdk/System/Library/Frameworks/CoreBluetooth.framework; sourceTree = DEVELOPER_DIR; };
+		C7ABC434A1364C932C7D97883CD2F211 /* STGTISensorTag-tvOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "STGTISensorTag-tvOS-prefix.pch"; path = "../STGTISensorTag-tvOS/STGTISensorTag-tvOS-prefix.pch"; sourceTree = "<group>"; };
+		D0678DB67D88DB3B14BC98B74A623222 /* Pods-TISensorTag.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TISensorTag.release.xcconfig"; sourceTree = "<group>"; };
+		D46E80BE202AC36232A305D6425F6BDC /* Pods-testing-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-testing-acknowledgements.plist"; sourceTree = "<group>"; };
+		D472A91F365192D548189FF89E16E6CF /* STGBarometricPressureSensor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = STGBarometricPressureSensor.swift; sourceTree = "<group>"; };
+		D8BF8F5BAA218C65C60CB6C0B29FBD07 /* STGTISensorTag-tvOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; name = "STGTISensorTag-tvOS.modulemap"; path = "../STGTISensorTag-tvOS/STGTISensorTag-tvOS.modulemap"; sourceTree = "<group>"; };
+		DD7FFC15EBB80018583E253056DDB4E4 /* Pods-testing-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-testing-umbrella.h"; sourceTree = "<group>"; };
+		E4C9E9388FE0BFBA2B7C403656DF70BA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E50B0B435BF2F8F86B3094F287DF7277 /* Pods-testing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-testing.release.xcconfig"; sourceTree = "<group>"; };
+		EFE8B103C41AF0919E9283D1B7AF6ABE /* Pods-TISensorTag-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TISensorTag-acknowledgements.plist"; sourceTree = "<group>"; };
+		F205E5C25A5AA82E231142DE472047C1 /* Pods-testing.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-testing.modulemap"; sourceTree = "<group>"; };
+		F21314D47A4C9DB3FD58B1E1181E4BB1 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CoreBluetooth.framework; sourceTree = DEVELOPER_DIR; };
+		F6A18153D20813CE53A9BA04E015AE21 /* Pods-TISensorTag-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TISensorTag-umbrella.h"; sourceTree = "<group>"; };
+		F709A2BD3CDE79640742A198C8866C70 /* Pods-TISensorTag-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TISensorTag-resources.sh"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		433F86BF333BEE03A6D8B1A9D7F99808 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54315ECD673C9EF4D59400B72B20E8E0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		777B7C4AE1990CBEC13B0A0850350581 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D59F84E840941464AFC213580D54D8F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9546D036F89ACEB79D8AEA48BEB5D6AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E985853D0FD9B94C18251DA14F69261 /* CoreBluetooth.framework in Frameworks */,
+				0A0A18C2810F8A98FEEBE939021CEB5D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E85D055B49D7BDACBABA2C325C3A7534 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80F5A99693B80BD1BD2F53C6D9E09A13 /* CoreBluetooth.framework in Frameworks */,
+				F211F337B9A76E469937846F0E3D1DC6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		17B4B929F23447E2F4E3DBFE845A5720 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				37A2A5B08F625B01737F98B15F858CB0 /* Pods_testing.framework */,
+				077C0A8849EE04850CA64F07038F38A4 /* Pods_TISensorTag.framework */,
+				32DB4096DE54E3DF19BD97BCB65EB405 /* STGTISensorTag.framework */,
+				5606E5A5EDEFEBFC61625CCC66CD5AEF /* STGTISensorTag.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		26879C07AA85ED78F572D5576CE5B2F5 /* Pods-testing */ = {
+			isa = PBXGroup;
+			children = (
+				E4C9E9388FE0BFBA2B7C403656DF70BA /* Info.plist */,
+				F205E5C25A5AA82E231142DE472047C1 /* Pods-testing.modulemap */,
+				A507DCBFA9D9A502097AC595C420D857 /* Pods-testing-acknowledgements.markdown */,
+				D46E80BE202AC36232A305D6425F6BDC /* Pods-testing-acknowledgements.plist */,
+				39ABD3D364A458A7636E90FC2AEDF9B6 /* Pods-testing-dummy.m */,
+				2E7959FB5B3D65D5FEE47C0C76CE112C /* Pods-testing-frameworks.sh */,
+				8CF0B6C22281D0B839234286AA335EFA /* Pods-testing-resources.sh */,
+				DD7FFC15EBB80018583E253056DDB4E4 /* Pods-testing-umbrella.h */,
+				BCA72B3B1B615BDF79263F360F58E792 /* Pods-testing.debug.xcconfig */,
+				E50B0B435BF2F8F86B3094F287DF7277 /* Pods-testing.release.xcconfig */,
+			);
+			name = "Pods-testing";
+			path = "Target Support Files/Pods-testing";
+			sourceTree = "<group>";
+		};
+		2863AACBFE6185C97E14EEDD36187895 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				26879C07AA85ED78F572D5576CE5B2F5 /* Pods-testing */,
+				C52D11F3C002D02FA611DF4F65E4B2C3 /* Pods-TISensorTag */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		3A62DAD81F7D120BCD9CF01074B37411 /* STGTISensorTag */ = {
+			isa = PBXGroup;
+			children = (
+				36739646A1DA669E9E050F9C66B29491 /* STGAccelerometer.swift */,
+				D472A91F365192D548189FF89E16E6CF /* STGBarometricPressureSensor.swift */,
+				BA615EF54D2A6129DF59F125D7D6EF57 /* STGButtonSensor.swift */,
+				8B3469649060A01898CED35BB386336A /* STGCentralManager.swift */,
+				515E1E898ED62502206D5960D1C37B4A /* STGConstants.swift */,
+				09B32272A177EFF47A21E4B73B9D6E8A /* STGGyroscope.swift */,
+				121181791D759FC9EB26D47AE4E28531 /* STGHumiditySensor.swift */,
+				43D7E14B266CE7728F7238736F607121 /* STGMagnetometer.swift */,
+				3A7C9F5E5F93CE5C5A9F5CEC0B952C16 /* STGRSSISensor.swift */,
+				C18221044AA923624B88CCAF12F09024 /* STGSensorTag.swift */,
+				6D2F84FFC439F2E22F6C72A4B715F1D0 /* STGSensorTagDelegate.swift */,
+				2F4FCC7F5149A6B8EE1C35E80286E592 /* STGTemperatureSensor.swift */,
+				FF06EB162E7859AF9799C20DF3E1CFC9 /* Enumerations */,
+				A5D5571F5A3DA1A236675B8488C3BBF9 /* Model */,
+				FDF06BFF56E25C4A1109E9F2722A0945 /* Protocols */,
+			);
+			path = STGTISensorTag;
+			sourceTree = "<group>";
+		};
+		4DAD66D71241DDCD73B0EC7714840A95 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				0DE84D9022D45E1A3440038053543ED8 /* Info.plist */,
+				17FF27A9B9CA8CCD67A4CECFED0F7E7B /* Info.plist */,
+				48DF25C3BF8B8AECED0F8773EAFCE970 /* STGTISensorTag-iOS.modulemap */,
+				89BC80BF16D3F9780814451E29B90520 /* STGTISensorTag-iOS.xcconfig */,
+				3C2634F157CA52EB5446D4C976DBB72D /* STGTISensorTag-iOS-dummy.m */,
+				10A99294CFE02A1C57FEBADE11D25269 /* STGTISensorTag-iOS-prefix.pch */,
+				4BF5B7C0D3436BEF3743B1A806797243 /* STGTISensorTag-iOS-umbrella.h */,
+				D8BF8F5BAA218C65C60CB6C0B29FBD07 /* STGTISensorTag-tvOS.modulemap */,
+				7C0315F47773B62D2CFDA808CF2B1CCC /* STGTISensorTag-tvOS.xcconfig */,
+				4E4AE54B08D797BCEA0B1F70E1FB23BA /* STGTISensorTag-tvOS-dummy.m */,
+				C7ABC434A1364C932C7D97883CD2F211 /* STGTISensorTag-tvOS-prefix.pch */,
+				9F8CFEE510DD395F7FBB24485E16219A /* STGTISensorTag-tvOS-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../TISensorTag/Pods/Target Support Files/STGTISensorTag-iOS";
+			sourceTree = "<group>";
+		};
+		6286911E9D6C3F8A327CBB614E2BCD38 /* STGTISensorTag */ = {
+			isa = PBXGroup;
+			children = (
+				3A62DAD81F7D120BCD9CF01074B37411 /* STGTISensorTag */,
+				4DAD66D71241DDCD73B0EC7714840A95 /* Support Files */,
+			);
+			name = STGTISensorTag;
+			path = ../../STGTISensorTag;
+			sourceTree = "<group>";
+		};
+		62BD06303D00A61B0870FC6586FB99D0 /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				C25432AB8E65925CFBEA8C92C45BDC64 /* CoreBluetooth.framework */,
+				B8733F15B8316A04F813C3A12726249F /* Foundation.framework */,
+			);
+			name = tvOS;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				D775C70A39250E28C27CAF432FA13D67 /* Development Pods */,
+				884D502095129379EF5BB132EEA4E18E /* Frameworks */,
+				17B4B929F23447E2F4E3DBFE845A5720 /* Products */,
+				2863AACBFE6185C97E14EEDD36187895 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		884D502095129379EF5BB132EEA4E18E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DFAA879DB5584D130BF866CCB9E63947 /* iOS */,
+				62BD06303D00A61B0870FC6586FB99D0 /* tvOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A5D5571F5A3DA1A236675B8488C3BBF9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				47000173B259F99A6A70DC9B416BB00D /* STGVector.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C52D11F3C002D02FA611DF4F65E4B2C3 /* Pods-TISensorTag */ = {
+			isa = PBXGroup;
+			children = (
+				98C79BE547C415B2314F409B17B47CD8 /* Info.plist */,
+				AD9AD1DA6218113D076413EE310DCD53 /* Pods-TISensorTag.modulemap */,
+				098AED34686807EAE17D5E37263648DC /* Pods-TISensorTag-acknowledgements.markdown */,
+				EFE8B103C41AF0919E9283D1B7AF6ABE /* Pods-TISensorTag-acknowledgements.plist */,
+				BD7F66EA119C3A971F62AD7F8AE92A78 /* Pods-TISensorTag-dummy.m */,
+				38D520CAD644EE70BFBBB07892E11812 /* Pods-TISensorTag-frameworks.sh */,
+				F709A2BD3CDE79640742A198C8866C70 /* Pods-TISensorTag-resources.sh */,
+				F6A18153D20813CE53A9BA04E015AE21 /* Pods-TISensorTag-umbrella.h */,
+				268594E1D249B76487EEF90F90B71514 /* Pods-TISensorTag.debug.xcconfig */,
+				D0678DB67D88DB3B14BC98B74A623222 /* Pods-TISensorTag.release.xcconfig */,
+			);
+			name = "Pods-TISensorTag";
+			path = "Target Support Files/Pods-TISensorTag";
+			sourceTree = "<group>";
+		};
+		D775C70A39250E28C27CAF432FA13D67 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6286911E9D6C3F8A327CBB614E2BCD38 /* STGTISensorTag */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		DFAA879DB5584D130BF866CCB9E63947 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				F21314D47A4C9DB3FD58B1E1181E4BB1 /* CoreBluetooth.framework */,
+				6FA053B64C295C0D8547C1B3085F37A3 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		FDF06BFF56E25C4A1109E9F2722A0945 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				1E4709DC0C548FBDDA01A59A15FB0515 /* STGAccelerometerDelegate.swift */,
+				28AD23A151275CA0212507BECD0DA679 /* STGCentralManagerDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		FF06EB162E7859AF9799C20DF3E1CFC9 /* Enumerations */ = {
+			isa = PBXGroup;
+			children = (
+				676BA49A0E6B45D3FADFE52A31DAFF35 /* STGCentralManagerConnectionStatus.swift */,
+				85B614A55BC3B0EA76E6B8E8D4D7F8D5 /* STGCentralManagerError.swift */,
+				1F38B922A749932256F6FD52FE7C0D82 /* STGCentralManagerState.swift */,
+			);
+			path = Enumerations;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		12264BEFA8740786A3A4DED119DD3632 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				51AA8A5F9FBCF48867CB3C3168396D55 /* Pods-testing-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B3842B7A81C6EA5DAA042E3FE3BFD23C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				682608F403B4FB8734D7981CAEF689AC /* STGTISensorTag-tvOS-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CAA96F755701B27D24F3EC95806F40BA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D486971FAB38A176C896EBB55CB53A4 /* STGTISensorTag-iOS-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DF68F628C6238BF6955D569F7D98B87B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E74FBD99619B9B67524FCB1EE0EB6AF /* Pods-TISensorTag-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		54C3BDC2244D5F3AA8AE1FE159A338D6 /* Pods-testing */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E06951D40BD2DFDF12B6787A85575DAB /* Build configuration list for PBXNativeTarget "Pods-testing" */;
+			buildPhases = (
+				3CE175070A122C020C08AA6B38CA646E /* Sources */,
+				777B7C4AE1990CBEC13B0A0850350581 /* Frameworks */,
+				12264BEFA8740786A3A4DED119DD3632 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A77DD10B0A522D20E8936C025C7122F7 /* PBXTargetDependency */,
+			);
+			name = "Pods-testing";
+			productName = "Pods-testing";
+			productReference = 37A2A5B08F625B01737F98B15F858CB0 /* Pods_testing.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5DD9A94A8D1B5113FE97DA852F388F1B /* STGTISensorTag-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E56EB83093FD58C3F5AADC92DFF76969 /* Build configuration list for PBXNativeTarget "STGTISensorTag-tvOS" */;
+			buildPhases = (
+				7B7345BE8B8127D1CB42F631618C9C02 /* Sources */,
+				E85D055B49D7BDACBABA2C325C3A7534 /* Frameworks */,
+				B3842B7A81C6EA5DAA042E3FE3BFD23C /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "STGTISensorTag-tvOS";
+			productName = "STGTISensorTag-tvOS";
+			productReference = 32DB4096DE54E3DF19BD97BCB65EB405 /* STGTISensorTag.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		692D5050694824FC32937F502145CCBD /* Pods-TISensorTag */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AEC7DDD5FE8BAD9D3788D3FAE7E91D1A /* Build configuration list for PBXNativeTarget "Pods-TISensorTag" */;
+			buildPhases = (
+				5A9ACB388F179BA93E6DCA95FCEB72E0 /* Sources */,
+				433F86BF333BEE03A6D8B1A9D7F99808 /* Frameworks */,
+				DF68F628C6238BF6955D569F7D98B87B /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A19D132D9173FD86505598944F7F2732 /* PBXTargetDependency */,
+			);
+			name = "Pods-TISensorTag";
+			productName = "Pods-TISensorTag";
+			productReference = 077C0A8849EE04850CA64F07038F38A4 /* Pods_TISensorTag.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B4A45D689EB7CEEAFBDEBE607E26FD85 /* STGTISensorTag-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A6A018D82BF78BB4B47690D9E57A1E84 /* Build configuration list for PBXNativeTarget "STGTISensorTag-iOS" */;
+			buildPhases = (
+				E1E3CDC21F21E9CED0BF28CE039E4376 /* Sources */,
+				9546D036F89ACEB79D8AEA48BEB5D6AC /* Frameworks */,
+				CAA96F755701B27D24F3EC95806F40BA /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "STGTISensorTag-iOS";
+			productName = "STGTISensorTag-iOS";
+			productReference = 5606E5A5EDEFEBFC61625CCC66CD5AEF /* STGTISensorTag.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 17B4B929F23447E2F4E3DBFE845A5720 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				54C3BDC2244D5F3AA8AE1FE159A338D6 /* Pods-testing */,
+				692D5050694824FC32937F502145CCBD /* Pods-TISensorTag */,
+				B4A45D689EB7CEEAFBDEBE607E26FD85 /* STGTISensorTag-iOS */,
+				5DD9A94A8D1B5113FE97DA852F388F1B /* STGTISensorTag-tvOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3CE175070A122C020C08AA6B38CA646E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1AC0818528CD28EAF50D29E851F397F /* Pods-testing-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A9ACB388F179BA93E6DCA95FCEB72E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2E735D1EB386440B298928E3E386F7E /* Pods-TISensorTag-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B7345BE8B8127D1CB42F631618C9C02 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44688A6A987006829BBF971DF81FEB5F /* STGAccelerometer.swift in Sources */,
+				6AE3C47AF2896D97603559FC4CA9F589 /* STGAccelerometerDelegate.swift in Sources */,
+				7149F98B9B3FA5211D91A8518AD1C6C8 /* STGBarometricPressureSensor.swift in Sources */,
+				6BF18AB984C89B535129CA976D4F82E6 /* STGButtonSensor.swift in Sources */,
+				B89CB1CEFDF2038870BE2C56B8FD68DD /* STGCentralManager.swift in Sources */,
+				CAE71628E972ECA038B76E03E6932229 /* STGCentralManagerConnectionStatus.swift in Sources */,
+				396AC082DDE5EE2B3F14C38C14DF7769 /* STGCentralManagerDelegate.swift in Sources */,
+				0F8C9180DF02545AE4A4FAA95219147E /* STGCentralManagerError.swift in Sources */,
+				221F4927B98192989554DB14B87D4AFD /* STGCentralManagerState.swift in Sources */,
+				C7BAF46CC9843585796539E21D90845D /* STGConstants.swift in Sources */,
+				60E065D1E6E7BA077E408E8731A02AB3 /* STGGyroscope.swift in Sources */,
+				6DF9AC9959F9E68D17D737E4D7F8EB06 /* STGHumiditySensor.swift in Sources */,
+				825D76EE291891826F6E89085DDDA2EF /* STGMagnetometer.swift in Sources */,
+				D316B3988E2CF7196576B49C55E38D2B /* STGRSSISensor.swift in Sources */,
+				93990C5009C57134559980BD05419113 /* STGSensorTag.swift in Sources */,
+				95E6FCF927F7C1FBBAEE5386882F573A /* STGSensorTagDelegate.swift in Sources */,
+				CAC6AFBF1E346B341E704F08088AF865 /* STGTemperatureSensor.swift in Sources */,
+				628E4CFA370488811FA10846FA49A118 /* STGTISensorTag-tvOS-dummy.m in Sources */,
+				9101AFC1F7B04B48077CF8DB73A15EE3 /* STGVector.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1E3CDC21F21E9CED0BF28CE039E4376 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C381A03D02F13FFA6C279AD2D7012BF8 /* STGAccelerometer.swift in Sources */,
+				464CD890BFB48F3F70962880C4C0BA84 /* STGAccelerometerDelegate.swift in Sources */,
+				11430AC4333EDF3EC2F1A0B106902487 /* STGBarometricPressureSensor.swift in Sources */,
+				3CDFA1FF35B9378A36A404893828DAEB /* STGButtonSensor.swift in Sources */,
+				C8509282A09F6F257FAA28BA5B6CC2A5 /* STGCentralManager.swift in Sources */,
+				FE22F177674C75AFE037E3175C5AA9C8 /* STGCentralManagerConnectionStatus.swift in Sources */,
+				8E03A37B24B8719F9EC728BF5F444028 /* STGCentralManagerDelegate.swift in Sources */,
+				1080AEA3D37F296D3E202C71DF9E48EF /* STGCentralManagerError.swift in Sources */,
+				32B0B7312BB2D1E9A03AA49921B3C6E6 /* STGCentralManagerState.swift in Sources */,
+				AE4F5B66BBCC9F48FC93717ADB556CAC /* STGConstants.swift in Sources */,
+				FC32192212BEFB704A51D74C7EA12728 /* STGGyroscope.swift in Sources */,
+				F385D3367C1272F27B029643F3703B3E /* STGHumiditySensor.swift in Sources */,
+				D8D5465C83B4700EBE5FF8325309741B /* STGMagnetometer.swift in Sources */,
+				AC6CB9D4D3608676ACCE0C35EE14C937 /* STGRSSISensor.swift in Sources */,
+				4B487F053E15E33168813188F1ABDABE /* STGSensorTag.swift in Sources */,
+				9AFEBC6C1442A19C5D5CA188B64DA9DB /* STGSensorTagDelegate.swift in Sources */,
+				48C6271B51C85661BA330A98148CEB5E /* STGTemperatureSensor.swift in Sources */,
+				69BEFA9E36A0417212BF7926295E22C5 /* STGTISensorTag-iOS-dummy.m in Sources */,
+				CE69B5B0BC680D58DEC6592200C7E8C6 /* STGVector.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A19D132D9173FD86505598944F7F2732 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "STGTISensorTag-tvOS";
+			target = 5DD9A94A8D1B5113FE97DA852F388F1B /* STGTISensorTag-tvOS */;
+			targetProxy = 4C7D07BF391D615CE8D1A398076A37B4 /* PBXContainerItemProxy */;
+		};
+		A77DD10B0A522D20E8936C025C7122F7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "STGTISensorTag-iOS";
+			target = B4A45D689EB7CEEAFBDEBE607E26FD85 /* STGTISensorTag-iOS */;
+			targetProxy = B3EEE51C6A42689CE4C249989826E17D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		15C19C2E45DBC16EFE7F745E578F0B38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BCA72B3B1B615BDF79263F360F58E792 /* Pods-testing.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-testing/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-testing/Pods-testing.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_testing;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		39C7322DAB03A6BE9BAB0EE1C5885EC4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		504B21142D698F547D75F33395604938 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E50B0B435BF2F8F86B3094F287DF7277 /* Pods-testing.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-testing/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-testing/Pods-testing.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_testing;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		52027E5B2A9D729AF49FFAA257C88C2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89BC80BF16D3F9780814451E29B90520 /* STGTISensorTag-iOS.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/STGTISensorTag-iOS/STGTISensorTag-iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/STGTISensorTag-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/STGTISensorTag-iOS/STGTISensorTag-iOS.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = STGTISensorTag;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		71E09D3E8028F3E37F54288EBADC7068 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 268594E1D249B76487EEF90F90B71514 /* Pods-TISensorTag.debug.xcconfig */;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-TISensorTag/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TISensorTag/Pods-TISensorTag.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_TISensorTag;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		79667C362610B3EDD8394380D8C04D5B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C0315F47773B62D2CFDA808CF2B1CCC /* STGTISensorTag-tvOS.xcconfig */;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/STGTISensorTag-tvOS/STGTISensorTag-tvOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/STGTISensorTag-tvOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/STGTISensorTag-tvOS/STGTISensorTag-tvOS.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = STGTISensorTag;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8089C0A919DF66A4603064D56EAC1D4B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C0315F47773B62D2CFDA808CF2B1CCC /* STGTISensorTag-tvOS.xcconfig */;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/STGTISensorTag-tvOS/STGTISensorTag-tvOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/STGTISensorTag-tvOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/STGTISensorTag-tvOS/STGTISensorTag-tvOS.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = STGTISensorTag;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8571FD7D3DFA3F026EA06A51EF4E5F9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		A7FC3EF7F0F808CBF36F1C455B9B32FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89BC80BF16D3F9780814451E29B90520 /* STGTISensorTag-iOS.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/STGTISensorTag-iOS/STGTISensorTag-iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/STGTISensorTag-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/STGTISensorTag-iOS/STGTISensorTag-iOS.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = STGTISensorTag;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F65FC05FDB47192A496670B9CC32593E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0678DB67D88DB3B14BC98B74A623222 /* Pods-TISensorTag.release.xcconfig */;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-TISensorTag/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TISensorTag/Pods-TISensorTag.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_TISensorTag;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8571FD7D3DFA3F026EA06A51EF4E5F9B /* Debug */,
+				39C7322DAB03A6BE9BAB0EE1C5885EC4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A6A018D82BF78BB4B47690D9E57A1E84 /* Build configuration list for PBXNativeTarget "STGTISensorTag-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7FC3EF7F0F808CBF36F1C455B9B32FF /* Debug */,
+				52027E5B2A9D729AF49FFAA257C88C2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AEC7DDD5FE8BAD9D3788D3FAE7E91D1A /* Build configuration list for PBXNativeTarget "Pods-TISensorTag" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71E09D3E8028F3E37F54288EBADC7068 /* Debug */,
+				F65FC05FDB47192A496670B9CC32593E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E06951D40BD2DFDF12B6787A85575DAB /* Build configuration list for PBXNativeTarget "Pods-testing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15C19C2E45DBC16EFE7F745E578F0B38 /* Debug */,
+				504B21142D698F547D75F33395604938 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E56EB83093FD58C3F5AADC92DFF76969 /* Build configuration list for PBXNativeTarget "STGTISensorTag-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8089C0A919DF66A4603064D56EAC1D4B /* Debug */,
+				79667C362610B3EDD8394380D8C04D5B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
