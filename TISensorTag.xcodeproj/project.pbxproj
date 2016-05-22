@@ -9,9 +9,13 @@
 /* Begin PBXBuildFile section */
 		2A6687671CEA3FB100218EF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6687661CEA3FB100218EF6 /* AppDelegate.swift */; };
 		2A66876B1CEA3FC400218EF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A66876A1CEA3FC400218EF6 /* Main.storyboard */; };
-		2A66876D1CEA3FCA00218EF6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A66876C1CEA3FCA00218EF6 /* ViewController.swift */; };
+		2A66876D1CEA3FCA00218EF6 /* TSTMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A66876C1CEA3FCA00218EF6 /* TSTMainViewController.swift */; };
 		2A66876F1CEA3FD400218EF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A66876E1CEA3FD400218EF6 /* Assets.xcassets */; };
-		2ABE49791CEA7F2800D51767 /* STGBarGaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABE49781CEA7F2800D51767 /* STGBarGaugeView.swift */; };
+		2A69073B1CEBAB11006217D2 /* TSTAngularVelocityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A69073A1CEBAB11006217D2 /* TSTAngularVelocityViewController.swift */; };
+		2A69073D1CEBACE9006217D2 /* TSTConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A69073C1CEBACE9006217D2 /* TSTConstants.swift */; };
+		2A83AE0A1CF114CF003F08FE /* TSTSimpleKeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A83AE091CF114CF003F08FE /* TSTSimpleKeyView.swift */; };
+		2A83AE0C1CF114ED003F08FE /* TSTAccelerationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A83AE0B1CF114ED003F08FE /* TSTAccelerationViewController.swift */; };
+		2ABE49791CEA7F2800D51767 /* TSTBarGaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABE49781CEA7F2800D51767 /* TSTBarGaugeView.swift */; };
 		7315A03BB1D3528E0D5182B4 /* Pods_TISensorTag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C8233838037E3B528FBBE8A /* Pods_TISensorTag.framework */; };
 /* End PBXBuildFile section */
 
@@ -19,9 +23,13 @@
 		2A6687661CEA3FB100218EF6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Application/AppDelegate.swift; sourceTree = "<group>"; };
 		2A6687681CEA3FBA00218EF6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Application/Info.plist; sourceTree = "<group>"; };
 		2A66876A1CEA3FC400218EF6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Views/Main.storyboard; sourceTree = "<group>"; };
-		2A66876C1CEA3FCA00218EF6 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Views/ViewController.swift; sourceTree = "<group>"; };
+		2A66876C1CEA3FCA00218EF6 /* TSTMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TSTMainViewController.swift; path = Views/TSTMainViewController.swift; sourceTree = "<group>"; };
 		2A66876E1CEA3FD400218EF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Assets/Assets.xcassets; sourceTree = "<group>"; };
-		2ABE49781CEA7F2800D51767 /* STGBarGaugeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = STGBarGaugeView.swift; path = Views/STGBarGaugeView.swift; sourceTree = "<group>"; };
+		2A69073A1CEBAB11006217D2 /* TSTAngularVelocityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TSTAngularVelocityViewController.swift; path = Views/TSTAngularVelocityViewController.swift; sourceTree = "<group>"; };
+		2A69073C1CEBACE9006217D2 /* TSTConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TSTConstants.swift; path = Library/TSTConstants.swift; sourceTree = "<group>"; };
+		2A83AE091CF114CF003F08FE /* TSTSimpleKeyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TSTSimpleKeyView.swift; path = Views/TSTSimpleKeyView.swift; sourceTree = "<group>"; };
+		2A83AE0B1CF114ED003F08FE /* TSTAccelerationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TSTAccelerationViewController.swift; path = Views/TSTAccelerationViewController.swift; sourceTree = "<group>"; };
+		2ABE49781CEA7F2800D51767 /* TSTBarGaugeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TSTBarGaugeView.swift; path = Views/TSTBarGaugeView.swift; sourceTree = "<group>"; };
 		2AF4EF301CE18880006C2AC7 /* TISensorTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TISensorTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FC32E216B2DD6719793A400 /* Pods-testing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testing.release.xcconfig"; path = "Pods/Target Support Files/Pods-testing/Pods-testing.release.xcconfig"; sourceTree = "<group>"; };
 		3C8233838037E3B528FBBE8A /* Pods_TISensorTag.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TISensorTag.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,8 +71,11 @@
 			isa = PBXGroup;
 			children = (
 				2A66876A1CEA3FC400218EF6 /* Main.storyboard */,
-				2A66876C1CEA3FCA00218EF6 /* ViewController.swift */,
-				2ABE49781CEA7F2800D51767 /* STGBarGaugeView.swift */,
+				2A66876C1CEA3FCA00218EF6 /* TSTMainViewController.swift */,
+				2A69073A1CEBAB11006217D2 /* TSTAngularVelocityViewController.swift */,
+				2A83AE0B1CF114ED003F08FE /* TSTAccelerationViewController.swift */,
+				2ABE49781CEA7F2800D51767 /* TSTBarGaugeView.swift */,
+				2A83AE091CF114CF003F08FE /* TSTSimpleKeyView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -72,6 +83,7 @@
 		2A6687641CEA3F7200218EF6 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				2A69073C1CEBACE9006217D2 /* TSTConstants.swift */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -163,6 +175,7 @@
 		2AF4EF281CE18880006C2AC7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = TST;
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Andre Muis";
@@ -256,9 +269,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2ABE49791CEA7F2800D51767 /* STGBarGaugeView.swift in Sources */,
-				2A66876D1CEA3FCA00218EF6 /* ViewController.swift in Sources */,
+				2A83AE0A1CF114CF003F08FE /* TSTSimpleKeyView.swift in Sources */,
+				2A69073D1CEBACE9006217D2 /* TSTConstants.swift in Sources */,
+				2ABE49791CEA7F2800D51767 /* TSTBarGaugeView.swift in Sources */,
+				2A66876D1CEA3FCA00218EF6 /* TSTMainViewController.swift in Sources */,
+				2A69073B1CEBAB11006217D2 /* TSTAngularVelocityViewController.swift in Sources */,
 				2A6687671CEA3FB100218EF6 /* AppDelegate.swift in Sources */,
+				2A83AE0C1CF114ED003F08FE /* TSTAccelerationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

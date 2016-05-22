@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TISensorTag" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="TSTMainViewController" customModule="TISensorTag" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -17,22 +17,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TI Sensor Tag" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vcf-W2-ipm">
-                                <rect key="frame" x="804" y="52" width="312" height="63"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <rect key="frame" x="780" y="48" width="360" height="63"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Central Manager State:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6i-it-mpx">
-                                <rect key="frame" x="99" y="127" width="312" height="42"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <rect key="frame" x="77" y="134" width="395" height="43"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIR-IY-Ihg" userLabel="centralManagerStateLabel">
-                                <rect key="frame" x="431" y="127" width="274" height="42"/>
+                                <rect key="frame" x="480" y="134" width="253" height="43"/>
                                 <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
@@ -41,16 +41,16 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Connection Status:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsQ-tf-VcF">
-                                <rect key="frame" x="99" y="194" width="279" height="40"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <rect key="frame" x="811" y="134" width="328" height="43"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWM-Hh-8IE" userLabel="connectionStatusLabel">
-                                <rect key="frame" x="431" y="192" width="274" height="42"/>
+                                <rect key="frame" x="1147" y="134" width="209" height="43"/>
                                 <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
@@ -58,27 +58,34 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="RSSI:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8C-8P-upc">
-                                <rect key="frame" x="99" y="287" width="76" height="40"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vYy-xV-8Uu" userLabel="rssiBarGaugeView" customClass="STGBarGaugeView" customModule="TISensorTag" customModuleProvider="target">
-                                <rect key="frame" x="183" y="287" width="615" height="40"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SignalStrength" translatesAutoresizingMaskIntoConstraints="NO" id="Wto-O8-qn2">
+                                <rect key="frame" x="77" y="192" width="127" height="125"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vYy-xV-8Uu" userLabel="rssiBarGaugeView" customClass="TSTBarGaugeView" customModule="TISensorTag" customModuleProvider="target">
+                                <rect key="frame" x="233" y="230" width="1048" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Temperature:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n90-wy-QdN">
-                                <rect key="frame" x="99" y="378" width="177" height="40"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nkL-go-oon" userLabel="temperatureLabel">
-                                <rect key="frame" x="289" y="378" width="134" height="40"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cd4-U3-fHb">
+                                <rect key="frame" x="761" y="288" width="520" height="495"/>
+                                <connections>
+                                    <segue destination="HDp-7H-weW" kind="embed" id="s4P-QV-5kr"/>
+                                </connections>
+                            </containerView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Magnet" translatesAutoresizingMaskIntoConstraints="NO" id="xpJ-Ij-SGo">
+                                <rect key="frame" x="81" y="758" width="123" height="116"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Yz-TH-nKg" userLabel="magneticFieldStrengthBarGaugeView" customClass="TSTBarGaugeView" customModule="TISensorTag" customModuleProvider="target">
+                                <rect key="frame" x="233" y="791" width="782" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Thermometer" translatesAutoresizingMaskIntoConstraints="NO" id="ffk-bd-u97">
+                                <rect key="frame" x="1462" y="134" width="65" height="185"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100.0 °F" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nkL-go-oon" userLabel="temperatureLabel">
+                                <rect key="frame" x="1564" y="145" width="279" height="161"/>
                                 <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
@@ -86,17 +93,14 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Humidity:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Og0-Ii-zJ9">
-                                <rect key="frame" x="99" y="457" width="127" height="40"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyV-3Q-Llx" userLabel="humidityLabel">
-                                <rect key="frame" x="250" y="457" width="128" height="40"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Humidity" translatesAutoresizingMaskIntoConstraints="NO" id="QyW-r0-ecu">
+                                <rect key="frame" x="1348" y="415" width="184" height="185"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="99%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyV-3Q-Llx" userLabel="humidityLabel">
+                                <rect key="frame" x="1564" y="425" width="279" height="152"/>
                                 <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
@@ -104,17 +108,14 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Barometric Pressure:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUy-ja-pIY">
-                                <rect key="frame" x="99" y="538" width="276" height="40"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kft-sO-uFI" userLabel="barometricPressureLabel">
-                                <rect key="frame" x="402" y="538" width="187" height="40"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Pressure" translatesAutoresizingMaskIntoConstraints="NO" id="Nte-0I-SbC">
+                                <rect key="frame" x="1343" y="648" width="193" height="185"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kft-sO-uFI" userLabel="barometricPressureLabel">
+                                <rect key="frame" x="1564" y="668" width="279" height="96"/>
                                 <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
@@ -122,14 +123,28 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Magnetic Field Strength:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hy8-li-xc8">
-                                <rect key="frame" x="99" y="670" width="333" height="40"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="millibars" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rui-gO-cYS">
+                                <rect key="frame" x="1564" y="772" width="164" height="41"/>
+                                <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mwk-n2-2sd" userLabel="leftKeyView" customClass="TSTSimpleKeyView" customModule="TISensorTag" customModuleProvider="target">
+                                <rect key="frame" x="1061" y="793" width="88" height="76"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2va-3x-e0A" userLabel="rightKeyView" customClass="TSTSimpleKeyView" customModule="TISensorTag" customModuleProvider="target">
+                                <rect key="frame" x="1193" y="793" width="88" height="76"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1b9-5V-Onc" userLabel="messagesTextView">
-                                <rect key="frame" x="99" y="889" width="1702" height="128"/>
+                                <rect key="frame" x="72" y="892" width="1766" height="133"/>
                                 <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -139,10 +154,12 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Yz-TH-nKg" userLabel="magneticFieldStrengthBarGaugeView" customClass="STGBarGaugeView" customModule="TISensorTag" customModuleProvider="target">
-                                <rect key="frame" x="440" y="670" width="615" height="40"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S4P-Wx-OfP">
+                                <rect key="frame" x="233" y="288" width="520" height="495"/>
+                                <connections>
+                                    <segue destination="L0L-z0-tzx" kind="embed" id="wCp-ge-PXs"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                     </view>
                     <connections>
@@ -150,8 +167,10 @@
                         <outlet property="centralManagerStateLabel" destination="fIR-IY-Ihg" id="NYJ-Fn-Jhb"/>
                         <outlet property="connectionStatusLabel" destination="CWM-Hh-8IE" id="mcO-f9-wJm"/>
                         <outlet property="humidityLabel" destination="vyV-3Q-Llx" id="g8n-SR-Zh1"/>
+                        <outlet property="leftKeyView" destination="mwk-n2-2sd" id="7VS-Y6-GUR"/>
                         <outlet property="magneticFieldStrengthBarGaugeView" destination="8Yz-TH-nKg" id="Y2K-xD-win"/>
                         <outlet property="messagesTextView" destination="1b9-5V-Onc" id="dKh-F8-9WJ"/>
+                        <outlet property="rightKeyView" destination="2va-3x-e0A" id="MVv-yf-wnE"/>
                         <outlet property="rssiBarGaugeView" destination="vYy-xV-8Uu" id="ILj-u1-MtV"/>
                         <outlet property="temperatureLabel" destination="nkL-go-oon" id="hQm-hs-ulJ"/>
                     </connections>
@@ -160,5 +179,74 @@
             </objects>
             <point key="canvasLocation" x="431" y="400"/>
         </scene>
+        <!--Angular Velocity View Controller-->
+        <scene sceneID="1PY-Tj-ZMJ">
+            <objects>
+                <viewController id="L0L-z0-tzx" customClass="TSTAngularVelocityViewController" customModule="TISensorTag" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4OE-V9-LLx"/>
+                        <viewControllerLayoutGuide type="bottom" id="Dpd-u8-cVu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="L9I-7w-spt">
+                        <rect key="frame" x="0.0" y="0.0" width="520" height="495"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aus-nh-OSQ" userLabel="sceneView">
+                                <rect key="frame" x="0.0" y="0.0" width="520" height="495"/>
+                            </sceneKitView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Aus-nh-OSQ" firstAttribute="top" secondItem="4OE-V9-LLx" secondAttribute="bottom" id="PXV-Bb-L1D"/>
+                            <constraint firstAttribute="trailing" secondItem="Aus-nh-OSQ" secondAttribute="trailing" id="auE-pw-PCQ"/>
+                            <constraint firstItem="Dpd-u8-cVu" firstAttribute="top" secondItem="Aus-nh-OSQ" secondAttribute="bottom" id="nFV-DX-PIn"/>
+                            <constraint firstItem="Aus-nh-OSQ" firstAttribute="leading" secondItem="L9I-7w-spt" secondAttribute="leading" id="tSF-f5-Emc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="sceneView" destination="Aus-nh-OSQ" id="YZq-lb-duc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L8c-H4-nzS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1836" y="108"/>
+        </scene>
+        <!--Acceleration View Controller-->
+        <scene sceneID="y49-s9-cz1">
+            <objects>
+                <viewController id="HDp-7H-weW" customClass="TSTAccelerationViewController" customModule="TISensorTag" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="f2P-qm-Qpd"/>
+                        <viewControllerLayoutGuide type="bottom" id="Rtr-gw-Ijj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="z0z-fa-kcS">
+                        <rect key="frame" x="0.0" y="0.0" width="520" height="495"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8OV-PE-WZO" userLabel="sceneView">
+                                <rect key="frame" x="0.0" y="0.0" width="520" height="495"/>
+                            </sceneKitView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="8OV-PE-WZO" firstAttribute="leading" secondItem="z0z-fa-kcS" secondAttribute="leading" id="9Rr-19-Xgi"/>
+                            <constraint firstAttribute="trailing" secondItem="8OV-PE-WZO" secondAttribute="trailing" id="Mz0-um-MLH"/>
+                            <constraint firstItem="8OV-PE-WZO" firstAttribute="top" secondItem="z0z-fa-kcS" secondAttribute="top" id="ZV6-tR-frD"/>
+                            <constraint firstAttribute="bottom" secondItem="8OV-PE-WZO" secondAttribute="bottom" id="lpy-dx-ec8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="sceneView" destination="8OV-PE-WZO" id="frk-1X-fMD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1kY-AW-W5q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1856" y="712"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="Humidity" width="300" height="300"/>
+        <image name="Magnet" width="391" height="435"/>
+        <image name="Pressure" width="461" height="414"/>
+        <image name="SignalStrength" width="200" height="175"/>
+        <image name="Thermometer" width="83" height="235"/>
+    </resources>
 </document>

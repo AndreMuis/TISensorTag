@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  TSTViewController.swift
 //  TISensorTag
 //
 //  Created by Andre Muis on 5/9/16.
@@ -7,23 +7,31 @@
 //
 
 import CoreBluetooth
+import SceneKit
 import UIKit
 
 import STGTISensorTag
 
-class ViewController : UIViewController, STGCentralManagerDelegate, STGSensorTagDelegate
+class TSTMainViewController : UIViewController, STGCentralManagerDelegate, STGSensorTagDelegate
 {
     @IBOutlet weak var centralManagerStateLabel: UILabel!
     @IBOutlet weak var connectionStatusLabel: UILabel!
-    @IBOutlet weak var rssiBarGaugeView: STGBarGaugeView!
+    @IBOutlet weak var rssiBarGaugeView: TSTBarGaugeView!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var humidityLabel: UILabel!
     @IBOutlet weak var barometricPressureLabel: UILabel!
-    @IBOutlet weak var magneticFieldStrengthBarGaugeView: STGBarGaugeView!
+    @IBOutlet weak var magneticFieldStrengthBarGaugeView: TSTBarGaugeView!
+    @IBOutlet weak var leftKeyView: TSTSimpleKeyView!
+    @IBOutlet weak var rightKeyView: TSTSimpleKeyView!
     @IBOutlet weak var messagesTextView: UITextView!
 
     var centralManager : STGCentralManager!
     var sensorTag : STGSensorTag?
+
+    var sensorTagNode : SCNNode?
+    var accelerationNode : SCNNode?
+    
+    var previousAcceleration : STGVector!
     
     required init?(coder aDecoder: NSCoder)
     {
@@ -31,8 +39,24 @@ class ViewController : UIViewController, STGCentralManagerDelegate, STGSensorTag
         
         self.centralManager = STGCentralManager(delegate: self)
         self.sensorTag = nil
+        
+        self.sensorTagNode = nil
+        
+        self.previousAcceleration = STGVector(x: 0.0, y: 0.0, z: 0.0)
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if let viewController = segue.destinationViewController as? TSTAngularVelocityViewController
+        {
+            self.sensorTagNode = viewController.sensorTagNode
+        }
+        else if let viewController = segue.destinationViewController as? TSTAccelerationViewController
+        {
+            self.accelerationNode = viewController.accelerationNode
+        }
+    }
+
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -46,6 +70,15 @@ class ViewController : UIViewController, STGCentralManagerDelegate, STGSensorTag
         
         self.rssiBarGaugeView.setupWithBackgroundColor(UIColor(red: 0.75, green: 1.0, blue: 0.75, alpha: 1.0), indicatorColor: UIColor.greenColor())
     
+        //self.temperatureLabel.text = "? \u{00B0}F"
+        
+        //self.humidityLabel.text = "? %"
+
+        //self.barometricPressureLabel.text = "?"
+        
+        self.leftKeyView.setup()
+        self.rightKeyView.setup()
+        
         self.magneticFieldStrengthBarGaugeView.setupWithBackgroundColor(UIColor(red: 0.75, green: 0.75, blue: 1.0, alpha: 1.0), indicatorColor: UIColor.blueColor())
     }
     
@@ -53,7 +86,7 @@ class ViewController : UIViewController, STGCentralManagerDelegate, STGSensorTag
     {
         NSTimer.scheduledTimerWithTimeInterval(1.0,
                                                target: self,
-                                               selector: #selector(ViewController.readRSSI),
+                                               selector: #selector(TSTMainViewController.readRSSI),
                                                userInfo: nil,
                                                repeats: false)
     }
@@ -71,7 +104,13 @@ class ViewController : UIViewController, STGCentralManagerDelegate, STGSensorTag
         
         if (state == .PoweredOn)
         {
+            self.centralManagerStateLabel.textColor = UIColor.blueColor()
+            
             self.centralManager.startScanningForSensorTags()
+        }
+        else
+        {
+            self.centralManagerStateLabel.textColor = UIColor.blackColor()
         }
     }
     
@@ -116,7 +155,7 @@ class ViewController : UIViewController, STGCentralManagerDelegate, STGSensorTag
     
     func sensorTag(sensorTag: STGSensorTag, didDiscoverCharacteristicsForAccelerometer accelerometer: STGAccelerometer)
     {
-        self.sensorTag!.accelerometer.enable(measurementPeriodInMilliseconds: 300, lowPassFilteringFactor: 0.2)
+        self.sensorTag!.accelerometer.enable(measurementPeriodInMilliseconds: 100, lowPassFilteringFactor: 0.5)
     }
     
     func sensorTag(sensorTag: STGSensorTag, didDiscoverCharacteristicsForBarometricPressureSensor sensor: STGBarometricPressureSensor)
@@ -126,7 +165,7 @@ class ViewController : UIViewController, STGCentralManagerDelegate, STGSensorTag
     
     func sensorTag(sensorTag: STGSensorTag, didDiscoverCharacteristicsForGyroscope gyroscope: STGGyroscope)
     {
-        self.sensorTag!.gyroscope.enable(measurementPeriodInMilliseconds: 300)
+        self.sensorTag!.gyroscope.enable(measurementPeriodInMilliseconds: 100)
     }
     
     func sensorTag(sensorTag: STGSensorTag, didDiscoverCharacteristicsForHumiditySensor humiditySensor: STGHumiditySensor)
@@ -157,15 +196,38 @@ class ViewController : UIViewController, STGCentralManagerDelegate, STGSensorTag
     
     func sensorTag(sensorTag: STGSensorTag, didUpdateSmoothedAcceleration acceleration: STGVector)
     {
+        let xDelta = acceleration.x - self.previousAcceleration.x
+        let yDelta = acceleration.y - self.previousAcceleration.y
+        let zDelta = acceleration.z - self.previousAcceleration.z
+        
+        if fabs(zDelta) > 0.03
+        {
+            accelerationNode?.position.y = acceleration.z * 10000.0
+        }
+        
+        if fabs(xDelta) > 0.03
+        {
+            accelerationNode?.position.x = -acceleration.x * 10000.0
+        }
+
+        if fabs(yDelta) > 0.03
+        {
+            accelerationNode?.position.z = acceleration.y * 10000.0
+        }
+
+        self.previousAcceleration = acceleration
     }
     
     func sensorTag(sensorTag: STGSensorTag, didUpdateBarometricPressure pressure: Int)
     {
-        self.barometricPressureLabel.text = "\(pressure) millibars"
+        self.barometricPressureLabel.text = String(pressure)
     }
     
     func sensorTag(sensorTag: STGSensorTag, didUpdateAngularVelocity angularVelocity: STGVector)
     {
+        self.sensorTagNode?.eulerAngles = SCNVector3(-angularVelocity.y / 1000.0,
+                                                     angularVelocity.x / 1000.0,
+                                                     angularVelocity.z / 1000.0)
     }
     
     func sensorTag(sensorTag: STGSensorTag, didUpdateRelativeHumidity relativeHumidity: Float)
@@ -185,18 +247,35 @@ class ViewController : UIViewController, STGCentralManagerDelegate, STGSensorTag
     {
         if let someState = state
         {
-            print("simple keys state = \(someState.desscription)")
+            switch someState
+            {
+            case STGSimpleKeysState.NonePressed:
+                self.leftKeyView.depress()
+                self.rightKeyView.depress()
+                
+            case STGSimpleKeysState.LeftPressed:
+                self.leftKeyView.press()
+                self.rightKeyView.depress()
+                
+            case STGSimpleKeysState.RightPressed:
+                self.leftKeyView.depress()
+                self.rightKeyView.press()
+                
+            case STGSimpleKeysState.BothPressed:
+                self.leftKeyView.press()
+                self.rightKeyView.press()
+            }
         }
     }
     
     func sensorTag(sensorTag: STGSensorTag, didUpdateAmbientTemperature temperature: STGTemperature)
     {
-        self.temperatureLabel.text = "\(temperature.fahrenheit.format(".1")) \u{00B0}C"
+        self.temperatureLabel.text = "\(temperature.fahrenheit.format(".1")) \u{00B0}F"
     }
     
     func sensorTag(sensorTag: STGSensorTag, didEncounterError error: NSError)
     {
-        print(error)
+        addMessage(error.description)
     }
     
     // MARK:

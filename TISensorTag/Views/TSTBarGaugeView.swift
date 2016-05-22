@@ -1,5 +1,5 @@
 //
-//  STGBarGaugeView.swift
+//  TSTBarGaugeView.swift
 //  TISensorTag
 //
 //  Created by Andre Muis on 5/16/16.
@@ -8,9 +8,16 @@
 
 import UIKit
 
-class STGBarGaugeView : UIView
+class TSTBarGaugeView : UIView
 {
     var indicatorView : UIView!
+    
+    required init?(coder aDecoder: NSCoder)
+    {
+        super.init(coder: aDecoder)
+        
+        self.indicatorView = nil
+    }
     
     var normalizedReading : Float!
     {
@@ -30,15 +37,6 @@ class STGBarGaugeView : UIView
                                               width: CGFloat(self.normalizedReading) * self.frame.size.width,
                                               height: self.indicatorView.frame.size.height)
         }
-    }
-    
-    required init?(coder aDecoder: NSCoder)
-    {
-        super.init(coder: aDecoder)
-
-        self.indicatorView = nil
-        
-        self.normalizedReading = 0.0
     }
     
     func setupWithBackgroundColor(backgroundColor : UIColor, indicatorColor : UIColor)
