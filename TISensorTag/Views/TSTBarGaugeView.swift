@@ -10,16 +10,18 @@ import UIKit
 
 class TSTBarGaugeView : UIView
 {
-    var indicatorView : UIView!
+    var indicatorView : UIView?
     
     required init?(coder aDecoder: NSCoder)
     {
-        super.init(coder: aDecoder)
-        
         self.indicatorView = nil
+        
+        normalizedReading = 0.0
+
+        super.init(coder: aDecoder)
     }
     
-    var normalizedReading : Float!
+    var normalizedReading : Float
     {
         didSet
         {
@@ -32,20 +34,40 @@ class TSTBarGaugeView : UIView
                 self.normalizedReading = 1.0
             }
             
-            self.indicatorView.frame = CGRect(x: self.indicatorView.frame.origin.x,
-                                              y: self.indicatorView.frame.origin.y,
-                                              width: CGFloat(self.normalizedReading) * self.frame.size.width,
-                                              height: self.indicatorView.frame.size.height)
+            if let view : UIView = self.indicatorView
+            {
+                view.frame = CGRect(x: view.frame.origin.x,
+                                    y: view.frame.origin.y,
+                                    width: CGFloat(self.normalizedReading) * self.frame.size.width,
+                                    height: view.frame.size.height)
+            }
         }
     }
     
-    func setupWithBackgroundColor(backgroundColor : UIColor, indicatorColor : UIColor)
+    func setup(backgroundColor backgroundColor : UIColor, indicatorColor : UIColor)
     {
-        self.backgroundColor = backgroundColor;
+        self.backgroundColor = backgroundColor
         
-        self.indicatorView = UIView(frame: CGRectMake(0.0, 0.0, 0.0, self.frame.size.height))
-        self.addSubview(self.indicatorView)
+        let indicatorView : UIView = UIView(frame: CGRectMake(0.0, 0.0, 0.0, self.frame.size.height))
         
-        self.indicatorView.backgroundColor = indicatorColor;
+        self.indicatorView = indicatorView
+        self.addSubview(indicatorView)
+        
+        indicatorView.backgroundColor = indicatorColor
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

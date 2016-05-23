@@ -10,15 +10,15 @@ import UIKit
 
 class TSTSimpleKeyView: UIView
 {
-    var depressedFrame : CGRect!
-    var pressedFrame : CGRect!
+    var depressedFrame : CGRect
+    var pressedFrame : CGRect
     
     required init?(coder aDecoder: NSCoder)
     {
-        super.init(coder: aDecoder)
-
         self.depressedFrame = CGRectZero
         self.pressedFrame = CGRectZero
+
+        super.init(coder: aDecoder)
     }
 
     func setup()
@@ -26,11 +26,11 @@ class TSTSimpleKeyView: UIView
         self.depressedFrame = self.frame
     
         self.pressedFrame = CGRectMake(self.frame.origin.x,
-                                       self.frame.origin.y + self.frame.size.height * TSTConstants.SimpleKey.depressedPercent,
+                                       self.frame.origin.y + self.frame.size.height * TSTConstants.SimpleKeyView.depressedPercent,
                                        self.frame.size.width,
-                                       self.frame.size.height * (1.0 - TSTConstants.SimpleKey.depressedPercent))
+                                       self.frame.size.height * (1.0 - TSTConstants.SimpleKeyView.depressedPercent))
     
-        let cornerRadius : CGFloat = TSTConstants.SimpleKey.cornerRadius
+        let cornerRadius : CGFloat = TSTConstants.SimpleKeyView.cornerRadius
         
         let bezierPath : UIBezierPath = UIBezierPath(roundedRect: self.bounds,
                                                      byRoundingCorners: [UIRectCorner.TopLeft, UIRectCorner.TopRight],
@@ -45,12 +45,12 @@ class TSTSimpleKeyView: UIView
     
     func press()
     {
-        self.frame = self.pressedFrame;
+        self.frame = self.pressedFrame
     }
     
     func depress()
     {
-        self.frame = self.depressedFrame;
+        self.frame = self.depressedFrame
     }
 }
 

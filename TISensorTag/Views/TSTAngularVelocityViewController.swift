@@ -9,148 +9,66 @@
 import SceneKit
 import UIKit
 
+import STGTISensorTag
+
 class TSTAngularVelocityViewController : UIViewController
 {
     @IBOutlet weak var sceneView: SCNView!
     
-    var scene : SCNScene!
-    var sensorTagNode : SCNNode?
+    let animationEngine : TSTAngularVelocityAnimationEngine
     
     required init?(coder aDecoder: NSCoder)
     {
+        self.animationEngine = TSTAngularVelocityAnimationEngine()
+
         super.init(coder: aDecoder)
-        
-        self.scene = SCNScene()
-        self.sensorTagNode = SCNNode()
     }
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
 
-        self.sceneView.scene = self.scene
+        self.sceneView.scene = self.animationEngine.scene
         
-        self.addCamera()
-        self.addLights()
+        self.animationEngine.addCamera(position: TSTConstants.AngularVelocityView.cameraPosition)
         
-        self.drawSensorTag()
-    }
-
-    func addCamera()
-    {
-        let cameraNode = SCNNode()
-        cameraNode.camera = SCNCamera()
-        cameraNode.position = TSTConstants.cameraPosition
+        self.animationEngine.self.addLights(ambientLightColor: TSTConstants.AmbientLight.color,
+                                            omnidirectionalLightColor: TSTConstants.OmnidirectionalLight.color,
+                                            omnidirectionalLightPosition: TSTConstants.OmnidirectionalLight.position)
         
-        self.scene.rootNode.addChildNode(cameraNode)
-    }
-    
-    func addLights()
-    {
-        let omnidirectionalLight : SCNLight = SCNLight()
-        omnidirectionalLight.type = SCNLightTypeOmni
-        omnidirectionalLight.color = TSTConstants.omnidirectionalLightColor
-        
-        let omnidirectionalLightNode : SCNNode = SCNNode()
-        omnidirectionalLightNode.light = omnidirectionalLight
-        omnidirectionalLightNode.position = TSTConstants.omnidirectionalLightPosition
-        
-        self.scene.rootNode.addChildNode(omnidirectionalLightNode)
-        
-        let ambientLight : SCNLight = SCNLight()
-        ambientLight.type = SCNLightTypeAmbient
-        ambientLight.color = TSTConstants.ambientLightColor
-        
-        let ambientLightNode = SCNNode()
-        ambientLightNode.light = ambientLight
-        
-        self.scene.rootNode.addChildNode(ambientLightNode)
+        self.animationEngine.self.drawSensorTag(eulerAngles: TSTConstants.AngularVelocityView.sensorTagEulerAngles,
+                                                width: TSTConstants.SensorTag.width,
+                                                height: TSTConstants.SensorTag.height,
+                                                depth: TSTConstants.SensorTag.depth,
+                                                chamferRadius: TSTConstants.SensorTag.chamferRadius,
+                                                holeDiameter: TSTConstants.SensorTag.holeDiameter,
+                                                holeVerticalDisplacement: TSTConstants.SensorTag.holeVerticalDisplacement,
+                                                coverColor: TSTConstants.SensorTag.coverColor,
+                                                baseColor: TSTConstants.SensorTag.baseColor,
+                                                holeColor: TSTConstants.SensorTag.holeColor)
     }
     
-    func drawSensorTag()
+    func resetUI()
     {
-        let redMaterial : SCNMaterial = SCNMaterial()
-        redMaterial.diffuse.contents = UIColor.redColor()
-        redMaterial.specular.contents = UIColor.whiteColor()
-        
-        let blackMaterial : SCNMaterial = SCNMaterial()
-        blackMaterial.diffuse.contents = UIColor.blackColor()
-        blackMaterial.specular.contents = UIColor.whiteColor()
-
-        let greenMaterial : SCNMaterial = SCNMaterial()
-        greenMaterial.diffuse.contents = UIColor(red: 0.0, green: 0.8, blue: 0.0, alpha: 1.0)
-        greenMaterial.specular.contents = UIColor.whiteColor()
-
-        let geometry : SCNBox = SCNBox(width: CGFloat(TSTConstants.sensorTagWidth),
-                                       height: CGFloat(TSTConstants.sensorTagHeight),
-                                       length: CGFloat(TSTConstants.sensorTagDepth),
-                                       chamferRadius: 0.4)
-        
-        geometry.materials = [redMaterial, redMaterial, blackMaterial, redMaterial, redMaterial, blackMaterial]
-        
-        self.sensorTagNode?.geometry = geometry
-        
-        
-        let cylinder : SCNCylinder = SCNCylinder(radius: 1.0, height: CGFloat(TSTConstants.sensorTagHoleDiameter / 2.0))
-        cylinder.materials = [greenMaterial]
-        
-        let holeNode = SCNNode(geometry: cylinder)
-        
-        holeNode.position = SCNVector3(0.0, TSTConstants.sensorTagHoleVerticalDisplacement, 1.0)
-
-        holeNode.eulerAngles = SCNVector3(Float(M_PI) / 2.0, 0.0, 0.0)
-        
-        self.sensorTagNode?.addChildNode(holeNode)
-        
-        
-        
-        self.scene.rootNode.addChildNode(self.sensorTagNode!)
+        self.animationEngine.sensorTagNode.eulerAngles = SCNVector3Zero
     }
     
-    func drawAxes()
+    func didUpdateAngularVelocity(angularVelocity angularVelocity: STGVector)
     {
-        let xAxisGeometry : SCNCylinder = SCNCylinder(radius: CGFloat(TSTConstants.axisRadius),
-                                                      height: CGFloat(TSTConstants.axisLength))
+        print(angularVelocity)
         
-        let xAxisNode = SCNNode(geometry: xAxisGeometry)
-        xAxisNode.position = SCNVector3(x: TSTConstants.axisLength / 2.0,
-                                        y: 0.0,
-                                        z: 0.0)
+        let scale : Float = TSTConstants.AngularVelocityView.measurementScale
         
-        xAxisNode.rotation = SCNVector4(0.0, 0.0, 1.0, M_PI / 2.0)
-        
-        self.scene.rootNode.addChildNode(xAxisNode)
-        
-        
-        let yAxisGeometry : SCNCylinder = SCNCylinder(radius: CGFloat(TSTConstants.axisRadius),
-                                                      height: CGFloat(TSTConstants.axisLength))
-        
-        let yAxisNode = SCNNode(geometry: yAxisGeometry)
-        yAxisNode.position = SCNVector3(x: 0.0,
-                                        y: TSTConstants.axisLength / 2.0,
-                                        z: 0.0)
-        
-        self.scene.rootNode.addChildNode(yAxisNode)
-        
-        
-        let zAxisGeometry : SCNCylinder = SCNCylinder(radius: CGFloat(TSTConstants.axisRadius),
-                                                      height: CGFloat(TSTConstants.axisLength))
-        
-        let zAxisNode = SCNNode(geometry: zAxisGeometry)
-        zAxisNode.position = SCNVector3(x: 0.0,
-                                        y: 0.0,
-                                        z: TSTConstants.axisLength / 2.0)
-        
-        zAxisNode.rotation = SCNVector4(1.0, 0.0, 0.0, M_PI / 2.0)
-        
-        self.scene.rootNode.addChildNode(zAxisNode)
+        self.animationEngine.sensorTagNode.eulerAngles = SCNVector3(-scale * angularVelocity.y,
+                                                                    scale * angularVelocity.x,
+                                                                    scale * angularVelocity.z)
     }
 }
 
-    
-    
-    
-    
+
+
+
+
 
 
 

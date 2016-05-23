@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A32BFE11CF234BD004E949A /* TSTAnimationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A32BFE01CF234BD004E949A /* TSTAnimationEngine.swift */; };
+		2A32BFE41CF2365D004E949A /* TSTAnimationEngine+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A32BFE31CF2365D004E949A /* TSTAnimationEngine+Common.swift */; };
+		2A32BFE61CF23A04004E949A /* TSTAngularVelocityAnimationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A32BFE51CF23A04004E949A /* TSTAngularVelocityAnimationEngine.swift */; };
 		2A6687671CEA3FB100218EF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6687661CEA3FB100218EF6 /* AppDelegate.swift */; };
 		2A66876B1CEA3FC400218EF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A66876A1CEA3FC400218EF6 /* Main.storyboard */; };
 		2A66876D1CEA3FCA00218EF6 /* TSTMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A66876C1CEA3FCA00218EF6 /* TSTMainViewController.swift */; };
@@ -16,10 +19,15 @@
 		2A83AE0A1CF114CF003F08FE /* TSTSimpleKeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A83AE091CF114CF003F08FE /* TSTSimpleKeyView.swift */; };
 		2A83AE0C1CF114ED003F08FE /* TSTAccelerationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A83AE0B1CF114ED003F08FE /* TSTAccelerationViewController.swift */; };
 		2ABE49791CEA7F2800D51767 /* TSTBarGaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABE49781CEA7F2800D51767 /* TSTBarGaugeView.swift */; };
+		2AF669D41CF246B6006C36BC /* TSTAccelerationAnimationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF669D31CF246B6006C36BC /* TSTAccelerationAnimationEngine.swift */; };
+		2AF669DA1CF27C1D006C36BC /* SCNVector3+Magnitude.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF669D91CF27C1D006C36BC /* SCNVector3+Magnitude.swift */; };
 		7315A03BB1D3528E0D5182B4 /* Pods_TISensorTag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C8233838037E3B528FBBE8A /* Pods_TISensorTag.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A32BFE01CF234BD004E949A /* TSTAnimationEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TSTAnimationEngine.swift; path = Library/Protocols/TSTAnimationEngine.swift; sourceTree = "<group>"; };
+		2A32BFE31CF2365D004E949A /* TSTAnimationEngine+Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "TSTAnimationEngine+Common.swift"; path = "Library/Extensions/TSTAnimationEngine+Common.swift"; sourceTree = "<group>"; };
+		2A32BFE51CF23A04004E949A /* TSTAngularVelocityAnimationEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TSTAngularVelocityAnimationEngine.swift; path = Library/TSTAngularVelocityAnimationEngine.swift; sourceTree = "<group>"; };
 		2A6687661CEA3FB100218EF6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Application/AppDelegate.swift; sourceTree = "<group>"; };
 		2A6687681CEA3FBA00218EF6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Application/Info.plist; sourceTree = "<group>"; };
 		2A66876A1CEA3FC400218EF6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Views/Main.storyboard; sourceTree = "<group>"; };
@@ -31,6 +39,8 @@
 		2A83AE0B1CF114ED003F08FE /* TSTAccelerationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TSTAccelerationViewController.swift; path = Views/TSTAccelerationViewController.swift; sourceTree = "<group>"; };
 		2ABE49781CEA7F2800D51767 /* TSTBarGaugeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TSTBarGaugeView.swift; path = Views/TSTBarGaugeView.swift; sourceTree = "<group>"; };
 		2AF4EF301CE18880006C2AC7 /* TISensorTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TISensorTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AF669D31CF246B6006C36BC /* TSTAccelerationAnimationEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TSTAccelerationAnimationEngine.swift; path = Library/TSTAccelerationAnimationEngine.swift; sourceTree = "<group>"; };
+		2AF669D91CF27C1D006C36BC /* SCNVector3+Magnitude.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SCNVector3+Magnitude.swift"; path = "Library/Extensions/SCNVector3+Magnitude.swift"; sourceTree = "<group>"; };
 		2FC32E216B2DD6719793A400 /* Pods-testing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testing.release.xcconfig"; path = "Pods/Target Support Files/Pods-testing/Pods-testing.release.xcconfig"; sourceTree = "<group>"; };
 		3C8233838037E3B528FBBE8A /* Pods_TISensorTag.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TISensorTag.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		53AC7F6C18089F6232410AF5 /* Pods-testing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testing.debug.xcconfig"; path = "Pods/Target Support Files/Pods-testing/Pods-testing.debug.xcconfig"; sourceTree = "<group>"; };
@@ -51,6 +61,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A32BFDF1CF23458004E949A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2A32BFE01CF234BD004E949A /* TSTAnimationEngine.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		2A32BFE21CF234F4004E949A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2AF669D91CF27C1D006C36BC /* SCNVector3+Magnitude.swift */,
+				2A32BFE31CF2365D004E949A /* TSTAnimationEngine+Common.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		2A6687611CEA3F5A00218EF6 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -83,7 +110,11 @@
 		2A6687641CEA3F7200218EF6 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				2A32BFDF1CF23458004E949A /* Protocols */,
+				2A32BFE21CF234F4004E949A /* Extensions */,
 				2A69073C1CEBACE9006217D2 /* TSTConstants.swift */,
+				2A32BFE51CF23A04004E949A /* TSTAngularVelocityAnimationEngine.swift */,
+				2AF669D31CF246B6006C36BC /* TSTAccelerationAnimationEngine.swift */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -271,11 +302,16 @@
 			files = (
 				2A83AE0A1CF114CF003F08FE /* TSTSimpleKeyView.swift in Sources */,
 				2A69073D1CEBACE9006217D2 /* TSTConstants.swift in Sources */,
+				2A32BFE61CF23A04004E949A /* TSTAngularVelocityAnimationEngine.swift in Sources */,
 				2ABE49791CEA7F2800D51767 /* TSTBarGaugeView.swift in Sources */,
+				2AF669DA1CF27C1D006C36BC /* SCNVector3+Magnitude.swift in Sources */,
 				2A66876D1CEA3FCA00218EF6 /* TSTMainViewController.swift in Sources */,
+				2A32BFE11CF234BD004E949A /* TSTAnimationEngine.swift in Sources */,
+				2AF669D41CF246B6006C36BC /* TSTAccelerationAnimationEngine.swift in Sources */,
 				2A69073B1CEBAB11006217D2 /* TSTAngularVelocityViewController.swift in Sources */,
 				2A6687671CEA3FB100218EF6 /* AppDelegate.swift in Sources */,
 				2A83AE0C1CF114ED003F08FE /* TSTAccelerationViewController.swift in Sources */,
+				2A32BFE41CF2365D004E949A /* TSTAnimationEngine+Common.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
