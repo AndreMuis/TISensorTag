@@ -36,16 +36,16 @@ class TSTAngularVelocityViewController : UIViewController
                                             omnidirectionalLightColor: TSTConstants.OmnidirectionalLight.color,
                                             omnidirectionalLightPosition: TSTConstants.OmnidirectionalLight.position)
         
-        self.animationEngine.self.drawSensorTag(eulerAngles: TSTConstants.AngularVelocityView.sensorTagEulerAngles,
-                                                width: TSTConstants.SensorTag.width,
-                                                height: TSTConstants.SensorTag.height,
-                                                depth: TSTConstants.SensorTag.depth,
-                                                chamferRadius: TSTConstants.SensorTag.chamferRadius,
-                                                holeDiameter: TSTConstants.SensorTag.holeDiameter,
-                                                holeVerticalDisplacement: TSTConstants.SensorTag.holeVerticalDisplacement,
-                                                coverColor: TSTConstants.SensorTag.coverColor,
-                                                baseColor: TSTConstants.SensorTag.baseColor,
-                                                holeColor: TSTConstants.SensorTag.holeColor)
+        self.animationEngine.self.addSensorTag(eulerAngles: TSTConstants.AngularVelocityView.SensorTag.eulerAngles,
+                                               width: TSTConstants.AngularVelocityView.SensorTag.width,
+                                               height: TSTConstants.AngularVelocityView.SensorTag.height,
+                                               depth: TSTConstants.AngularVelocityView.SensorTag.depth,
+                                               chamferRadius: TSTConstants.AngularVelocityView.SensorTag.chamferRadius,
+                                               holeDiameter: TSTConstants.AngularVelocityView.SensorTag.holeDiameter,
+                                               holeVerticalDisplacement: TSTConstants.AngularVelocityView.SensorTag.holeVerticalDisplacement,
+                                               coverColor: TSTConstants.SensorTag.coverColor,
+                                               baseColor: TSTConstants.SensorTag.baseColor,
+                                               holeColor: TSTConstants.SensorTag.holeColor)
     }
     
     func resetUI()
@@ -55,8 +55,6 @@ class TSTAngularVelocityViewController : UIViewController
     
     func didUpdateAngularVelocity(angularVelocity angularVelocity: STGVector)
     {
-        print(angularVelocity)
-        
         let scale : Float = TSTConstants.AngularVelocityView.measurementScale
         
         self.animationEngine.sensorTagNode.eulerAngles = SCNVector3(-scale * angularVelocity.y,

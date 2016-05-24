@@ -36,7 +36,7 @@ struct TSTConstants
     
     struct AmbientLight
     {
-        static let color : UIColor = UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 1.0)
+        static let color : UIColor = UIColor(white: 0.6, alpha: 1.0)
     }
     
     struct SensorTag
@@ -44,18 +44,9 @@ struct TSTConstants
         private static let widthInMm : Float = 39.0
         private static let heightInMm : Float = 67.0
         private static let depthInMm : Float = 16.0
+        
         private static let holeDiameterInMm : Float = 13.0
         private static let holeVerticalDisplacementInMm : Float = 4.0
-        
-        private static let sizeScale : Float = 10.0 * (1.0 / heightInMm)
-        
-        static let width : CGFloat = CGFloat(sizeScale * widthInMm)
-        static let height : CGFloat = CGFloat(sizeScale * heightInMm)
-        static let depth : CGFloat = CGFloat(sizeScale * depthInMm)
-        static let chamferRadius : CGFloat = 0.4
-        
-        static let holeDiameter : CGFloat = CGFloat(sizeScale * holeDiameterInMm)
-        static let holeVerticalDisplacement : CGFloat = CGFloat(sizeScale * holeVerticalDisplacementInMm)
         
         static let baseColor : UIColor = UIColor.blackColor()
         static let coverColor : UIColor = UIColor.redColor()
@@ -106,9 +97,23 @@ struct TSTConstants
     struct AngularVelocityView
     {
         static let cameraPosition : SCNVector3 = SCNVector3(x: 0.0, y: 0.0, z: 12.0)
-        
-        static let sensorTagEulerAngles : SCNVector3 = SCNVector3(0.0, 0.0, 0.0)
-        
+     
+        struct SensorTag
+        {
+            static let eulerAngles : SCNVector3 = SCNVector3(0.0, 0.0, 0.0)
+            
+            private static let sizeScale : Float = 10.0 * (1.0 / TSTConstants.SensorTag.heightInMm)
+            
+            static let width : CGFloat = CGFloat(sizeScale * TSTConstants.SensorTag.widthInMm)
+            static let height : CGFloat = CGFloat(sizeScale * TSTConstants.SensorTag.heightInMm)
+            static let depth : CGFloat = CGFloat(sizeScale * TSTConstants.SensorTag.depthInMm)
+            
+            static let chamferRadius : CGFloat = 0.4
+            
+            static let holeDiameter : CGFloat = CGFloat(sizeScale * TSTConstants.SensorTag.holeDiameterInMm)
+            static let holeVerticalDisplacement : CGFloat = CGFloat(sizeScale * TSTConstants.SensorTag.holeVerticalDisplacementInMm)
+        }
+    
         static let measurementScale : Float = 0.06
     }
 
@@ -116,16 +121,22 @@ struct TSTConstants
     {
         static let cameraPosition : SCNVector3 = SCNVector3(x: 13.0, y: 13.0, z: 13.0)
     
-        static let sensorTagEulerAngles : SCNVector3 = SCNVector3(-Float(M_PI / 2.0), 0.0, 0.0)
-        static let sensorTagSizeScale : CGFloat = 0.8
-        
-        static var accelerationLookAtNodeDefaultPosition : SCNVector3
+        struct SensorTag
         {
-            return SCNVector3(0.0, -2.0 * self.Vector.height, 0.0)
+            static let eulerAngles : SCNVector3 = SCNVector3(-Float(M_PI / 2.0), 0.0, 0.0)
+            
+            private static let sizeScale : Float = 8.0 * (1.0 / TSTConstants.SensorTag.heightInMm)
+            
+            static let width : CGFloat = CGFloat(sizeScale * TSTConstants.SensorTag.widthInMm)
+            static let height : CGFloat = CGFloat(sizeScale * TSTConstants.SensorTag.heightInMm)
+            static let depth : CGFloat = CGFloat(sizeScale * TSTConstants.SensorTag.depthInMm)
+            
+            static let chamferRadius : CGFloat = 0.3
+
+            static let holeDiameter : CGFloat = CGFloat(sizeScale * TSTConstants.SensorTag.holeDiameterInMm)
+            static let holeVerticalDisplacement : CGFloat = CGFloat(sizeScale * TSTConstants.SensorTag.holeVerticalDisplacementInMm)
         }
         
-        static let measurementScale : Float = 10_000
-
         struct Vector
         {
             static let color : UIColor = UIColor.blueColor()
@@ -141,6 +152,13 @@ struct TSTConstants
             static let headHeight : CGFloat = 3.0
             static let headBottomRadius : CGFloat = 2.0
         }
+
+        static var accelerationLookAtNodeDefaultPosition : SCNVector3
+        {
+            return SCNVector3(0.0, -2.0 * self.Vector.height, 0.0)
+        }
+        
+        static let measurementScale : Float = 10_000
     }
     
     struct Axis

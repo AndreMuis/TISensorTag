@@ -34,30 +34,28 @@ class TSTAccelerationViewController : UIViewController
         
         self.sceneView.scene = self.animationEngine.scene
         
-        self.animationEngine.self.addLights(ambientLightColor: TSTConstants.AmbientLight.color,
-                                            omnidirectionalLightColor: TSTConstants.OmnidirectionalLight.color,
-                                            omnidirectionalLightPosition: TSTConstants.OmnidirectionalLight.position)
+        self.animationEngine.addLights(ambientLightColor: TSTConstants.AmbientLight.color,
+                                       omnidirectionalLightColor: TSTConstants.OmnidirectionalLight.color,
+                                       omnidirectionalLightPosition: TSTConstants.OmnidirectionalLight.position)
         
         self.animationEngine.addCamera(position: TSTConstants.AccelerationView.cameraPosition)
         
-        let sensorTagSizeScale : CGFloat = TSTConstants.AccelerationView.sensorTagSizeScale
+        self.animationEngine.self.addSensorTag(eulerAngles: TSTConstants.AccelerationView.SensorTag.eulerAngles,
+                                               width: TSTConstants.AccelerationView.SensorTag.width,
+                                               height: TSTConstants.AccelerationView.SensorTag.height,
+                                               depth: TSTConstants.AccelerationView.SensorTag.depth,
+                                               chamferRadius: TSTConstants.AccelerationView.SensorTag.chamferRadius,
+                                               holeDiameter: TSTConstants.AccelerationView.SensorTag.holeDiameter,
+                                               holeVerticalDisplacement: TSTConstants.AccelerationView.SensorTag.holeVerticalDisplacement,
+                                               coverColor: TSTConstants.SensorTag.coverColor,
+                                               baseColor: TSTConstants.SensorTag.baseColor,
+                                               holeColor: TSTConstants.SensorTag.holeColor)
         
-        self.animationEngine.self.drawSensorTag(eulerAngles: TSTConstants.AccelerationView.sensorTagEulerAngles,
-                                                width: TSTConstants.SensorTag.width * sensorTagSizeScale,
-                                                height: TSTConstants.SensorTag.height * sensorTagSizeScale,
-                                                depth: TSTConstants.SensorTag.depth * sensorTagSizeScale,
-                                                chamferRadius: TSTConstants.SensorTag.chamferRadius,
-                                                holeDiameter: TSTConstants.SensorTag.holeDiameter,
-                                                holeVerticalDisplacement: TSTConstants.SensorTag.holeVerticalDisplacement,
-                                                coverColor: TSTConstants.SensorTag.coverColor,
-                                                baseColor: TSTConstants.SensorTag.baseColor,
-                                                holeColor: TSTConstants.SensorTag.holeColor)
-        
-        self.animationEngine.drawVector(color: TSTConstants.AccelerationView.Vector.color,
-                                        shaftHeight: TSTConstants.AccelerationView.Vector.shaftHeight,
-                                        shaftRadius: TSTConstants.AccelerationView.Vector.shaftRadius,
-                                        headHeight: TSTConstants.AccelerationView.Vector.headHeight,
-                                        headBottomRadius: TSTConstants.AccelerationView.Vector.headBottomRadius)
+        self.animationEngine.addVector(color: TSTConstants.AccelerationView.Vector.color,
+                                       shaftHeight: TSTConstants.AccelerationView.Vector.shaftHeight,
+                                       shaftRadius: TSTConstants.AccelerationView.Vector.shaftRadius,
+                                       headHeight: TSTConstants.AccelerationView.Vector.headHeight,
+                                       headBottomRadius: TSTConstants.AccelerationView.Vector.headBottomRadius)
     }
     
     func resetUI()
@@ -71,28 +69,26 @@ class TSTAccelerationViewController : UIViewController
         let yDelta = acceleration.y - self.previousAcceleration.y
         let zDelta = acceleration.z - self.previousAcceleration.z
         
-        let measurementScale : Float = TSTConstants.AccelerationView.measurementScale
+        let scale : Float = TSTConstants.AccelerationView.measurementScale
         
         var position : SCNVector3 = self.animationEngine.accelerationLookAtNode.position
         
         if fabs(zDelta) > TSTConstants.Accelerometer.measurementVariance / 2.0
         {
-            position.y = acceleration.z * measurementScale
+            position.y = acceleration.z * scale
         }
         
         if fabs(xDelta) > TSTConstants.Accelerometer.measurementVariance / 2.0
         {
-            position.x = -acceleration.x * measurementScale
+            position.x = -acceleration.x * scale
         }
         
         if fabs(yDelta) > TSTConstants.Accelerometer.measurementVariance / 2.0
         {
-            position.z = acceleration.y * measurementScale
+            position.z = acceleration.y * scale
         }
         
-        let vectorHeight : Float = Float(TSTConstants.AccelerationView.Vector.shaftHeight + TSTConstants.AccelerationView.Vector.headHeight)
-        
-        if position.magnitude > vectorHeight
+        if position.magnitude > Float(TSTConstants.AccelerationView.Vector.height)
         {
             self.animationEngine.accelerationLookAtNode.position = position
         }

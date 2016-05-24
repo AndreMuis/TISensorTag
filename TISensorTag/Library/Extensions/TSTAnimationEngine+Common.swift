@@ -24,6 +24,7 @@ extension TSTAnimationEngine
         
         self.scene.rootNode.addChildNode(omnidirectionalLightNode)
         
+        
         let ambientLight : SCNLight = SCNLight()
         ambientLight.type = SCNLightTypeAmbient
         ambientLight.color = ambientLightColor
@@ -34,16 +35,16 @@ extension TSTAnimationEngine
         self.scene.rootNode.addChildNode(ambientLightNode)
     }
     
-    func drawSensorTag(eulerAngles eulerAngles : SCNVector3,
-                                   width : CGFloat,
-                                   height : CGFloat,
-                                   depth : CGFloat,
-                                   chamferRadius : CGFloat,
-                                   holeDiameter : CGFloat,
-                                   holeVerticalDisplacement : CGFloat,
-                                   coverColor : UIColor,
-                                   baseColor : UIColor,
-                                   holeColor : UIColor)
+    func addSensorTag(eulerAngles eulerAngles : SCNVector3,
+                                  width : CGFloat,
+                                  height : CGFloat,
+                                  depth : CGFloat,
+                                  chamferRadius : CGFloat,
+                                  holeDiameter : CGFloat,
+                                  holeVerticalDisplacement : CGFloat,
+                                  coverColor : UIColor,
+                                  baseColor : UIColor,
+                                  holeColor : UIColor)
     {
         let coverMaterial : SCNMaterial = SCNMaterial()
         coverMaterial.diffuse.contents = coverColor
@@ -73,7 +74,6 @@ extension TSTAnimationEngine
         let holeNode = SCNNode(geometry: cylinder)
         
         holeNode.position = SCNVector3(0.0, holeVerticalDisplacement, depth / 4.0 + 0.01)
-        
         holeNode.eulerAngles = SCNVector3(Float(M_PI) / 2.0, 0.0, 0.0)
         
         self.sensorTagNode.addChildNode(holeNode)
@@ -84,7 +84,7 @@ extension TSTAnimationEngine
         self.scene.rootNode.addChildNode(self.sensorTagNode)
     }
 
-    func drawAxes(axisLength axisLength : Float, axisRadius : Float)
+    func addAxes(axisLength axisLength : Float, axisRadius : Float)
     {
         let xAxisGeometry : SCNCylinder = SCNCylinder(radius: CGFloat(axisRadius),
                                                       height: CGFloat(axisLength))

@@ -17,12 +17,12 @@ class TSTMainViewController : UIViewController, STGCentralManagerDelegate, STGSe
     @IBOutlet weak var centralManagerStateLabel: UILabel!
     @IBOutlet weak var connectionStatusLabel: UILabel!
     @IBOutlet weak var rssiBarGaugeView: TSTBarGaugeView!
-    @IBOutlet weak var temperatureLabel: UILabel!
-    @IBOutlet weak var humidityLabel: UILabel!
-    @IBOutlet weak var barometricPressureLabel: UILabel!
     @IBOutlet weak var magneticFieldStrengthBarGaugeView: TSTBarGaugeView!
     @IBOutlet weak var leftKeyView: TSTSimpleKeyView!
     @IBOutlet weak var rightKeyView: TSTSimpleKeyView!
+    @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var humidityLabel: UILabel!
+    @IBOutlet weak var barometricPressureLabel: UILabel!
     @IBOutlet weak var messagesTextView: UITextView!
 
     var centralManager : STGCentralManager!
@@ -68,11 +68,11 @@ class TSTMainViewController : UIViewController, STGCentralManagerDelegate, STGSe
         self.rssiBarGaugeView.setup(backgroundColor: TSTConstants.RSSIBarGaugeView.backgroundColor,
                                     indicatorColor: TSTConstants.RSSIBarGaugeView.indicatorColor)
     
-        self.leftKeyView.setup()
-        self.rightKeyView.setup()
-        
         self.magneticFieldStrengthBarGaugeView.setup(backgroundColor: TSTConstants.MagneticFieldStrengthBarGaugeView.backgroundColor,
                                                      indicatorColor: TSTConstants.MagneticFieldStrengthBarGaugeView.indicatorColor)
+        
+        self.leftKeyView.setup()
+        self.rightKeyView.setup()
         
         self.resetUI()
     }
@@ -100,7 +100,7 @@ class TSTMainViewController : UIViewController, STGCentralManagerDelegate, STGSe
     {
         self.centralManagerStateLabel.text = state.desscription
         
-        if (state == .PoweredOn)
+        if (state == STGCentralManagerState.PoweredOn)
         {
             self.centralManagerStateLabel.textColor = TSTConstants.centralManagerPoweredOnTextColor
             
@@ -119,7 +119,7 @@ class TSTMainViewController : UIViewController, STGCentralManagerDelegate, STGSe
     
     func centralManager(central: STGCentralManager, didConnectSensorTagPeripheral peripheral: CBPeripheral)
     {
-        let sensorTag : STGSensorTag  = STGSensorTag(delegate: self, peripheral: peripheral)
+        let sensorTag : STGSensorTag = STGSensorTag(delegate: self, peripheral: peripheral)
         
         self.sensorTag = sensorTag
 
@@ -284,6 +284,9 @@ class TSTMainViewController : UIViewController, STGCentralManagerDelegate, STGSe
 
         self.magneticFieldStrengthBarGaugeView.normalizedReading = 0.0
     
+        self.leftKeyView.depress()
+        self.rightKeyView.depress()
+
         self.displayAmbientTemperature(nil)
         self.displayRelativeHumidity(nil)
         self.displayBarometricPressure(nil)
@@ -336,11 +339,8 @@ class TSTMainViewController : UIViewController, STGCentralManagerDelegate, STGSe
             self.messagesTextView.text = self.messagesTextView.text + "\n\n" + message
         }
         
-        if self.messagesTextView.text.isEmpty == false
-        {
-            let bottom : NSRange = NSMakeRange(self.messagesTextView.text.characters.count - 1, 1)
-            self.messagesTextView.scrollRangeToVisible(bottom)
-        }
+        let bottom : NSRange = NSMakeRange(self.messagesTextView.text.characters.count - 1, 1)
+        self.messagesTextView.scrollRangeToVisible(bottom)
     }
 }
 

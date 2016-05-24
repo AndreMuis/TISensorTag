@@ -12,6 +12,6 @@ extension SCNVector3
 {
     var magnitude : Float
     {
-        return sqrt(pow(self.x, 2) + pow(self.y, 2) + pow(self.z, 2))
+        return sqrt(pow(self.x, 2.0) + pow(self.y, 2.0) + pow(self.z, 2.0))
     }
 }

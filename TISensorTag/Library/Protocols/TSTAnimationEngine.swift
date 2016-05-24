@@ -19,17 +19,17 @@ protocol TSTAnimationEngine
                                      omnidirectionalLightColor : UIColor,
                                      omnidirectionalLightPosition : SCNVector3)
     
-    func drawSensorTag(eulerAngles eulerAngles : SCNVector3,
-                                   width : CGFloat,
-                                   height : CGFloat,
-                                   depth : CGFloat,
-                                   chamferRadius : CGFloat,
-                                   holeDiameter : CGFloat,
-                                   holeVerticalDisplacement : CGFloat,
-                                   coverColor : UIColor,
-                                   baseColor : UIColor,
-                                   holeColor : UIColor)
+    func addSensorTag(eulerAngles eulerAngles : SCNVector3,
+                                  width : CGFloat,
+                                  height : CGFloat,
+                                  depth : CGFloat,
+                                  chamferRadius : CGFloat,
+                                  holeDiameter : CGFloat,
+                                  holeVerticalDisplacement : CGFloat,
+                                  coverColor : UIColor,
+                                  baseColor : UIColor,
+                                  holeColor : UIColor)
 
-    func drawAxes(axisLength axisLength : Float, axisRadius : Float)
+    func addAxes(axisLength axisLength : Float, axisRadius : Float)
 }
 

@@ -23,14 +23,13 @@ class TSTAccelerationAnimationEngine : TSTAnimationEngine
         self.scene = SCNScene()
         self.sensorTagNode = SCNNode()
         
+        self.originNode = SCNNode()
+        self.scene.rootNode.addChildNode(self.originNode)
+
         self.vectorBaseNode = SCNNode()
         
         self.accelerationLookAtNode = SCNNode()
-        
         self.scene.rootNode.addChildNode(self.accelerationLookAtNode)
-    
-        self.originNode = SCNNode()
-        self.scene.rootNode.addChildNode(self.originNode)
     }
     
     func addCamera(position position : SCNVector3)
@@ -44,11 +43,11 @@ class TSTAccelerationAnimationEngine : TSTAnimationEngine
         self.scene.rootNode.addChildNode(cameraNode)
     }
 
-    func drawVector(color color : UIColor,
-                          shaftHeight : CGFloat,
-                          shaftRadius : CGFloat,
-                          headHeight : CGFloat,
-                          headBottomRadius : CGFloat)
+    func addVector(color color : UIColor,
+                         shaftHeight : CGFloat,
+                         shaftRadius : CGFloat,
+                         headHeight : CGFloat,
+                         headBottomRadius : CGFloat)
     {
         let vectorMaterial : SCNMaterial = SCNMaterial()
         vectorMaterial.diffuse.contents = color
