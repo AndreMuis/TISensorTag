@@ -1,4 +1,5 @@
-Source code for the Apple TV app "TI Sensor Tag Dashboard".
+Source code for the Apple TV app "TI SensorTag Dashboard".
+
 <br />
-<br />
-![TI Sensor Tag](Artwork/Screenshot.png?raw=true)
+
+![TI Sensor Tag](Artwork/ScreenshotWithBorder.png?raw=true)
