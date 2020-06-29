@@ -6,4 +6,5 @@ iTunes Link: https://itunes.apple.com/us/app/ti-sensortag-dashboard/id1116857196
 Connects an Apple TV to a TI SensorTag to read measurement data from its various sensors.
 
 <br />
+
 ![TI Sensor Tag](Artwork/ScreenshotWithBorder.png?raw=true)
